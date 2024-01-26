@@ -1,0 +1,72 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap');
+
+body {
+    
+    background: #ececec;
+    background-image: url('beautiful-red-heart-shape.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    z-index: -1;
+    margin: 0;
+    padding: 0;
+    background-position: center;
+    /* top: 0;
+    left: 0;*/
+    min-height: 100vh;
+    
+}
+
+.mainsec{
+    position: relative;
+    opacity: 0.8;     
+}
+.SPAN{
+    opacity: 6;
+}
+
+/*------------ Login container ------------*/
+
+.box-area {
+    width: 800px; /*930*/
+}
+
+/*------------ Right box ------------*/
+
+.right-box { /*40px 30px 40px 40px*/
+    padding: 40px 30px 40px 40px;
+}
+
+/*------------ Custom Placeholder ------------*/
+
+::placeholder {
+    font-size: 17px;
+}
+
+.rounded-4 {
+    border-radius: 15px; /*20px*/
+}
+
+.rounded-5 {
+    border-radius: 15px;
+}
+
+
+/*------------ For small screens------------*/
+
+@media only screen and (max-width: 768px) { /*768px*/
+
+    .box-area {
+        margin: 0 10px;
+
+    }
+
+    .left-box {
+        height: 100px;
+        overflow: hidden;
+    }
+
+    .right-box {
+        padding: 20px;
+    }
+
+}
