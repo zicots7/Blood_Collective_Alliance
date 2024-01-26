@@ -27,11 +27,11 @@
 
                     <!----------------------- Login Container -------------------------->
 
-                    <div class="row border rounded-5 p-3 bg-white shadow box-area">
+                    <div class="row border rounded-5 justify-content-center p-3 bg-white shadow box-area">
 
                         <!--------------------------- Left Box ----------------------------->
                 
-                        <div class="col-md-5 rounded-4 d-flex justify-content-center  align-items-justify flex-column left-box"
+                        <div class="col-md-6 rounded-5 d-flex justify-content-center  align-items-justify flex-column left-box"
                             style="background: #2ed452;">
 
                             <div class="contact-info">
@@ -74,9 +74,9 @@
 
                         <!-------------------- ------ Right Box ---------------------------->
 
-                        <div class="col-md-6 right-box">
+                        <div class="col-md-6 d-flex justify-content-center  align-items-justify flex-column right-box" >
                             <div class="row align-items-center">
-                                <div class="header-text mb-4">
+                                <div class="header-text mb-4 ">
                                     <h2>Contact Us</h2>
                                     <p>We value your feedback and suggestions. Please don"t hesitate to share them with us.</p>
                                 </div>
@@ -90,20 +90,20 @@
                                       required="true">
                               </div>
 <!--Email Address Input-->
-                                <div class="input-group mb-3">
+                                <div class="input-group mb-3 ">
                                     <input type="email" id="email" name="email"
                                         class="form-control form-control-lg bg-light fs-6" placeholder="Email address"
                                         pattern="[a-zA-Z0-9._%+-]+@(gmail\.com|yahoo\.com|outlook\.com)"
                                         required="true">
                                 </div>
 <!--Name Section--> 
-                                <div class="input-group mb-3">
+                                <div class="input-group mb-3 ">
                                   <input type="textarea" id="sendMsg" name="sendMsg"
                                       class="form-control form-control-lg bg-light fs-6" placeholder="Type your message.."
                                       required="true">
                               </div>
 
-                                <div class="input-box input-group mb-3 btn btn-lg btn-primary w-100 fs-6">
+                                <div class=" input-box input-group mb-3 btn-lg btn-primary w-100 fs-6">
                                     <button type="submit" class="btn btn-lg btn-primary w-100 fs-6">Send</button>
                                 </div>
                             </div>
