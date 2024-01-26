@@ -28,6 +28,7 @@ body {
   position: relative;
   opacity: 0.8;     
 }
+
 .SPAN{
   opacity: 6;
 }
@@ -41,10 +42,9 @@ body {
 /*------------ Right box ------------*/
 
 .right-box { /*40px 30px 40px 40px*/
-  padding: 40px 30px 40px 40px;
-}
-
-/*------------ Text box Placeholder ------------*/
+   padding: 40px 30px 40px 40px;
+} 
+/*------------ Text box Placeholder ------------ */
 
 ::placeholder {
   font-size: 17px;
@@ -77,7 +77,7 @@ contact-info {
 
 .contact-info-icon i {
   font-size: 40px;
-  line-height: 70px;
+  line-height: 60px;
 }
 
 .contact-info-content {
@@ -115,7 +115,7 @@ h2 {
   color: #ffffff;
   border: none;
   cursor: pointer;
-  padding: 5px;
+  padding: 7px;
   font-size: 18px;
   border: 1px solid #00bcd4;
   transition: 0.7s;
@@ -136,7 +136,10 @@ h2 {
   }
 
   .right-box {
-      padding: 20px;
+      padding: 40px;
+ 
   }
-
+ .container{
+margin-left: 500px;
+ }
 }
