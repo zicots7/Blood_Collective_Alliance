@@ -21,6 +21,21 @@ echo'<nav class="navbar navbar-dark navbar-expand-lg bg-body-tertiary mt-0 py-0 
         <a class="nav-link active text-white fs-3" href="Signup.php" >Sign Up</a>
       </li>
     </ul>
+    <li class="nav-item dropdown show">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <img src="profile-picture.jpg" alt="Profile Picture" style="width: 30px; height: 30px; border-radius: 50%;">
+        </a>
+        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="#">Profile</a>
+          <a class="dropdown-item" href="#">Settings</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="#">Logout</a>
+        </div>
+      </li>
+<!-- Bootstrap JS and dependencies -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
   </div>
 </div>
 </nav>';
