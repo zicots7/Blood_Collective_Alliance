@@ -58,11 +58,10 @@
 <body>
 <?php include("_nav.php");
     ?>
-<?php
-echo'
+  
     <div class="mainsec">
         <span class="SPAN">
-            <form name="SignUP" method="post" action="#" autocomplete="off" onchange="">
+            <form name="SignUP" method="post" action="Signup.php" autocomplete="off" onchange="">
                 <div class="container d-flex justify-content-center align-items-center min-vh-100">
                 <div class="container">
                     <br />
@@ -81,13 +80,13 @@ echo'
                             <!-- Success Message Display Section Ending here-->
 
                             <!-- After Success, back to login page-->
-                            <div class="row">
+                            <!-- <div class="row">
                                 <div class="col-sm-5"></div>
                                 <div class="col-sm-4">
                                     <button type="button" class="btn btn-danger" onclick="backTohome()">Click here
                                         to Login</button>
                                 </div>
-                            </div>
+                            </div> -->
                         </div>
                         <br>
 
@@ -106,16 +105,16 @@ echo'
                                 <div class="col-sm-6">
                                     <label>Your Name:</label>
                                     <font color="red">*</font>
-                                    <input type="text" name="donorFName" maxlength="34" value=""
+                                    <input type="text" name="donorName"  maxlength="34" value=""
                                         onkeypress="return validateAlphaOnlyWithDotAndSpace(event)" class="form-control"
-                                        id="txtBbFName" autocomplete="off" placeholder="e.g.: Robin Hood">
+                                        id="txtBbFName" autocomplete="off" placeholder="e.g.: Robin Hood" >
                                 </div>
                                 <div class="col-sm-6">
                                     <label for="selectDob">Date of Birth: </label>
                                     <font color="red">*</font>
                                     <input type="date" name="donorDob" maxlength="2" value=""
                                         onkeypress="return validateNumeric(event)" class="form-control"
-                                        autocomplete="off">
+                                        autocomplete="off" >
                                 </div>
                             </div>
 
@@ -123,7 +122,7 @@ echo'
                                 <div class="col-sm-6">
                                     <label for="selectGender">Gender: </label>
                                     <font color="red">*</font>
-                                    <select name="donorGender" class="form-control">
+                                    <select name="donorGender" class="form-control" >
                                         <option value="-1">Not Selected</option>
                                         <option value="M">Male</option>
                                         <option value="F">Female</option>
@@ -133,9 +132,9 @@ echo'
                                 <div class="col-sm-6">
                                     <label>Blood Group:</label>
                                     <font color="red">*</font>
-                                    <input type="text" name="father" maxlength="33" value=""
+                                    <input type="text" name="donorBloodGrp" maxlength="33" value=""
                                         onkeypress="return validateAlphaOnlyWithDotAndSpace(event)" class="form-control"
-                                        autocomplete="off" placeholder="e.g.: A+">
+                                        autocomplete="off" placeholder="e.g.: A+" >
                                 </div>
                             </div>
 
@@ -152,14 +151,14 @@ echo'
                                 <div class="col-sm-6">
                                     <label for="txtBbEmail">Email: </label>
                                     <input type="email" name="donorEmail" maxlength="254" value="" class="form-control"
-                                        id="txtBbEmail" autocomplete="off" placeholder="e.g.: xyz@gmail.com">
+                                        id="txtBbEmail" autocomplete="off" placeholder="e.g.: xyz@gmail.com" >
                                 </div>
                             </div>
 
                             <div class="row">
                                 <div class="form-group col-sm-6">
                                     <label for="inputState">State</label>
-                                    <select class="form-control" id="inputState">
+                                    <select class="form-control" id="inputState" name="donorState" >
                                         <option value="SelectState">Select State</option>
                                         <option value="Andra Pradesh">Andra Pradesh</option>
                                         <option value="Arunachal Pradesh">Arunachal Pradesh</option>
@@ -195,7 +194,7 @@ echo'
                                 </div>
                                 <div class="form-group col-sm-6">
                                     <label for="inputDistrict">District</label>
-                                    <select class="form-control" id="inputDistrict">
+                                    <select class="form-control" id="inputDistrict" name="donorDistrict" >
                                         <option value="">-- select one -- </option>
                                     </select>
                                 </div>
@@ -205,29 +204,33 @@ echo'
                                 <div class="row">
                                     <div class="col-sm-6">
                                         <label>Address:</label>
-                                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="2"
-                                            cols="20" maxlength="100"></textarea>
+                                        <textarea class="form-control" name="donorAddress" id="exampleFormControlTextarea1" rows="2"
+                                            cols="20" maxlength="100" ></textarea>
                                     </div>
 
                                     <div class="col-sm-6">
                                         <label for="txtBbPincode" class="mb-2">PinCode: </label>
                                         <font color="red">*</font>
-                                        <input type="text" class="form-control" name="pincode" id="txtBbPincode"
+                                        <input type="text" class="form-control" name="donorpincode" id="txtBbPincode"
                                             placeholder="Pin Code" maxlength="6"
-                                            onkeypress="return validateNumeric(event)" autocomplete="off">
+                                            onkeypress="return validateNumeric(event)" autocomplete="off" >
                                     </div>
                                 </div>
                                 <br>
                             </div>
                         </div>
                         <br>
-                        <div class="row" id="divsignup">
+                        <!-- <div class="row" id="divsignup">
                             <div class="col-xs-12" align="center">
                                 <button type="button" class="btn btn-danger" onclick="generateDonorOTP()"
                                     onkeypress="if(event.keyCode==13) generateDonorOTP()">Sign
                                     Up</button>
+                            </div> -->
+                            <div class="row" id="divsignup">
+                            <div class="col-xs-12" align="center">
+                                <button input type="submit" class="btn btn-danger" 
+                                 value="Submit">Sign Up</button>
                             </div>
-
                         </div>
                         <br>
                     </div>
@@ -400,11 +403,70 @@ echo'
         });
     </script>
 
-';
+  <?php
+        $donorName =$donorDob=$donorGender=$donorBloodGrp=$donorMobile= $donorEmail = $donorpincode=$donorState=$donorDistrict=$donorAddress="";
+        // Check if the form is submitted
+        if ($_SERVER["REQUEST_METHOD"] == "POST") {
+            $donorName = $_POST['donorName'];
+            $donorDob= $_POST ['donorDob'];
+            $donorGender=$_POST['donorGender'];
+            $donorBloodGrp=$_POST['donorBloodGrp'];
+            $donorMobile=$_POST['donorMobile'];
+            $donorEmail = $_POST['donorEmail'];
+            $donorpincode=$_POST['donorpincode'];
+            $donorState=$_POST['donorState'];
+            $donorDistrict=$_POST['donorDistrict'];
+            $donorAddress=$_POST['donorAddress'];
+    
+            // Validate name
+        if (empty($donorName)||empty($donorEmail) || !filter_var($donorEmail, FILTER_VALIDATE_EMAIL)||empty($donorDob)||empty($donorGender)||empty($donorBloodGrp)||empty($donorMobile)||empty($donorState)||empty($donorpincode)||empty($donorDistrict)||empty($donorAddress)){
+               
+
+                echo  " <div class='container-top '>
+                <div class='alert alert-danger' role='alert'>
+                 Please Fill up everything correctly
+                </div>
+                </div>  
+                <style>
+                .container-top {
+                    position: fixed;
+                    top: 38px;
+                    width: 100%;
+                    padding: 20px;
+                    text-align: center;
+                    z-index: 1000; /* Ensure the container appears above other elements */
+                }
+            </style>";
+            
+            
+            }else {
+                // Process form data (e.g., store in database)
+               echo" <div class='container-top '>
+               <div class='alert alert-success' role='alert'>
+               Form submitted successfully!
+                    </div>
+                    </div>
+                    <style>
+                    .container-top {
+                        position: fixed;
+                        top: 38px;
+                        width: 100%;
+                        padding: 20px;
+                        text-align: center;
+                        z-index: 1000; /* Ensure the container appears above other elements */
+                    }
+                </style>";
+            // -----------------  database code here----------------
+               
+            
+            }
+}   
+  
 ?>
 
+
 <?php include("footer.php");
-   ?>
+?>
 </body>
 
 </html>
