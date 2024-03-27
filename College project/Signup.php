@@ -136,6 +136,7 @@
                                         onkeypress="return validateAlphaOnlyWithDotAndSpace(event)" class="form-control"
                                         autocomplete="off" placeholder="e.g.: A+" >
                                 </div>
+                               
                             </div>
 
                             <div class="row">
@@ -147,13 +148,27 @@
                                         onkeypress="return validateNumeric(event)" pattern="[0-9]{10}"
                                         autocomplete="off">
                                 </div>
+                                <div class="col-sm-6">
+                                    <label for="txtBbAltMobile">Alternative No: </label>
+                                    <input type="tel" name="donorAltNo" maxlength="10" value="" class="form-control"
+                                        id="txtBbAltMobileNo" autocomplete="off" placeholder="535363778" >
+                                </div>
 
+                            </div>
+                            <div class="row">
                                 <div class="col-sm-6">
                                     <label for="txtBbEmail">Email: </label>
                                     <input type="email" name="donorEmail" maxlength="254" value="" class="form-control"
                                         id="txtBbEmail" autocomplete="off" placeholder="e.g.: xyz@gmail.com" >
                                 </div>
+                                <div class="col-sm-6">
+                                    <label for="txtBbEmail">Password: </label>
+                                    <input type="Password" name="donorPassword" maxlength="254" value="" class="form-control"
+                                        id="txtBbPassword" autocomplete="off" placeholder="e.g.: Xsszy499@" >
+                                </div>
                             </div>
+                          
+                         
 
                             <div class="row">
                                 <div class="form-group col-sm-6">
@@ -403,8 +418,9 @@
         });
     </script>
 
-  <?php
-        $donorName =$donorDob=$donorGender=$donorBloodGrp=$donorMobile= $donorEmail = $donorpincode=$donorState=$donorDistrict=$donorAddress="";
+ 
+<?php
+        $donorName =$donorDob=$donorGender=$donorBloodGrp=$donorMobile= $donorEmail = $donorpincode=$donorState=$donorDistrict=$donorAddress=$donorAltNo=$donorPassword="";
         // Check if the form is submitted
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $donorName = $_POST['donorName'];
@@ -417,9 +433,11 @@
             $donorState=$_POST['donorState'];
             $donorDistrict=$_POST['donorDistrict'];
             $donorAddress=$_POST['donorAddress'];
+            $donorPassword=$_POST['donorPassword'];
+            $donorAltNo=$_POST['donorAltNo'];
     
             // Validate name
-        if (empty($donorName)||empty($donorEmail) || !filter_var($donorEmail, FILTER_VALIDATE_EMAIL)||empty($donorDob)||empty($donorGender)||empty($donorBloodGrp)||empty($donorMobile)||empty($donorState)||empty($donorpincode)||empty($donorDistrict)||empty($donorAddress)){
+        if (empty($donorName)||empty($donorEmail) || empty($donorAltNo) || !filter_var($donorEmail, FILTER_VALIDATE_EMAIL)||empty($donorDob)||empty($donorGender)||empty($donorBloodGrp)||empty($donorMobile)||empty($donorState)||empty($donorpincode)||empty($donorDistrict)||empty($donorAddress)||empty($donorPassword) ){
                
 
                 echo  " <div class='container-top '>
@@ -457,40 +475,12 @@
                     }
                 </style>";
             // -----------------  database code here----------------
-//             -- Inserting a sample entry into the Customer_Info table
-// INSERT INTO donor_info (
-//     donorName,
-//     donorDob,
-//     donorGender,
-//     donorBloodGrp,
-//     donorMobile,
-//     donorEmail,
-//     donorpincode,
-//     donorState,
-//     donorDistrict,
-//     donorAddress,
-//     donorAltNo,
-//     donorPassword
-// ) VALUES (
-//     'John Doe',
-//     '1990-05-15',
-//     'Male',
-//     'AB+',
-//     1234567890,
-//     'john.doe@example.com',
-//     '12345',
-//     'California',
-//     'Los Angeles',
-//     '123 Main St',
-//     9876543210,
-//     'password123'
-// );
+               
             
             }
 }   
   
 ?>
-
 
 <?php include("footer.php");
 ?>
