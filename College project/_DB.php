@@ -10,13 +10,13 @@
         if (!$db_connect) {
             echo "Failed to connect to PostgreSQL database.";
             exit;
-        } else {
-            echo "Connected to PostgreSQL successfully!";
         }
+        // } else {
+        //     echo "Connected to PostgreSQL successfully!";
+        // }
     }
     catch (Exception $e) {
         echo "Error: " . $e->getMessage();
     }
-
-        pg_close($db_connect);
+        // pg_close($db_connect);
     ?>
