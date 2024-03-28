@@ -1,3 +1,6 @@
+<?php
+require_once '_DB.php';
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -419,8 +422,7 @@
     </script>
 
  
-<?php
-        $donorName =$donorDob=$donorGender=$donorBloodGrp=$donorMobile= $donorEmail = $donorpincode=$donorState=$donorDistrict=$donorAddress=$donorAltNo=$donorPassword="";
+<?php    
         // Check if the form is submitted
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $donorName = $_POST['donorName'];
@@ -435,14 +437,14 @@
             $donorAddress=$_POST['donorAddress'];
             $donorPassword=$_POST['donorPassword'];
             $donorAltNo=$_POST['donorAltNo'];
-    
+            
             // Validate name
         if (empty($donorName)||empty($donorEmail) || empty($donorAltNo) || !filter_var($donorEmail, FILTER_VALIDATE_EMAIL)||empty($donorDob)||empty($donorGender)||empty($donorBloodGrp)||empty($donorMobile)||empty($donorState)||empty($donorpincode)||empty($donorDistrict)||empty($donorAddress)||empty($donorPassword) ){
                
 
                 echo  " <div class='container-top '>
                 <div class='alert alert-danger' role='alert'>
-                 Please Fill up everything correctly
+                 Please Fill up everything correctly !!
                 </div>
                 </div>  
                 <style>
@@ -455,10 +457,12 @@
                     z-index: 1000; /* Ensure the container appears above other elements */
                 }
             </style>";
-            
-            
-            }else {
+
+            }
+            else {
+
                 // Process form data (e.g., store in database)
+
                echo" <div class='container-top '>
                <div class='alert alert-success' role='alert'>
                Form submitted successfully!
@@ -474,40 +478,42 @@
                         z-index: 1000; /* Ensure the container appears above other elements */
                     }
                 </style>";
-            // -----------------  database code here----------------
-               
-            //             -- Inserting a sample entry into the Customer_Info table
-// INSERT INTO donor_info (
-//     donorName,
-//     donorDob,
-//     donorGender,
-//     donorBloodGrp,
-//     donorMobile,
-//     donorEmail,
-//     donorpincode,
-//     donorState,
-//     donorDistrict,
-//     donorAddress,
-//     donorAltNo,
-//     donorPassword
-// ) VALUES (
-//     'John Doe',
-//     '1990-05-15',
-//     'Male',
-//     'AB+',
-//     1234567890,
-//     'john.doe@example.com',
-//     '12345',
-//     'California',
-//     'Los Angeles',
-//     '123 Main St',
-//     9876543210,
-//     'password123'
-// );
+
+            // -----------------  Sanitize code here----------------
+            $donorName =pg_escape_string($db_connect, $donorName);
+            $donorDob=pg_escape_string($db_connect, $donorDob);
+            $donorGender=pg_escape_string($db_connect, $donorGender);
+            $donorBloodGrp=pg_escape_string($db_connect, $donorBloodGrp);
+            $donorMobile=pg_escape_string($db_connect, $donorMobile);
+            $donorEmail =pg_escape_string($db_connect, $donorEmail);
+            $donorpincode=pg_escape_string($db_connect, $donorpincode);
+            $donorState=pg_escape_string($db_connect, $donorState);
+            $donorDistrict=pg_escape_string($db_connect, $donorDistrict);
+            $donorAddress=pg_escape_string($db_connect, $donorAddress);
+            $donorAltNo=pg_escape_string($db_connect, $donorAltNo);
+            $donorPassword=pg_escape_string($db_connect, $donorPassword);
+
+            //  -- Inserting a sample entry into the Customer_Info table
+           $SqlQuery= "INSERT INTO donor_info (donorName,donorDob,donorGender,donorBloodGrp,donorMobile,donorEmail,donorpincode,donorState,donorDistrict,donorAddress,donorAltNo,donorPassword) VALUES($1, $2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12)";
+
+            $param = array($donorName, $donorDob,$donorGender,$donorBloodGrp,$donorMobile,$donorEmail,$donorpincode,$donorState,$donorDistrict,$donorAddress,$donorAltNo,$donorPassword);
+            // print_r($param);
+            $result= pg_query_params($db_connect,$SqlQuery,$param);
+
             
+            if ($result) {
+                // Close the database connection
+                pg_close($db_connect);
+            
+                // Redirect to the login page
+                header("Location: Login.php");
+                exit(); // Stop script execution after redirection
+            } else {
+                // Handle the case where the query execution failed
+                echo "Error executing SQL query: " . pg_last_error($db_connect);
             }
+}
 }   
-  
 ?>
 
 <?php include("footer.php");
