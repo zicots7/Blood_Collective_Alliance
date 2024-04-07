@@ -1,3 +1,6 @@
+<?php
+require '_DB.php';
+?>
 <!DOCTYPE html>
 <html lang='en'>
 
@@ -12,17 +15,22 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <title>Blood Collective Alliance login</title>
+    <script>
+$(document).ready(function(){
+  // Hide the alert after 3 seconds (3000 milliseconds)
+  setTimeout(function(){
+    $("#myAlert").alert('close');
+  }, 3000);
+});
+</script>
     <?php include("_nav.php");
     ?>
 </head>
 <body>
-<?php
-echo"
-
 
     <div class='mainsec'>
         <span class='SPAN'>
-            <form action='#' autocomplete='on' onsubmit='return validateEmail()' onsubmit='return validatePassword()'>
+            <form name="Login page" method="post" action="Login.php" autocomplete="on" onchange="">
                 <!----------------------- Main Container -------------------------->
 
                 <div class='container d-flex justify-content-center align-items-center min-vh-100'>
@@ -70,9 +78,9 @@ echo"
                                 <!-- Email Address Input -->
                                 <div class='input-group mb-3'>
                                     <span class='input-group-text'>@</span>
-                                    <input type='email' id='email' name='email'
+                                    <input type='email' id='donorEmail' name='donorEmail'
                                         class='form-control form-control-lg bg-light fs-6' placeholder='Email address'
-                                        pattern='[a-zA-Z0-9._%+-]+@(gmail\.com|yahoo\.com|outlook\.com)' autofocus
+                                        autofocus
                                         required>
                                 </div>
                                 <!-- Password Input -->
@@ -83,9 +91,8 @@ echo"
                                                 d='M8 1a2 2 0 0 1 2 2v4H6V3a2 2 0 0 1 2-2m3 6V3a3 3 0 0 0-6 0v4a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2M5 8h6a1 1 0 0 1 1 1v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1' />
                                         </svg></span>
                                     <input type='password' class='form-control form-control-lg bg-light fs-6'
-                                        placeholder='Password' pattern='(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{10,}' id='psw'
-                                        name='psw'
-                                        title='Use at least 10 characters, including a mix of uppercase and lowercase letters, numbers, and special symbols.'
+                                        placeholder='Password' id='donorPassword'
+                                        name='donorPassword'
                                         required aria-describedby='passwordHelpInline'>
                                 </div>
                                 <div class='col-auto mb-3'>
@@ -121,39 +128,144 @@ echo"
         </span>
     </div>
 
-    <script>
-        function validatePassword() {
-            const password = document.getElementById('psw').value;
-            const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{10,}$/;
 
-            if (!passwordRegex.test(password)) {
-                alert('Password must be at least 10 characters long and contain a mix of uppercase, lowercase letters, and numbers.');
-                return false; // Prevent form submission
+<?php
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+
+    
+    //---------- Retrieve form data--------
+    $donorEmail = $_POST["donorEmail"];
+    $donorPassword = $_POST["donorPassword"];
+
+    $donorEmail = pg_escape_string($db_connect, $donorEmail);
+    $donorPassword = pg_escape_string($db_connect, $donorPassword);
+    
+
+        
+        $query = "SELECT donorEmail ,donorPassword FROM donor_info WHERE donorEmail = $1";
+        $param = array($donorEmail);
+        
+        $result = pg_query_params($db_connect, $query, $param);
+        // $login_check = pg_num_rows($result);
+  
+
+        if (!$result) { 
+            die("Query failed"); 
+            pg_close($db_connect);
+        } 
+        $row = pg_fetch_assoc($result);
+        
+        var_dump($row);
+        if($row){
+            $hashedPasswordFromDB = $row["donorPassword"];
+//if user enters all correct informations
+            if(password_verify($donorPassword, $hashedPasswordFromDB)){
+                session_start();
+
+                $_SESSION['donorEmail'] = $row['donorEmail'];
+                echo" <div class='container-top '>
+                <div class='alert alert-success' role='alert' id='myAlert'>
+                Successfully Logged in 
+                     </div>
+                     </div>
+                     <style>
+                     .container-top {
+                         position: fixed;
+                         top: 38px;
+                         width: 100%;
+                         padding: 20px;
+                         text-align: center;
+                         z-index: 1000; /* Ensure the container appears above other elements */
+                     }
+                 </style>";
+                 echo'<script>
+                 window.location.replace("main.php");
+             </script>'; 
+               //to disable Signup button on Nav bar
+               $login_signal=false;
+               $signup_signal=false;
+               $logout_signal=true;
+            }else{                       
+                //if user enters a wrong password
+        echo'<div class="container-top ">
+        <div class="alert alert-danger "role="alert" id="myAlert">
+        Incorrect Password 
+             </div>
+             </div>
+             <style>
+             .container-top {
+                 position: fixed;
+                 top: 38px;
+                 width: 100%;
+                 padding: 20px;
+                 text-align: center;
+                 z-index: 1000; /* Ensure the container appears above other elements */
+             }
+         </style> ';
+        
+         echo'<script>
+         $(document).ready(function(){
+            // Set a delay of 3 seconds (3000 milliseconds)
+            setTimeout(function(){
+              // Redirect to Signup.php
+              window.location.replace("Login.php");
+            }, 5000); 
+            // Change the delay time as needed (in milliseconds)
+          });
+        </script>';
+        //to enable Signup button on Nav bar
+        $login_signal=true;
+        $signup_signal=false;
+        $logout_signal=false;
             }
+        
+        // Check if user does not exist 
+  
+        }else { 
+            echo'<div class="container-top ">
+            <div class="alert alert-danger "role="alert" id="myAlert">
+            Account does not exist, Please Sign Up.
+                 </div>
+                 </div>
+                 <style>
+                 .container-top {
+                     position: fixed;
+                     top: 38px;
+                     width: 100%;
+                     padding: 20px;
+                     text-align: center;
+                     z-index: 1000; /* Ensure the container appears above other elements */
+                 }
+             </style> ';
+            
+             echo'<script>
+             $(document).ready(function(){
+                // Set a delay of 3 seconds (3000 milliseconds)
+                setTimeout(function(){
+                  // Redirect to Signup.php
+                  window.location.replace("Signup.php");
+                }, 5000); 
+                // Change the delay time as needed (in milliseconds)
+              });
+            </script>
+       ';
+       $login_signal=false;
+       $signup_signal=true;
+       $logout_signal=false;
+                }
+                // if($signal){
+                  
 
-            return true; // Allow form submission
+
+                    
+                // }
         }
+   
 
-        function validateEmail() {
-            const emailInput = document.getElementById('email');
-            const email = emailInput.value;
-            const allowedDomains = ['gmail.com', 'yahoo.com'];
-            const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA.-]+\.[a-zA-Z]{2,}$/;
-            const domain = email.split('@')[1];
-            if (emailRegex.test(email) && allowedDomains.includes(domain)) {
-                // Email is valid
-                return true;
-            } else {
-                // Email is invalid
-                alert('Please enter a valid email address from a supported domain (e.g., gmail.com, yahoo.com).');
-                return false;
-            }
-        }
-    </script>
-
-";
+   
 ?>
-<?php include('footer.php');
+ <?php
+//   include 'footer.php';
     ?>
 </body>
 

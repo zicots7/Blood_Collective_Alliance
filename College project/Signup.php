@@ -1,10 +1,11 @@
-<?php
-require_once '_DB.php';
-?>
+
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
+<?php
+
+?>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -59,9 +60,18 @@ require_once '_DB.php';
 </head>
 
 <body>
-<?php include("_nav.php");
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+  // Hide the alert after 8 seconds (8000 milliseconds)
+  setTimeout(function(){
+    $("#myAlert").alert('close');
+  },8000);
+});
+</script>
+<?php
+ include"_nav.php";
     ?>
-  
     <div class="mainsec">
         <span class="SPAN">
             <form name="SignUP" method="post" action="Signup.php" autocomplete="off" onchange="">
@@ -72,14 +82,14 @@ require_once '_DB.php';
                         style="padding: 20px; background: #ffffff; border: 2px; border-radius: 20px; ">
                         <br>
                         <h2 class="text-danger" align="left">Donor Sign-Up</h2>
-
+<!-- 
                         <div id="success" style="display: none;">
-                            <!-- Success Message Display Section-->
+                            Success Message Display Section
                             <div class="row">
                                 <div class="col-sm-4"></div>
                                 <h4 class="text-danger">You have been successfully
                                     registered</h4>
-                            </div>
+                            </div> -->
                             <!-- Success Message Display Section Ending here-->
 
                             <!-- After Success, back to login page-->
@@ -89,9 +99,9 @@ require_once '_DB.php';
                                     <button type="button" class="btn btn-danger" onclick="backTohome()">Click here
                                         to Login</button>
                                 </div>
-                            </div> -->
-                        </div>
-                        <br>
+                            </div> 
+                        </div> 
+                        <br>-->
 
                         <!--Dont change anything from here -->
                         <div id="enterDonorIdText" style="display: none;">
@@ -110,26 +120,28 @@ require_once '_DB.php';
                                     <font color="red">*</font>
                                     <input type="text" name="donorName"  maxlength="34" value=""
                                         onkeypress="return validateAlphaOnlyWithDotAndSpace(event)" class="form-control"
-                                        id="txtBbFName" autocomplete="off" placeholder="e.g.: Robin Hood" >
+                                        id="txtBbFName" autocomplete="off" placeholder="e.g.: Robin Hood" autofocus
+                                        required>
                                 </div>
                                 <div class="col-sm-6">
                                     <label for="selectDob">Date of Birth: </label>
                                     <font color="red">*</font>
                                     <input type="date" name="donorDob" maxlength="2" value=""
                                         onkeypress="return validateNumeric(event)" class="form-control"
-                                        autocomplete="off" >
+                                        autocomplete="off" autofocus
+                                        required>
                                 </div>
                             </div>
 
                             <div class="row">
                                 <div class="col-sm-6">
-                                    <label for="selectGender">Gender: </label>
+                                    <label for="selectGender"  >Gender: </label>
                                     <font color="red">*</font>
-                                    <select name="donorGender" class="form-control" >
-                                        <option value="-1">Not Selected</option>
-                                        <option value="M">Male</option>
-                                        <option value="F">Female</option>
-                                        <option value="O">Other</option>
+                                    <select name="donorGender" class="form-control" autofocus required >
+                                        <option value=""  >Not Selected</option>
+                                        <option value="Male">Male</option>
+                                        <option value="Female">Female</option>
+                                        <option value="Other">Other</option>
                                     </select>
                                 </div>
                                 <div class="col-sm-6">
@@ -137,7 +149,8 @@ require_once '_DB.php';
                                     <font color="red">*</font>
                                     <input type="text" name="donorBloodGrp" maxlength="33" value=""
                                         onkeypress="return validateAlphaOnlyWithDotAndSpace(event)" class="form-control"
-                                        autocomplete="off" placeholder="e.g.: A+" >
+                                        autocomplete="off" placeholder="e.g.: A+"autofocus
+                                        required >
                                 </div>
                                
                             </div>
@@ -149,12 +162,14 @@ require_once '_DB.php';
                                     <input type="tel" class="form-control" name="donorMobile" id="txtBbMobile"
                                         placeholder="e.g.: 0125245628" maxlength="10"
                                         onkeypress="return validateNumeric(event)" pattern="[0-9]{10}"
-                                        autocomplete="off">
+                                        autocomplete="off"autofocus
+                                        required>
                                 </div>
                                 <div class="col-sm-6">
                                     <label for="txtBbAltMobile">Alternative No: </label>
                                     <input type="tel" name="donorAltNo" maxlength="10" value="" class="form-control"
-                                        id="txtBbAltMobileNo" autocomplete="off" placeholder="535363778" >
+                                        id="txtBbAltMobileNo" autocomplete="off" placeholder="535363778"autofocus
+                                        required >
                                 </div>
 
                             </div>
@@ -162,12 +177,14 @@ require_once '_DB.php';
                                 <div class="col-sm-6">
                                     <label for="txtBbEmail">Email: </label>
                                     <input type="email" name="donorEmail" maxlength="254" value="" class="form-control"
-                                        id="txtBbEmail" autocomplete="off" placeholder="e.g.: xyz@gmail.com" >
+                                        id="txtBbEmail" autocomplete="off" placeholder="e.g.: xyz@gmail.com" autofocus
+                                        required>
                                 </div>
                                 <div class="col-sm-6">
                                     <label for="txtBbEmail">Password: </label>
                                     <input type="Password" name="donorPassword" maxlength="254" value="" class="form-control"
-                                        id="txtBbPassword" autocomplete="off" placeholder="e.g.: Xsszy499@" >
+                                        id="txtBbPassword" autocomplete="off" placeholder="e.g.: Xsszy499@" autofocus
+                                        required>
                                 </div>
                             </div>
                           
@@ -175,9 +192,10 @@ require_once '_DB.php';
 
                             <div class="row">
                                 <div class="form-group col-sm-6">
-                                    <label for="inputState">State</label>
-                                    <select class="form-control" id="inputState" name="donorState" >
-                                        <option value="SelectState">Select State</option>
+                                    <label for="inputState" autofocus required >State</label>
+                                    <select class="form-control" id="inputState" name="donorState" autofocus required
+                                    >
+                                        <option value="" >Select State</option>
                                         <option value="Andra Pradesh">Andra Pradesh</option>
                                         <option value="Arunachal Pradesh">Arunachal Pradesh</option>
                                         <option value="Assam">Assam</option>
@@ -212,18 +230,21 @@ require_once '_DB.php';
                                 </div>
                                 <div class="form-group col-sm-6">
                                     <label for="inputDistrict">District</label>
-                                    <select class="form-control" id="inputDistrict" name="donorDistrict" >
-                                        <option value="">-- select one -- </option>
+                                    <select class="form-control" id="inputDistrict" name="donorDistrict" autofocus
+                                        required>
+                                        <option autofocus
+                                        required value="">-- select one -- </option>
                                     </select>
                                 </div>
                             </div>
-
+                          
                             <div id="nextDetails">
                                 <div class="row">
                                     <div class="col-sm-6">
                                         <label>Address:</label>
                                         <textarea class="form-control" name="donorAddress" id="exampleFormControlTextarea1" rows="2"
-                                            cols="20" maxlength="100" ></textarea>
+                                            cols="20" maxlength="100" autofocus
+                                        required></textarea>
                                     </div>
 
                                     <div class="col-sm-6">
@@ -231,7 +252,8 @@ require_once '_DB.php';
                                         <font color="red">*</font>
                                         <input type="text" class="form-control" name="donorpincode" id="txtBbPincode"
                                             placeholder="Pin Code" maxlength="6"
-                                            onkeypress="return validateNumeric(event)" autocomplete="off" >
+                                            onkeypress="return validateNumeric(event)" autocomplete="off"autofocus
+                                        required >
                                     </div>
                                 </div>
                                 <br>
@@ -421,8 +443,8 @@ require_once '_DB.php';
         });
     </script>
 
- 
-<?php    
+<?php   function  submitFrom(){
+    require '_DB.php';
         // Check if the form is submitted
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $donorName = $_POST['donorName'];
@@ -443,7 +465,7 @@ require_once '_DB.php';
                
 
                 echo  " <div class='container-top '>
-                <div class='alert alert-danger' role='alert'>
+                <div class='alert alert-danger' role='alert' id='myAlert'>
                  Please Fill up everything correctly !!
                 </div>
                 </div>  
@@ -459,12 +481,37 @@ require_once '_DB.php';
             </style>";
 
             }
-            else {
+             // Query database to check if account already exists
+            $ifExt_query = "SELECT COUNT(*) FROM donor_info WHERE donorEmail = $1";
+            $param = array($donorEmail);
+            $result = pg_query_params($db_connect, $ifExt_query, $param);
+            $row = pg_fetch_row($result);
+            $count = intval($row[0]);
+             if($count>0){
+                echo" <div class='container-top '>
+                <div class='alert alert-warning' role='alert' id='myAlert'>
+                An account with this email address already exists.
+                 </div>
+                 </div>
+                 <style>
+                 .container-top {
+                     position: fixed;
+                     top: 38px;
+                     width: 100%;
+                     padding: 20px;
+                     text-align: center;
+                     z-index: 1000; /* Ensure the container appears above other elements */
+                 }
+             </style>";
+             $login_signal=true;
+             $signup_signal=false;
+             $logout_signal=false;
+   }else {
 
                 // Process form data (e.g., store in database)
 
                echo" <div class='container-top '>
-               <div class='alert alert-success' role='alert'>
+               <div class='alert alert-success' role='alert' id='myAlert'>
                Form submitted successfully!
                     </div>
                     </div>
@@ -478,7 +525,7 @@ require_once '_DB.php';
                         z-index: 1000; /* Ensure the container appears above other elements */
                     }
                 </style>";
-
+                
             // -----------------  Sanitize code here----------------
             $donorName =pg_escape_string($db_connect, $donorName);
             $donorDob=pg_escape_string($db_connect, $donorDob);
@@ -492,31 +539,50 @@ require_once '_DB.php';
             $donorAddress=pg_escape_string($db_connect, $donorAddress);
             $donorAltNo=pg_escape_string($db_connect, $donorAltNo);
             $donorPassword=pg_escape_string($db_connect, $donorPassword);
+            $password_hash=password_hash($donorPassword,PASSWORD_DEFAULT);
 
             //  -- Inserting a sample entry into the Customer_Info table
            $SqlQuery= "INSERT INTO donor_info (donorName,donorDob,donorGender,donorBloodGrp,donorMobile,donorEmail,donorpincode,donorState,donorDistrict,donorAddress,donorAltNo,donorPassword) VALUES($1, $2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12)";
 
-            $param = array($donorName, $donorDob,$donorGender,$donorBloodGrp,$donorMobile,$donorEmail,$donorpincode,$donorState,$donorDistrict,$donorAddress,$donorAltNo,$donorPassword);
+            $param = array($donorName, $donorDob,$donorGender,$donorBloodGrp,$donorMobile,$donorEmail,$donorpincode,$donorState,$donorDistrict,$donorAddress,$donorAltNo,$password_hash);
             // print_r($param);
             $result= pg_query_params($db_connect,$SqlQuery,$param);
-
+    
+        
+            if (!$result) {
+                
+                // Handle the case where the query execution failed
+                echo "Error executing SQL query: " . pg_last_error($db_connect); 
+         
             
-            if ($result) {
+               
+            }else {
                 // Close the database connection
                 pg_close($db_connect);
-            
-                // Redirect to the login page
-                header("Location: Login.php");
-                exit(); // Stop script execution after redirection
-            } else {
-                // Handle the case where the query execution failed
-                echo "Error executing SQL query: " . pg_last_error($db_connect);
-            }
+                $login_signal=true;
+                $signup_signal=false;
+                  // Redirect to the login page
+             
+          
+                  // exit(); // Make sure to call exit() after header() to prevent further execution
+         echo'<script>
+         $(document).ready(function(){
+            // Set a delay of 3 seconds (3000 milliseconds)
+            setTimeout(function(){
+              // Redirect to Signup.php
+              window.location.replace("Login.php");
+            }, 5000); 
+            // Change the delay time as needed (in milliseconds)
+          });
+        </script>
+';
+        }
 }
 }   
-?>
-
-<?php include("footer.php");
+}
+submitFrom()?>
+<?php 
+include("footer.php");
 ?>
 </body>
 
