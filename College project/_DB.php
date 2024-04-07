@@ -3,7 +3,7 @@
         $host = 'localhost';
         $dbname = 'Blood_Collective_Allaiance_DB';
         $user = 'postgres';
-        $password = '9933491552';
+        $password = '';
 
         $db_connect = pg_connect("host=$host dbname=$dbname user=$user password=$password");
 
