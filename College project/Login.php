@@ -20,7 +20,7 @@ $(document).ready(function(){
   // Hide the alert after 3 seconds (3000 milliseconds)
   setTimeout(function(){
     $("#myAlert").alert('close');
-  }, 3000);
+  }, 8000);
 });
 </script>
     <?php include("_nav.php");
@@ -155,14 +155,24 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         } 
         $row = pg_fetch_assoc($result);
         
-        var_dump($row);
+        // var_dump($row);
         if($row){
-            $hashedPasswordFromDB = $row["donorPassword"];
+            $hashedPasswordFromDB = $row["donorpassword"];
 //if user enters all correct informations
             if(password_verify($donorPassword, $hashedPasswordFromDB)){
+                
                 session_start();
+                
 
-                $_SESSION['donorEmail'] = $row['donorEmail'];
+                $_SESSION['donorEmail'] = $row['donoremail'];
+                $_SESSION['LoggedIn']=true;
+                 //to disable Signup button on Nav bar
+               $login_signal=false;
+               $signup_signal=false;
+               $logout_signal=true;
+            //    session_start();
+               
+            //    $_SESSION['donorEmail']=$donorEmail;
                 echo" <div class='container-top '>
                 <div class='alert alert-success' role='alert' id='myAlert'>
                 Successfully Logged in 
@@ -178,13 +188,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                          z-index: 1000; /* Ensure the container appears above other elements */
                      }
                  </style>";
-                 echo'<script>
-                 window.location.replace("main.php");
-             </script>'; 
-               //to disable Signup button on Nav bar
-               $login_signal=false;
-               $signup_signal=false;
-               $logout_signal=true;
+                //  echo'<script>
+                //  $(document).ready(function(){
+                //     // Set a delay of 5 seconds (5000 milliseconds)
+                //     setTimeout(function(){
+                //       // Redirect to main.php
+                //       window.location.replace("main.php");
+                //     }, 5000); 
+                //     // Change the delay time as needed (in milliseconds)
+                //   });
+                // </script>';
+              
             }else{                       
                 //if user enters a wrong password
         echo'<div class="container-top ">

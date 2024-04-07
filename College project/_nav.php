@@ -32,7 +32,7 @@ echo'<nav class="navbar navbar-dark navbar-expand-lg bg-body-tertiary mt-0 py-0 
           <a class="dropdown-item" href="#">Profile</a>
           <a class="dropdown-item" href="#">Settings</a>
           <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#">Logout</a>
+          <a class="dropdown-item" href="logout.php">Logout</a>
         </div>
       </li>
 
