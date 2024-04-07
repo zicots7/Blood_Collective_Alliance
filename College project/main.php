@@ -1,3 +1,21 @@
+<?php
+session_start();
+if(!isset($_SESSION['LoggedIn'])||$_SESSION['LoggedIn']!=true){
+header("location:Login.php");
+
+    //     echo'<script>
+//     $(document).ready(function(){
+//        // Set a delay of 3 seconds (3000 milliseconds)
+//        setTimeout(function(){
+//          // Redirect to Signup.php
+//          window.location.replace("Login.php");
+//        }, 2000); 
+//        // Change the delay time as needed (in milliseconds)
+//      });
+//    </script>';
+}
+
+?>
 <!doctype html>
 <html lang="en">
     <meta charset="utf-8">
