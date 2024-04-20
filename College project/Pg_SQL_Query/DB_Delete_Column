@@ -1,0 +1,7 @@
+
+ALTER TABLE donor_info
+	DROP COLUMN donormobile,
+	DROP COLUMN donoremail,
+	DROP COLUMN donorstate,
+	DROP COLUMN donordistrict,
+	DROP COLUMN donoraltno;
