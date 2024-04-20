@@ -1,6 +1,157 @@
 <?php
 require '_DB.php';
 ?>
+<?php
+ session_start();
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+
+    
+    //---------- Retrieve form data--------
+    $donorEmail = $_POST["donorEmail"];
+    $donorPassword = $_POST["donorPassword"];
+
+    $donorEmail = pg_escape_string($db_connect, $donorEmail);
+    $donorPassword = pg_escape_string($db_connect, $donorPassword);
+    
+
+        
+        $query = "SELECT donorEmail ,donorPassword FROM donor_info WHERE donorEmail = $1";
+        $param = array($donorEmail);
+        
+        $result = pg_query_params($db_connect, $query, $param);
+        // $login_check = pg_num_rows($result);
+  
+
+        if (!$result) { 
+            die("Query failed"); 
+            pg_close($db_connect);
+        } 
+        $row = pg_fetch_assoc($result);
+        
+        // var_dump($row);
+        if($row){
+            $hashedPasswordFromDB = $row["donorpassword"];
+//if user enters all correct informations
+            if(password_verify($donorPassword, $hashedPasswordFromDB)){
+                
+                // session_start();
+    /* Warning: session_start(): Session cannot be started after headers have already been sent in 
+    /opt/lampp/htdocs/Blood_Collective_Alliance-main/College project/Login.php on line 164 */
+
+                $_SESSION['donorEmail'] = $row['donoremail'];
+                $_SESSION['LoggedIn']=true;
+                 //to disable Signup button on Nav bar
+               $login_signal=false;
+               $signup_signal=false;
+               $logout_signal=true;
+            //    session_start();
+               
+            //    $_SESSION['donorEmail']=$donorEmail;
+                echo" <div class='container-top '>
+                <div class='alert alert-success' role='alert' id='myAlert'>
+                Successfully Logged in 
+                     </div>
+                     </div>
+                     <style>
+                     .container-top {
+                         position: fixed;
+                         top: 38px;
+                         width: 100%;
+                         padding: 20px;
+                         text-align: center;
+                         z-index: 1000; /* Ensure the container appears above other elements */
+                     }
+                 </style>";
+                //  echo'<script>
+                //  $(document).ready(function(){
+                //     // Set a delay of 5 seconds (5000 milliseconds)
+                //     setTimeout(function(){
+                //       // Redirect to main.php
+                //       window.location.replace("main.php");
+                //     }, 5000); 
+                //     // Change the delay time as needed (in milliseconds)
+                //   });
+                // </script>';
+              
+            }else{                       
+                //if user enters a wrong password
+        echo'<div class="container-top ">
+        <div class="alert alert-danger "role="alert" id="myAlert">
+        Incorrect Password 
+             </div>
+             </div>
+             <style>
+             .container-top {
+                 position: fixed;
+                 top: 38px;
+                 width: 100%;
+                 padding: 20px;
+                 text-align: center;
+                 z-index: 1000; /* Ensure the container appears above other elements */
+             }
+         </style> ';
+        
+         echo'<script>
+         $(document).ready(function(){
+            // Set a delay of 3 seconds (3000 milliseconds)
+            setTimeout(function(){
+              // Redirect to Signup.php
+              window.location.replace("Login.php");
+            }, 5000); 
+            // Change the delay time as needed (in milliseconds)
+          });
+        </script>';
+        //to enable Signup button on Nav bar
+        $login_signal=true;
+        $signup_signal=false;
+        $logout_signal=false;
+            }
+        
+        // Check if user does not exist 
+  
+        }else { 
+            echo'<div class="container-top ">
+            <div class="alert alert-danger "role="alert" id="myAlert">
+            Account does not exist, Please Sign Up.
+                 </div>
+                 </div>
+                 <style>
+                 .container-top {
+                     position: fixed;
+                     top: 38px;
+                     width: 100%;
+                     padding: 20px;
+                     text-align: center;
+                     z-index: 1000; /* Ensure the container appears above other elements */
+                 }
+             </style> ';
+            
+             echo'<script>
+             $(document).ready(function(){
+                // Set a delay of 3 seconds (3000 milliseconds)
+                setTimeout(function(){
+                  // Redirect to Signup.php
+                  window.location.replace("Signup.php");
+                }, 5000); 
+                // Change the delay time as needed (in milliseconds)
+              });
+            </script>';
+
+       $login_signal=false;
+       $signup_signal=true;
+       $logout_signal=false;
+                }
+                // if($signal){
+                  
+
+
+                    
+                // }
+        }
+   
+
+   
+?>
 <!DOCTYPE html>
 <html lang='en'>
 
@@ -129,155 +280,7 @@ $(document).ready(function(){
     </div>
 
 
-<?php
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
-    
-    //---------- Retrieve form data--------
-    $donorEmail = $_POST["donorEmail"];
-    $donorPassword = $_POST["donorPassword"];
-
-    $donorEmail = pg_escape_string($db_connect, $donorEmail);
-    $donorPassword = pg_escape_string($db_connect, $donorPassword);
-    
-
-        
-        $query = "SELECT donorEmail ,donorPassword FROM donor_info WHERE donorEmail = $1";
-        $param = array($donorEmail);
-        
-        $result = pg_query_params($db_connect, $query, $param);
-        // $login_check = pg_num_rows($result);
-  
-
-        if (!$result) { 
-            die("Query failed"); 
-            pg_close($db_connect);
-        } 
-        $row = pg_fetch_assoc($result);
-        
-        // var_dump($row);
-        if($row){
-            $hashedPasswordFromDB = $row["donorpassword"];
-//if user enters all correct informations
-            if(password_verify($donorPassword, $hashedPasswordFromDB)){
-                
-                session_start();
-                
-
-                $_SESSION['donorEmail'] = $row['donoremail'];
-                $_SESSION['LoggedIn']=true;
-                 //to disable Signup button on Nav bar
-               $login_signal=false;
-               $signup_signal=false;
-               $logout_signal=true;
-            //    session_start();
-               
-            //    $_SESSION['donorEmail']=$donorEmail;
-                echo" <div class='container-top '>
-                <div class='alert alert-success' role='alert' id='myAlert'>
-                Successfully Logged in 
-                     </div>
-                     </div>
-                     <style>
-                     .container-top {
-                         position: fixed;
-                         top: 38px;
-                         width: 100%;
-                         padding: 20px;
-                         text-align: center;
-                         z-index: 1000; /* Ensure the container appears above other elements */
-                     }
-                 </style>";
-                //  echo'<script>
-                //  $(document).ready(function(){
-                //     // Set a delay of 5 seconds (5000 milliseconds)
-                //     setTimeout(function(){
-                //       // Redirect to main.php
-                //       window.location.replace("main.php");
-                //     }, 5000); 
-                //     // Change the delay time as needed (in milliseconds)
-                //   });
-                // </script>';
-              
-            }else{                       
-                //if user enters a wrong password
-        echo'<div class="container-top ">
-        <div class="alert alert-danger "role="alert" id="myAlert">
-        Incorrect Password 
-             </div>
-             </div>
-             <style>
-             .container-top {
-                 position: fixed;
-                 top: 38px;
-                 width: 100%;
-                 padding: 20px;
-                 text-align: center;
-                 z-index: 1000; /* Ensure the container appears above other elements */
-             }
-         </style> ';
-        
-         echo'<script>
-         $(document).ready(function(){
-            // Set a delay of 3 seconds (3000 milliseconds)
-            setTimeout(function(){
-              // Redirect to Signup.php
-              window.location.replace("Login.php");
-            }, 5000); 
-            // Change the delay time as needed (in milliseconds)
-          });
-        </script>';
-        //to enable Signup button on Nav bar
-        $login_signal=true;
-        $signup_signal=false;
-        $logout_signal=false;
-            }
-        
-        // Check if user does not exist 
-  
-        }else { 
-            echo'<div class="container-top ">
-            <div class="alert alert-danger "role="alert" id="myAlert">
-            Account does not exist, Please Sign Up.
-                 </div>
-                 </div>
-                 <style>
-                 .container-top {
-                     position: fixed;
-                     top: 38px;
-                     width: 100%;
-                     padding: 20px;
-                     text-align: center;
-                     z-index: 1000; /* Ensure the container appears above other elements */
-                 }
-             </style> ';
-            
-             echo'<script>
-             $(document).ready(function(){
-                // Set a delay of 3 seconds (3000 milliseconds)
-                setTimeout(function(){
-                  // Redirect to Signup.php
-                  window.location.replace("Signup.php");
-                }, 5000); 
-                // Change the delay time as needed (in milliseconds)
-              });
-            </script>
-       ';
-       $login_signal=false;
-       $signup_signal=true;
-       $logout_signal=false;
-                }
-                // if($signal){
-                  
-
-
-                    
-                // }
-        }
-   
-
-   
-?>
  <?php
 //   include 'footer.php';
     ?>
