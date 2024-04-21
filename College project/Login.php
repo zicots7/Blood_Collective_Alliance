@@ -2,7 +2,6 @@
 require '_DB.php';
 ?>
 <?php
- session_start();
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     
@@ -34,19 +33,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 //if user enters all correct informations
             if(password_verify($donorPassword, $hashedPasswordFromDB)){
                 
-                // session_start();
-    /* Warning: session_start(): Session cannot be started after headers have already been sent in 
-    /opt/lampp/htdocs/Blood_Collective_Alliance-main/College project/Login.php on line 164 */
+                session_start();
+                
 
                 $_SESSION['donorEmail'] = $row['donoremail'];
                 $_SESSION['LoggedIn']=true;
                  //to disable Signup button on Nav bar
-               $login_signal=false;
-               $signup_signal=false;
-               $logout_signal=true;
-            //    session_start();
-               
-            //    $_SESSION['donorEmail']=$donorEmail;
+
                 echo" <div class='container-top '>
                 <div class='alert alert-success' role='alert' id='myAlert'>
                 Successfully Logged in 
@@ -61,17 +54,22 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                          text-align: center;
                          z-index: 1000; /* Ensure the container appears above other elements */
                      }
-                 </style>";
-                //  echo'<script>
-                //  $(document).ready(function(){
-                //     // Set a delay of 5 seconds (5000 milliseconds)
-                //     setTimeout(function(){
-                //       // Redirect to main.php
-                //       window.location.replace("main.php");
-                //     }, 5000); 
-                //     // Change the delay time as needed (in milliseconds)
-                //   });
-                // </script>';
+                 </style>
+                 
+                 <script>
+                 $(document).ready(function(){
+                    // Set a delay of 5 seconds (5000 milliseconds)
+                    setTimeout(function(){
+                      // Redirect to main.php
+                      window.location.replace('main.php');
+                    }, 5000); 
+                    // Change the delay time as needed (in milliseconds)
+                  });
+                </script>";
+                header("Location: main.php");
+ 
+                    exit;
+                 
               
             }else{                       
                 //if user enters a wrong password
@@ -101,10 +99,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             // Change the delay time as needed (in milliseconds)
           });
         </script>';
-        //to enable Signup button on Nav bar
-        $login_signal=true;
-        $signup_signal=false;
-        $logout_signal=false;
+ 
             }
         
         // Check if user does not exist 
@@ -135,11 +130,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 }, 5000); 
                 // Change the delay time as needed (in milliseconds)
               });
-            </script>';
-
-       $login_signal=false;
-       $signup_signal=true;
-       $logout_signal=false;
+            </script>
+       ';
+    
                 }
                 // if($signal){
                   
@@ -282,7 +275,7 @@ $(document).ready(function(){
 
 
  <?php
-//   include 'footer.php';
+  include 'footer.php';
     ?>
 </body>
 

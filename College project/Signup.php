@@ -443,7 +443,8 @@ $(document).ready(function(){
         });
     </script>
 
-<?php   function  submitFrom(){
+<?php  
+ function  submitFrom(){
     require '_DB.php';
         // Check if the form is submitted
         if ($_SERVER["REQUEST_METHOD"] == "POST") {

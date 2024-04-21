@@ -3,6 +3,12 @@
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 <?php
+session_start();
+if(isset($_SESSION['LoggedIn'])&&($_SESSION['LoggedIn']==true)){
+$LoggedIn=true;
+}else{
+  $LoggedIn=false;
+}
 echo'<nav class="navbar navbar-dark navbar-expand-lg bg-body-tertiary mt-0 py-0 fixed-top">
 <div class="container-fluid bg-danger " >
   <a class="navbar-brand fs-3" href="main.php">Blood Collective Alliance</a>
@@ -16,15 +22,18 @@ echo'<nav class="navbar navbar-dark navbar-expand-lg bg-body-tertiary mt-0 py-0 
       </li>
       <li class="nav-item ">
         <a class="  nav-link active text-white fs-3" href="ContactUs.php" >Contact Us</a>
-      </li>
-      <li class="nav-item " >
+      </li>';
+     if(!$LoggedIn){
+      echo '<li class="nav-item " >
         <a  class=" nav-link active text-white fs-3" href="Login.php" >Sign In </a>
       </li>
       <li class="nav-item ">
         <a class="nav-link active text-white fs-3" href="Signup.php" >Sign Up</a>
       </li>
-    </ul>
-    <li class="nav-item dropdown show">
+    </ul>';
+    } 
+   if($LoggedIn){
+    echo'<li class="nav-item dropdown show">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           <img src="profile-picture.jpg" alt="Profile Picture" style="width: 30px; height: 30px; border-radius: 50%;">
         </a>
@@ -34,8 +43,9 @@ echo'<nav class="navbar navbar-dark navbar-expand-lg bg-body-tertiary mt-0 py-0 
           <div class="dropdown-divider"></div>
           <a class="dropdown-item" href="logout.php">Logout</a>
         </div>
-      </li>
-
+      </li>';
+   } 
+echo'
   </div>
 </div>
 </nav>';
