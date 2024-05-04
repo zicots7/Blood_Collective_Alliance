@@ -1,11 +1,10 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-<?php
+    <?php
 
-?>
+    ?>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -60,29 +59,29 @@
 </head>
 
 <body>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script>
-$(document).ready(function(){
-  // Hide the alert after 8 seconds (8000 milliseconds)
-  setTimeout(function(){
-    $("#myAlert").alert('close');
-  },8000);
-});
-</script>
-<?php
- include"_nav.php";
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            // Hide the alert after 8 seconds (8000 milliseconds)
+            setTimeout(function () {
+                $("#myAlert").alert('close');
+            }, 8000);
+        });
+    </script>
+    <?php
+    include "_nav.php";
     ?>
     <div class="mainsec">
         <span class="SPAN">
             <form name="SignUP" method="post" action="Signup.php" autocomplete="off" onchange="">
                 <div class="container d-flex justify-content-center align-items-center min-vh-100">
-                <div class="container">
-                    <br />
-                    <div class="card card-container"
-                        style="padding: 20px; background: #ffffff; border: 2px; border-radius: 20px; ">
-                        <br>
-                        <h2 class="text-danger" align="left">Donor Sign-Up</h2>
-<!-- 
+                    <div class="container">
+                        <br />
+                        <div class="card card-container"
+                            style="padding: 20px; background: #ffffff; border: 2px; border-radius: 20px; ">
+                            <br>
+                            <h2 class="text-danger" align="left">Donor Sign-Up</h2>
+                            <!-- 
                         <div id="success" style="display: none;">
                             Success Message Display Section
                             <div class="row">
@@ -103,178 +102,187 @@ $(document).ready(function(){
                         </div> 
                         <br>-->
 
-                        <!--Dont change anything from here -->
-                        <div id="enterDonorIdText" style="display: none;">
-                            <br>
-                            <div class="row">
-                                <div class="col-sm-5"></div>
-                            </div>
-                            <br>
-                        </div>
-                        <!-- Dont change anything-->
-
-                        <div id="enterDonorDetails">
-                            <div class="row">
-                                <div class="col-sm-6">
-                                    <label>Your Name:</label>
-                                    <font color="red">*</font>
-                                    <input type="text" name="donorName"  maxlength="34" value=""
-                                        onkeypress="return validateAlphaOnlyWithDotAndSpace(event)" class="form-control"
-                                        id="txtBbFName" autocomplete="off" placeholder="e.g.: Robin Hood" autofocus
-                                        required>
-                                </div>
-                                <div class="col-sm-6">
-                                    <label for="selectDob">Date of Birth: </label>
-                                    <font color="red">*</font>
-                                    <input type="date" name="donorDob" maxlength="2" value=""
-                                        onkeypress="return validateNumeric(event)" class="form-control"
-                                        autocomplete="off" autofocus
-                                        required>
-                                </div>
-                            </div>
-
-                            <div class="row">
-                                <div class="col-sm-6">
-                                    <label for="selectGender"  >Gender: </label>
-                                    <font color="red">*</font>
-                                    <select name="donorGender" class="form-control" autofocus required >
-                                        <option value=""  >Not Selected</option>
-                                        <option value="Male">Male</option>
-                                        <option value="Female">Female</option>
-                                        <option value="Other">Other</option>
-                                    </select>
-                                </div>
-                                <div class="col-sm-6">
-                                    <label>Blood Group:</label>
-                                    <font color="red">*</font>
-                                    <input type="text" name="donorBloodGrp" maxlength="33" value=""
-                                        onkeypress="return validateAlphaOnlyWithDotAndSpace(event)" class="form-control"
-                                        autocomplete="off" placeholder="e.g.: A+"autofocus
-                                        required >
-                                </div>
-                               
-                            </div>
-
-                            <div class="row">
-                                <div class="col-sm-6">
-                                    <label for="txtBbMobile">Mobile: </label>
-                                    <font color="red">*</font>
-                                    <input type="tel" class="form-control" name="donorMobile" id="txtBbMobile"
-                                        placeholder="e.g.: 0125245628" maxlength="10"
-                                        onkeypress="return validateNumeric(event)" pattern="[0-9]{10}"
-                                        autocomplete="off"autofocus
-                                        required>
-                                </div>
-                                <div class="col-sm-6">
-                                    <label for="txtBbAltMobile">Alternative No: </label>
-                                    <input type="tel" name="donorAltNo" maxlength="10" value="" class="form-control"
-                                        id="txtBbAltMobileNo" autocomplete="off" placeholder="535363778"autofocus
-                                        required >
-                                </div>
-
-                            </div>
-                            <div class="row">
-                                <div class="col-sm-6">
-                                    <label for="txtBbEmail">Email: </label>
-                                    <input type="email" name="donorEmail" maxlength="254" value="" class="form-control"
-                                        id="txtBbEmail" autocomplete="off" placeholder="e.g.: xyz@gmail.com" autofocus
-                                        required>
-                                </div>
-                                <div class="col-sm-6">
-                                    <label for="txtBbEmail">Password: </label>
-                                    <input type="Password" name="donorPassword" maxlength="254" value="" class="form-control"
-                                        id="txtBbPassword" autocomplete="off" placeholder="e.g.: Xsszy499@" autofocus
-                                        required>
-                                </div>
-                            </div>
-                          
-                         
-
-                            <div class="row">
-                                <div class="form-group col-sm-6">
-                                    <label for="inputState" autofocus required >State</label>
-                                    <select class="form-control" id="inputState" name="donorState" autofocus required
-                                    >
-                                        <option value="" >Select State</option>
-                                        <option value="Andra Pradesh">Andra Pradesh</option>
-                                        <option value="Arunachal Pradesh">Arunachal Pradesh</option>
-                                        <option value="Assam">Assam</option>
-                                        <option value="Bihar">Bihar</option>
-                                        <option value="Chhattisgarh">Chhattisgarh</option>
-                                        <option value="Goa">Goa</option>
-                                        <option value="Gujarat">Gujarat</option>
-                                        <option value="Haryana">Haryana</option>
-                                        <option value="Himachal Pradesh">Himachal Pradesh</option>
-                                        <option value="Jammu and Kashmir">Jammu and Kashmir</option>
-                                        <option value="Jharkhand">Jharkhand</option>
-                                        <option value="Karnataka">Karnataka</option>
-                                        <option value="Kerala">Kerala</option>
-                                        <option value="Madya Pradesh">Madya Pradesh</option>
-                                        <option value="Maharashtra">Maharashtra</option>
-                                        <option value="Manipur">Manipur</option>
-                                        <option value="Meghalaya">Meghalaya</option>
-                                        <option value="Mizoram">Mizoram</option>
-                                        <option value="Nagaland">Nagaland</option>
-                                        <option value="Orissa">Orissa</option>
-                                        <option value="Punjab">Punjab</option>
-                                        <option value="Rajasthan">Rajasthan</option>
-                                        <option value="Sikkim">Sikkim</option>
-                                        <option value="Tamil Nadu">Tamil Nadu</option>
-                                        <option value="Telangana">Telangana</option>
-                                        <option value="Tripura">Tripura</option>
-                                        <option value="Uttaranchal">Uttaranchal</option>
-                                        <option value="Uttar Pradesh">Uttar Pradesh</option>
-                                        <option value="West Bengal">West Bengal</option>
-
-                                    </select>
-                                </div>
-                                <div class="form-group col-sm-6">
-                                    <label for="inputDistrict">District</label>
-                                    <select class="form-control" id="inputDistrict" name="donorDistrict" autofocus
-                                        required>
-                                        <option autofocus
-                                        required value="">-- select one -- </option>
-                                    </select>
-                                </div>
-                            </div>
-                          
-                            <div id="nextDetails">
+                            <!--Dont change anything from here -->
+                            <div id="enterDonorIdText" style="display: none;">
+                                <br>
                                 <div class="row">
-                                    <div class="col-sm-6">
-                                        <label>Address:</label>
-                                        <textarea class="form-control" name="donorAddress" id="exampleFormControlTextarea1" rows="2"
-                                            cols="20" maxlength="100" autofocus
-                                        required></textarea>
-                                    </div>
-
-                                    <div class="col-sm-6">
-                                        <label for="txtBbPincode" class="mb-2">PinCode: </label>
-                                        <font color="red">*</font>
-                                        <input type="text" class="form-control" name="donorpincode" id="txtBbPincode"
-                                            placeholder="Pin Code" maxlength="6"
-                                            onkeypress="return validateNumeric(event)" autocomplete="off"autofocus
-                                        required >
-                                    </div>
+                                    <div class="col-sm-5"></div>
                                 </div>
                                 <br>
                             </div>
-                        </div>
-                        <br>
-                        <!-- <div class="row" id="divsignup">
+                            <!-- Dont change anything-->
+
+                            <div id="enterDonorDetails">
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <label>Your Name:</label>
+                                        <font color="red">*</font>
+                                        <input type="text" name="donorName" maxlength="34" value=""
+                                            onkeypress="return validateAlphaOnlyWithDotAndSpace(event)"
+                                            class="form-control" id="txtBbFName" autocomplete="off"
+                                            placeholder="e.g.: Robin Hood" autofocus required>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <label for="selectDob">Date of Birth: </label>
+                                        <font color="red">*</font>
+                                        <input type="date" name="donorDob" maxlength="2" value=""
+                                            onkeypress="return validateNumeric(event)" class="form-control"
+                                            autocomplete="off" autofocus required>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <label for="selectGender">Gender: </label>
+                                        <font color="red">*</font>
+                                        <select name="donorGender" class="form-control" autofocus required>
+                                            <option value="">Not Selected</option>
+                                            <option value="Male">Male</option>
+                                            <option value="Female">Female</option>
+                                            <option value="Other">Other</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <label for="donorBloodGrp">Blood Group:</label>
+                                        <font color="red">*</font>
+                                    
+                                        <select name="donorBloodGrp" 
+                                            class="form-control" id="donorBloodGrp"  placeholder="e.g.: A+" autofocus
+                                            required>
+                                            <option value="">Select Blood Group</option> 
+                                            <option value="AB-Ve">AB-Ve</option>
+                                            <option value="AB+Ve">AB+Ve</option>
+                                            <option value="A-Ve">A-Ve</option>
+                                            <option value="A+Ve">A+Ve</option>
+                                            <option value="B-Ve">B-Ve</option>
+                                            <option value="B+Ve">B+Ve</option>
+                                            <option value="Oh-Ve">Oh-VE</option>
+                                            <option value="Oh+Ve">Oh+VE</option>
+                                            <option value="O-Ve">O-Ve</option>
+                                            <option value="O+Ve">O+Ve</option>
+                                           
+                                        </select>
+                                    </div>
+
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <label for="txtBbMobile">Mobile: </label>
+                                        <font color="red">*</font>
+                                        <input type="tel" class="form-control" name="donorMobile" id="txtBbMobile"
+                                            placeholder="e.g.: 0125245628" maxlength="10"
+                                            onkeypress="return validateNumeric(event)" pattern="[0-9]{10}"
+                                            autocomplete="off" autofocus required>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <label for="txtBbAltMobile">Alternative No: </label>
+                                        <input type="tel" name="donorAltNo" maxlength="10" value="" class="form-control"
+                                            id="txtBbAltMobileNo" autocomplete="off" placeholder="535363778" autofocus
+                                            required>
+                                    </div>
+
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <label for="txtBbEmail">Email: </label>
+                                        <input type="email" name="donorEmail" maxlength="254" value=""
+                                            class="form-control" id="txtBbEmail" autocomplete="off"
+                                            placeholder="e.g.: xyz@gmail.com" autofocus required>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <label for="txtBbEmail">Password: </label>
+                                        <input type="Password" name="donorPassword" maxlength="254" value=""
+                                            class="form-control" id="txtBbPassword" autocomplete="off"
+                                            placeholder="e.g.: Xsszy499@" autofocus required>
+                                    </div>
+                                </div>
+
+
+
+                                <div class="row">
+                                    <div class="form-group col-sm-6">
+                                        <label for="inputState" autofocus required>State</label>
+                                        <select class="form-control" id="inputState" name="donorState" autofocus
+                                            required>
+                                            <option value="">Select State</option>
+                                            <option value="Andra Pradesh">Andra Pradesh</option>
+                                            <option value="Arunachal Pradesh">Arunachal Pradesh</option>
+                                            <option value="Assam">Assam</option>
+                                            <option value="Bihar">Bihar</option>
+                                            <option value="Chhattisgarh">Chhattisgarh</option>
+                                            <option value="Goa">Goa</option>
+                                            <option value="Gujarat">Gujarat</option>
+                                            <option value="Haryana">Haryana</option>
+                                            <option value="Himachal Pradesh">Himachal Pradesh</option>
+                                            <option value="Jammu and Kashmir">Jammu and Kashmir</option>
+                                            <option value="Jharkhand">Jharkhand</option>
+                                            <option value="Karnataka">Karnataka</option>
+                                            <option value="Kerala">Kerala</option>
+                                            <option value="Madya Pradesh">Madya Pradesh</option>
+                                            <option value="Maharashtra">Maharashtra</option>
+                                            <option value="Manipur">Manipur</option>
+                                            <option value="Meghalaya">Meghalaya</option>
+                                            <option value="Mizoram">Mizoram</option>
+                                            <option value="Nagaland">Nagaland</option>
+                                            <option value="Orissa">Orissa</option>
+                                            <option value="Punjab">Punjab</option>
+                                            <option value="Rajasthan">Rajasthan</option>
+                                            <option value="Sikkim">Sikkim</option>
+                                            <option value="Tamil Nadu">Tamil Nadu</option>
+                                            <option value="Telangana">Telangana</option>
+                                            <option value="Tripura">Tripura</option>
+                                            <option value="Uttaranchal">Uttaranchal</option>
+                                            <option value="Uttar Pradesh">Uttar Pradesh</option>
+                                            <option value="West Bengal">West Bengal</option>
+
+                                        </select>
+                                    </div>
+                                    <div class="form-group col-sm-6">
+                                        <label for="inputDistrict">District</label>
+                                        <select class="form-control" id="inputDistrict" name="donorDistrict" autofocus
+                                            required>
+                                            <option autofocus required value="">-- select one -- </option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div id="nextDetails">
+                                    <div class="row">
+                                        <div class="col-sm-6">
+                                            <label>Address:</label>
+                                            <textarea class="form-control" name="donorAddress"
+                                                id="exampleFormControlTextarea1" rows="2" cols="20" maxlength="100"
+                                                autofocus required></textarea>
+                                        </div>
+
+                                        <div class="col-sm-6">
+                                            <label for="txtBbPincode" class="mb-2">PinCode: </label>
+                                            <font color="red">*</font>
+                                            <input type="text" class="form-control" name="donorpincode"
+                                                id="txtBbPincode" placeholder="Pin Code" maxlength="6"
+                                                onkeypress="return validateNumeric(event)" autocomplete="off" autofocus
+                                                required>
+                                        </div>
+                                    </div>
+                                    <br>
+                                </div>
+                            </div>
+                            <br>
+                            <!-- <div class="row" id="divsignup">
                             <div class="col-xs-12" align="center">
                                 <button type="button" class="btn btn-danger" onclick="generateDonorOTP()"
                                     onkeypress="if(event.keyCode==13) generateDonorOTP()">Sign
                                     Up</button>
                             </div> -->
                             <div class="row" id="divsignup">
-                            <div class="col-xs-12" align="center">
-                                <button input type="submit" class="btn btn-danger" 
-                                 value="Submit">Sign Up</button>
+                                <div class="col-xs-12" align="center">
+                                    <button input type="submit" class="btn btn-danger" value="Submit">Sign Up</button>
+                                </div>
                             </div>
+                            <br>
                         </div>
-                        <br>
                     </div>
-                </div>
             </form>
         </span>
     </div>
@@ -443,29 +451,30 @@ $(document).ready(function(){
         });
     </script>
 
-<?php  
- function  submitFrom(){
-    require '_DB.php';
+    <?php
+    function submitFrom()
+    {
+        require '_DB.php';
         // Check if the form is submitted
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $donorName = $_POST['donorName'];
-            $donorDob= $_POST ['donorDob'];
-            $donorGender=$_POST['donorGender'];
-            $donorBloodGrp=$_POST['donorBloodGrp'];
-            $donorMobile=$_POST['donorMobile'];
+            $donorDob = $_POST['donorDob'];
+            $donorGender = $_POST['donorGender'];
+            $donorBloodGrp = $_POST['donorBloodGrp'];
+            $donorMobile = $_POST['donorMobile'];
             $donorEmail = $_POST['donorEmail'];
-            $donorpincode=$_POST['donorpincode'];
-            $donorState=$_POST['donorState'];
-            $donorDistrict=$_POST['donorDistrict'];
-            $donorAddress=$_POST['donorAddress'];
-            $donorPassword=$_POST['donorPassword'];
-            $donorAltNo=$_POST['donorAltNo'];
-            
-            // Validate name
-        if (empty($donorName)||empty($donorEmail) || empty($donorAltNo) || !filter_var($donorEmail, FILTER_VALIDATE_EMAIL)||empty($donorDob)||empty($donorGender)||empty($donorBloodGrp)||empty($donorMobile)||empty($donorState)||empty($donorpincode)||empty($donorDistrict)||empty($donorAddress)||empty($donorPassword) ){
-               
+            $donorpincode = $_POST['donorpincode'];
+            $donorState = $_POST['donorState'];
+            $donorDistrict = $_POST['donorDistrict'];
+            $donorAddress = $_POST['donorAddress'];
+            $donorPassword = $_POST['donorPassword'];
+            $donorAltNo = $_POST['donorAltNo'];
 
-                echo  " <div class='container-top '>
+            // Validate name
+            if (empty($donorName) || empty($donorEmail) || empty($donorAltNo) || !filter_var($donorEmail, FILTER_VALIDATE_EMAIL) || empty($donorDob) || empty($donorGender) || empty($donorBloodGrp) || empty($donorMobile) || empty($donorState) || empty($donorpincode) || empty($donorDistrict) || empty($donorAddress) || empty($donorPassword)) {
+
+
+                echo " <div class='container-top '>
                 <div class='alert alert-danger' role='alert' id='myAlert'>
                  Please Fill up everything correctly !!
                 </div>
@@ -482,14 +491,14 @@ $(document).ready(function(){
             </style>";
 
             }
-             // Query database to check if account already exists
+            // Query database to check if account already exists
             $ifExt_query = "SELECT COUNT(*) FROM donor_info WHERE donorEmail = $1";
             $param = array($donorEmail);
             $result = pg_query_params($db_connect, $ifExt_query, $param);
             $row = pg_fetch_row($result);
             $count = intval($row[0]);
-             if($count>0){
-                echo" <div class='container-top '>
+            if ($count > 0) {
+                echo " <div class='container-top '>
                 <div class='alert alert-warning' role='alert' id='myAlert'>
                 An account with this email address already exists.
                  </div>
@@ -504,14 +513,14 @@ $(document).ready(function(){
                      z-index: 1000; /* Ensure the container appears above other elements */
                  }
              </style>";
-             $login_signal=true;
-             $signup_signal=false;
-             $logout_signal=false;
-   }else {
+                $login_signal = true;
+                $signup_signal = false;
+                $logout_signal = false;
+            } else {
 
                 // Process form data (e.g., store in database)
-
-               echo" <div class='container-top '>
+    
+                echo " <div class='container-top '>
                <div class='alert alert-success' role='alert' id='myAlert'>
                Form submitted successfully!
                     </div>
@@ -526,47 +535,47 @@ $(document).ready(function(){
                         z-index: 1000; /* Ensure the container appears above other elements */
                     }
                 </style>";
-                
-            // -----------------  Sanitize code here----------------
-            $donorName =pg_escape_string($db_connect, $donorName);
-            $donorDob=pg_escape_string($db_connect, $donorDob);
-            $donorGender=pg_escape_string($db_connect, $donorGender);
-            $donorBloodGrp=pg_escape_string($db_connect, $donorBloodGrp);
-            $donorMobile=pg_escape_string($db_connect, $donorMobile);
-            $donorEmail =pg_escape_string($db_connect, $donorEmail);
-            $donorpincode=pg_escape_string($db_connect, $donorpincode);
-            $donorState=pg_escape_string($db_connect, $donorState);
-            $donorDistrict=pg_escape_string($db_connect, $donorDistrict);
-            $donorAddress=pg_escape_string($db_connect, $donorAddress);
-            $donorAltNo=pg_escape_string($db_connect, $donorAltNo);
-            $donorPassword=pg_escape_string($db_connect, $donorPassword);
-            $password_hash=password_hash($donorPassword,PASSWORD_DEFAULT);
 
-            //  -- Inserting a sample entry into the Customer_Info table
-           $SqlQuery= "INSERT INTO donor_info (donorName,donorDob,donorGender,donorBloodGrp,donorMobile,donorEmail,donorpincode,donorState,donorDistrict,donorAddress,donorAltNo,donorPassword) VALUES($1, $2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12)";
+                // -----------------  Sanitize code here----------------
+                $donorName = pg_escape_string($db_connect, $donorName);
+                $donorDob = pg_escape_string($db_connect, $donorDob);
+                $donorGender = pg_escape_string($db_connect, $donorGender);
+                $donorBloodGrp = pg_escape_string($db_connect, $donorBloodGrp);
+                $donorMobile = pg_escape_string($db_connect, $donorMobile);
+                $donorEmail = pg_escape_string($db_connect, $donorEmail);
+                $donorpincode = pg_escape_string($db_connect, $donorpincode);
+                $donorState = pg_escape_string($db_connect, $donorState);
+                $donorDistrict = pg_escape_string($db_connect, $donorDistrict);
+                $donorAddress = pg_escape_string($db_connect, $donorAddress);
+                $donorAltNo = pg_escape_string($db_connect, $donorAltNo);
+                $donorPassword = pg_escape_string($db_connect, $donorPassword);
+                $password_hash = password_hash($donorPassword, PASSWORD_DEFAULT);
 
-            $param = array($donorName, $donorDob,$donorGender,$donorBloodGrp,$donorMobile,$donorEmail,$donorpincode,$donorState,$donorDistrict,$donorAddress,$donorAltNo,$password_hash);
-            // print_r($param);
-            $result= pg_query_params($db_connect,$SqlQuery,$param);
+                //  -- Inserting a sample entry into the Customer_Info table
+                $SqlQuery = "INSERT INTO donor_info (donorName,donorDob,donorGender,donorBloodGrp,donorMobile,donorEmail,donorpincode,donorState,donorDistrict,donorAddress,donorAltNo,donorPassword) VALUES($1, $2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12)";
+
+                $param = array($donorName, $donorDob, $donorGender, $donorBloodGrp, $donorMobile, $donorEmail, $donorpincode, $donorState, $donorDistrict, $donorAddress, $donorAltNo, $password_hash);
+                // print_r($param);
+                $result = pg_query_params($db_connect, $SqlQuery, $param);
+
+
+                if (!$result) {
+
+                    // Handle the case where the query execution failed
+                    echo "Error executing SQL query: " . pg_last_error($db_connect);
+
+
+
+                } else {
+                    // Close the database connection
+                    pg_close($db_connect);
+                    $login_signal = true;
+                    $signup_signal = false;
+                    // Redirect to the login page
     
-        
-            if (!$result) {
-                
-                // Handle the case where the query execution failed
-                echo "Error executing SQL query: " . pg_last_error($db_connect); 
-         
-            
-               
-            }else {
-                // Close the database connection
-                pg_close($db_connect);
-                $login_signal=true;
-                $signup_signal=false;
-                  // Redirect to the login page
-             
-          
-                  // exit(); // Make sure to call exit() after header() to prevent further execution
-         echo'<script>
+
+                    // exit(); // Make sure to call exit() after header() to prevent further execution
+                    echo '<script>
          $(document).ready(function(){
             // Set a delay of 3 seconds (3000 milliseconds)
             setTimeout(function(){
@@ -577,14 +586,14 @@ $(document).ready(function(){
           });
         </script>
 ';
+                }
+            }
         }
-}
-}   
-}
-submitFrom()?>
-<?php 
-include("footer.php");
-?>
+    }
+    submitFrom() ?>
+    <?php
+    include ("footer.php");
+    ?>
 </body>
 
 </html>
