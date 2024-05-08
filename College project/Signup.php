@@ -492,15 +492,14 @@
 
             }
             // Query database to check if account already exists
-            $ifExt_query = "SELECT COUNT(*) FROM donor_info WHERE donorEmail = $1";
-            $param = array($donorEmail);
-            $result = pg_query_params($db_connect, $ifExt_query, $param);
-            $row = pg_fetch_row($result);
-            $count = intval($row[0]);
-            if ($count > 0) {
+            $query = "SELECT *FROM donor_info WHERE donormobile = $1 OR donoremail = $2";
+            $param = array($donorMobile,$donorEmail);
+            $result = pg_query_params($db_connect, $query, $param);
+        
+            if (pg_num_rows($result) > 0) {
                 echo " <div class='container-top '>
                 <div class='alert alert-warning' role='alert' id='myAlert'>
-                An account with this email address already exists.
+                An account with this account address already exists, try different phone No and Email.
                  </div>
                  </div>
                  <style>
@@ -513,9 +512,7 @@
                      z-index: 1000; /* Ensure the container appears above other elements */
                  }
              </style>";
-                $login_signal = true;
-                $signup_signal = false;
-                $logout_signal = false;
+            
             } else {
 
                 // Process form data (e.g., store in database)
@@ -569,8 +566,7 @@
                 } else {
                     // Close the database connection
                     pg_close($db_connect);
-                    $login_signal = true;
-                    $signup_signal = false;
+                    
                     // Redirect to the login page
     
 
