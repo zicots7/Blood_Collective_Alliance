@@ -1,23 +1,148 @@
-
 <?php
-include "_nav.php";
-if(!isset($_SESSION['LoggedIn'])||$_SESSION['LoggedIn']!=true){
-header("location:Login.php");
-
-        echo'<script>
-    $(document).ready(function(){
-       // Set a delay of 3 seconds (3000 milliseconds)
-       setTimeout(function(){
-         // Redirect to Signup.php
-         window.location.replace("Login.php");
-       }, 2000); 
-       // Change the delay time as needed (in milliseconds)
-     });
-   </script>';
-}
+include '_nav.php'
 ?>
 
 <?php
+include '_DB.php';
+
+$donorEmail = $_SESSION['donorEmail'];
+$sql = "SELECT donorname,donordob,donorgender,donorbloodgrp,donormobile,donoremail,donorpincode,donorstate,donordistrict,donoraddress,donoraltno FROM donor_info WHERE donoremail = $1";
+$result = pg_query_params($db_connect, $sql, array($donorEmail));
+//fetching data from database using session 
+
+if ($result) {
+    while ($row = pg_fetch_assoc($result)) {
+        $donorName = $row['donorname'];
+        $donorDob = $row['donordob'];
+        $donorGender = $row['donorgender'];
+        $donorBloodGrp = $row['donorbloodgrp'];
+        $donorMobile = $row['donormobile'];
+        $donorpincode = $row['donorpincode'];
+        $donorState = $row['donorstate'];
+        $donorDistrict = $row['donordistrict'];
+        $donorAddress = $row['donoraddress'];
+        $donorAltNo = $row['donoraltno'];
+    }
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        $newDonorName = $_POST['newDonorName'];
+        $newDonorDob = $_POST['newDonorDob'];
+        $newDonorGender = $_POST['newDonorGender'];
+        $newDonorBloodGrp = $_POST['newDonorBloodGrp'];
+        $newDonorMobile = $_POST['newDonorMobile'];
+        $newDonorEmail = $_POST['newDonorEmail'];
+        $newDonorpincode = $_POST['newDonorpincode'];
+        $newDonorState = $_POST['newDonorState'];
+        $newDonorDistrict = $_POST['newDonorDistrict'];
+        $newDonorAddress = $_POST['newDonorAddress'];
+        $newDonorAltNo = $_POST['newDonorAltNo'];
+            // -----------------  Sanitize code here----------------
+            $newDonorName = pg_escape_string($db_connect, $newDonorName);
+            $newDonorDob = pg_escape_string($db_connect, $newDonorDob);
+            $newDonorGender = pg_escape_string($db_connect, $newDonorGender);
+            $newDonorBloodGrp = pg_escape_string($db_connect, $newDonorBloodGrp);
+            $newDonorMobile = pg_escape_string($db_connect, $newDonorMobile);
+            $newDonorEmail = pg_escape_string($db_connect, $newDonorEmail);
+            $newDonorpincode = pg_escape_string($db_connect, $newDonorpincode);
+            $newDonorState = pg_escape_string($db_connect, $newDonorState);
+            $newDonorDistrict = pg_escape_string($db_connect, $newDonorDistrict);
+            $newDonorAddress = pg_escape_string($db_connect, $newDonorAddress);
+            $newDonorAltNo = pg_escape_string($db_connect, $newDonorAltNo);
+//  code for warning pop up
+            // if(){
+            //     echo'<div class="modal" tabindex="-1" role="dialog">
+            //     <div class="modal-dialog" role="document">
+            //       <div class="modal-content">
+            //         <div class="modal-header">
+            //           <h5 class="modal-title">Are You Sure You Want to Change</h5>
+            //           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            //             <span aria-hidden="true">&times;</span>
+            //           </button>
+            //         </div>
+            //         <div class="modal-body">
+            //          <h2>Please Enter Your Password</h2>
+            
+            //         </div>
+            //         <div class="modal-footer">
+            //           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            //           <button type="submit" class="btn btn-primary">Save changes</button>
+            //         </div>
+            //       </div>
+            //     </div>
+            //   </div>';
+            // }else 
+            $ifExt_query = "SELECT *FROM donor_info WHERE donoremail = $1 and donormobile=$2";
+            $param = array($newDonorEmail,$newDonorMobile);
+            $result = pg_query_params($db_connect, $ifExt_query, $param);
+            if (pg_num_rows($result) > 0) {
+                echo " <div class='container-top '>
+                <div class='alert alert-warning' role='alert' id='myAlert'>
+                An account with this email address and phone number already exists, try different .
+                 </div>
+                 </div>
+                 <style>
+                 .container-top {
+                     position: fixed;
+                     top: 38px;
+                     width: 100%;
+                     padding: 20px;
+                     text-align: center;
+                     z-index: 1000; /* Ensure the container appears above other elements */
+                 }
+             </style>
+              <script>
+             $(document).ready(function(){
+                // Set a delay of 3 seconds (3000 milliseconds)
+                setTimeout(function(){
+                  // Redirect to Signup.php
+                  window.location.replace('settings.php');
+                }, 5000); 
+                // Change the delay time as needed (in milliseconds)
+              });
+            </script>
+    ";
+    
+            } else{
+                $query = "UPDATE donor_info SET donorname=$1,donordob=$2,donorgender=$3,donorbloodgrp=$4,donormobile=$5,donoremail=$6,donorpincode=$7,donorstate=$8,donordistrict=$9,donoraddress=$10,donoraltno=$11";
+                $result2 = pg_query_params($db_connect, $query, array($newDonorName,$newDonorDob,$newDonorGender,$newDonorBloodGrp,$newDonorMobile,$newDonorEmail,$newDonorpincode,$newDonorState,$newDonorDistrict,$newDonorAddress,$newDonorAltNo));
+                
+                    // update  the main data (e.g., store in database)
+                
+                        echo " <div class='container-top '>
+                        <div class='alert alert-success' role='alert' id='myAlert'>
+                        Updated successfully!
+                             </div>
+                             </div>
+                             <style>
+                             .container-top {
+                                 position: fixed;
+                                 top: 38px;
+                                 width: 100%;
+                                 padding: 20px;
+                                 text-align: center;
+                                 z-index: 1000; /* Ensure the container appears above other elements */
+                             }
+                         </style>
+                         <script>
+                         $(document).ready(function(){
+                            // Set a delay of 3 seconds (3000 milliseconds)
+                            setTimeout(function(){
+                              // Redirect to Signup.php
+                              window.location.replace('settings.php');
+                            }, 5000); 
+                            // Change the delay time as needed (in milliseconds)
+                          });
+                        </script>";
+            }
+  
+            } 
+          
+} else {
+    echo "Query failed.";
+
+
+//  Close the database connection
+pg_close($db_connect);
+}
 
 ?>
 
@@ -30,7 +155,8 @@ header("location:Login.php");
     crossorigin="anonymous"></script>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
         integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
     <link rel="stylesheet" href="SignUp.css">
     <title>Sign Up</title>
@@ -78,131 +204,132 @@ header("location:Login.php");
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"
         integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T"
         crossorigin="anonymous"></script>
-<title>Blood Collective Alliance</title>
+<title>Settings</title>
+<!-- Bootstrap CSS -->
 
-<form action="main.php" method="post">
-<div class="container d-flex justify-content-center align-items-center vh-100">
-    <div class="panel panel-danger">
-        <div class="panel-heading">Search Blood Stock</div>
-        <div class="panel-body">
+</head>
 
+<body>
+    <div class="container justify-content-center align-items-center vh-50">
 
-            <div class="row">
+        <form id="editForm" method="POST" action="settings.php" autocomplete="off" onchange="">
+            <div class="form-group">
+                <label for="name">Name:</label>
+                <input type="text" class="form-control" id="name" name="newDonorName" value=<?php echo $donorName; ?>>
             </div>
-            <div class="row">
-                <!-- <div class="col-xs-1" align="left"> -->
-                <!-- <h5>State: </h5> -->
-                <!-- </div>	 -->
-
-
-                <div class="col-mid-3">
-
-                <label for="inputState" autofocus required></label>
-                                        <select class="form-control" id="inputState" name="donorState" autofocus
-                                            required>
-                                            <option value="">Select State</option>
-                                            <option value="Andra Pradesh">Andra Pradesh</option>
-                                            <option value="Arunachal Pradesh">Arunachal Pradesh</option>
-                                            <option value="Assam">Assam</option>
-                                            <option value="Bihar">Bihar</option>
-                                            <option value="Chhattisgarh">Chhattisgarh</option>
-                                            <option value="Goa">Goa</option>
-                                            <option value="Gujarat">Gujarat</option>
-                                            <option value="Haryana">Haryana</option>
-                                            <option value="Himachal Pradesh">Himachal Pradesh</option>
-                                            <option value="Jammu and Kashmir">Jammu and Kashmir</option>
-                                            <option value="Jharkhand">Jharkhand</option>
-                                            <option value="Karnataka">Karnataka</option>
-                                            <option value="Kerala">Kerala</option>
-                                            <option value="Madya Pradesh">Madya Pradesh</option>
-                                            <option value="Maharashtra">Maharashtra</option>
-                                            <option value="Manipur">Manipur</option>
-                                            <option value="Meghalaya">Meghalaya</option>
-                                            <option value="Mizoram">Mizoram</option>
-                                            <option value="Nagaland">Nagaland</option>
-                                            <option value="Orissa">Orissa</option>
-                                            <option value="Punjab">Punjab</option>
-                                            <option value="Rajasthan">Rajasthan</option>
-                                            <option value="Sikkim">Sikkim</option>
-                                            <option value="Tamil Nadu">Tamil Nadu</option>
-                                            <option value="Telangana">Telangana</option>
-                                            <option value="Tripura">Tripura</option>
-                                            <option value="Uttaranchal">Uttaranchal</option>
-                                            <option value="Uttar Pradesh">Uttar Pradesh</option>
-                                            <option value="West Bengal">West Bengal</option>
-
-                                        </select>
-                </div>
-
-                <div class="col-mid-3 lineseparator mt-4">
-
-                    <label for="inputDistrict"></label>
-                    <select class="form-control" id="inputDistrict" name="donorDistrict" autofocus required>
-                        <option autofocus required value="">-- select one -- </option>
-                    </select>
-
-                </div>
-                <div class="col-mid-3 lineseparator">
-                    <label for="txtBbPincode" class="mb-2"></label>
-                    <font color="red">*</font>
-                    <input type="text" class="form-control" name="donorPincode" id="donorPincode" placeholder="Pin Code"
-                        maxlength="6" onkeypress="return validateNumeric(event)" autocomplete="off" autofocus required>
-                </div>
-
-                <!-- <div class="col-md-4 lineseparator">
-<input type="text" class="form-control" id="txtBbname" placeholder="Blood Bank or Hospital Name">
-</div>
- Uncomment this to enable search via BB Name-->
-
-                <!-- <div class="col-md-0"> -->
-                <!-- <div class="input-group">
-<input type="text" class="form-control" id="autocomplete" onFocus="geolocate()" placeholder="Location">
-<div class="input-group-append">
-   <span class="input-group-addon" > <button class='btn btn-danger' onclick="getLocation()"><i class="fa  fa-dot-circle-o danger-text"></i></button></span>
-  </div>
-</div> -->
-
-                <!-- <div class="input-group">
-<input type="text" class="form-control" id="autocomplete" onFocus="geolocate()" placeholder="Location">
-  <span style="margin: 0px;padding: 0px;" title="Search Nearby" class="input-group-addon" id="basic-addon2"> <button class='btn btn-danger' onclick="getLocation()"><i class="fa  fa-dot-circle-o danger-text"></i></button></span>
-</div> -->
-
-                <!-- </div> -->
-                <div class="col-mid-3 lineseparator">
-                    <label for="donorBloodGrp" autocomplete="off" autofocus required></label> 
-                    <font color="red">*</font>
-                    <select name="donorBloodGrp" class="form-control" id="donorBloodGrp"autocomplete="off" autofocus required>
-                        <option value="">Select Blood Group</option>
-                        <option value="AB-Ve">AB-Ve</option>
-                        <option value="AB+Ve">AB+Ve</option>
-                        <option value="A-Ve">A-Ve</option>
-                        <option value="A+Ve">A+Ve</option>
-                        <option value="B-Ve">B-Ve</option>
-                        <option value="B+Ve">B+Ve</option>
-                        <option value="Oh-Ve">Oh-VE</option>
-                        <option value="Oh+Ve">Oh+VE</option>
-                        <option value="O-Ve">O-Ve</option>
-                        <option value="O+Ve">O+Ve</option>
-                        <option value="all">All Blood Groups</option>
-                    </select>
-                </div>
-
-                <div class="row">
-                    <div class="col-md-12" align="center">
-                        <input type="submit" value="Search" class="btn btn-danger">
-                    </div>
-                </div>
-                <br>
-                <br>
-
+            <div class="form-group">
+                <label for="txtBbEmail">Email: </label>
+                <input type="email" name="newDonorEmail" maxlength="254" value="<?php echo $donorEmail; ?>"
+                    class="form-control" id="txtBbEmail" autocomplete="off" placeholder="e.g.: xyz@gmail.com">
             </div>
-        </div>
+            <div class="form-group">
+                <label for="selectDob">Date of Birth: </label>
+                <font color="red">*</font>
+                <input type="date" name="newDonorDob" maxlength="2" value="<?php echo $donorDob; ?>"
+                    onkeypress="return validateNumeric(event)" class="form-control" autocomplete="off">
+            </div>
+            <div class="form-group">
+                <label for="selectGender">Gender: </label>
+                <font color="red">*</font>
+                <select name="newDonorGender" class="form-control">
+                    <option value="<?php echo $donorGender; ?>"><?php echo $donorGender; ?></option>
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                    <option value="Other">Other</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="txtBbMobile">Mobile: </label>
+                <font color="red">*</font>
+                <input type="tel" class="form-control" name="newDonorMobile" id="txtBbMobile"
+                    placeholder="e.g.: 0125245628" maxlength="10" value="<?php echo $donorMobile; ?>"
+                    onkeypress="return validateNumeric(event)" pattern="[0-9]{10}" autocomplete="off">
+            </div>
+            <div class="form-group">
+                <label for="txtBbAltMobile">Alternative No: </label>
+                <input type="tel" name="newDonorAltNo" maxlength="10" value="<?php echo $donorAltNo; ?>"
+                    class="form-control" id="txtBbAltMobileNo" autocomplete="off" placeholder="535363778">
+            </div>
+            <div class="form-group">
+                <label for="donorBloodGrp">Blood Group:</label>
+                <font color="red">*</font>
+
+                <select name="newDonorBloodGrp" class="form-control" id="newDonorBloodGrp" placeholder="e.g.: A+">
+                    <option value="<?php echo $donorBloodGrp; ?>"><?php echo $donorBloodGrp; ?></option>
+                    <option value="AB-Ve">AB-Ve</option>
+                    <option value="AB+Ve">AB+Ve</option>
+                    <option value="A-Ve">A-Ve</option>
+                    <option value="A+Ve">A+Ve</option>
+                    <option value="B-Ve">B-Ve</option>
+                    <option value="B+Ve">B+Ve</option>
+                    <option value="Oh-Ve">Oh-VE</option>
+                    <option value="Oh+Ve">Oh+VE</option>
+                    <option value="O-Ve">O-Ve</option>
+                    <option value="O+Ve">O+Ve</option>
+
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="txtBbPincode" class="mb-2">PinCode: </label>
+                <font color="red">*</font>
+                <input type="text" class="form-control" name="newDonorpincode" id="txtBbPincode" placeholder="Pin Code"
+                    maxlength="6" value="<?php echo $donorpincode; ?>" onkeypress="return validateNumeric(event)"
+                    autocomplete="off">
+            </div>
+            <div class="form-group">
+                <label for="inputState" >State</label>
+                <select class="form-control" id="inputState" name="newDonorState" >
+                    <option value="<?php echo $donorState; ?>"><?php echo $donorState; ?></option>
+                    <option value="Andra Pradesh">Andra Pradesh</option>
+                    <option value="Arunachal Pradesh">Arunachal Pradesh</option>
+                    <option value="Assam">Assam</option>
+                    <option value="Bihar">Bihar</option>
+                    <option value="Chhattisgarh">Chhattisgarh</option>
+                    <option value="Goa">Goa</option>
+                    <option value="Gujarat">Gujarat</option>
+                    <option value="Haryana">Haryana</option>
+                    <option value="Himachal Pradesh">Himachal Pradesh</option>
+                    <option value="Jammu and Kashmir">Jammu and Kashmir</option>
+                    <option value="Jharkhand">Jharkhand</option>
+                    <option value="Karnataka">Karnataka</option>
+                    <option value="Kerala">Kerala</option>
+                    <option value="Madya Pradesh">Madya Pradesh</option>
+                    <option value="Maharashtra">Maharashtra</option>
+                    <option value="Manipur">Manipur</option>
+                    <option value="Meghalaya">Meghalaya</option>
+                    <option value="Mizoram">Mizoram</option>
+                    <option value="Nagaland">Nagaland</option>
+                    <option value="Orissa">Orissa</option>
+                    <option value="Punjab">Punjab</option>
+                    <option value="Rajasthan">Rajasthan</option>
+                    <option value="Sikkim">Sikkim</option>
+                    <option value="Tamil Nadu">Tamil Nadu</option>
+                    <option value="Telangana">Telangana</option>
+                    <option value="Tripura">Tripura</option>
+                    <option value="Uttaranchal">Uttaranchal</option>
+                    <option value="Uttar Pradesh">Uttar Pradesh</option>
+                    <option value="West Bengal">West Bengal</option>
+
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="inputDistrict">District</label>
+                <select class="form-control" id="inputDistrict" name="newDonorDistrict">
+                    <option value="<?php echo $donorDistrict; ?>"><?php echo $donorDistrict; ?></option>
+                </select>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Address:</label>
+                <textarea class="form-control" name="newDonorAddress" id="addrew" maxlength="100"
+                    value="<?php echo $donorAddress; ?>"><?php echo $donorAddress; ?></textarea>
+            </div>
+
+
+            <button type="submit" class="btn btn-primary">Update</button>
+        </form>
     </div>
-</div>
-
-</form>
-
-<script>
+    <script>
         var AndraPradesh = ["Anantapur", "Chittoor", "East Godavari", "Guntur", "Kadapa", "Krishna", "Kurnool", "Prakasam", "Nellore", "Srikakulam", "Visakhapatnam", "Vizianagaram", "West Godavari"];
         var ArunachalPradesh = ["Anjaw", "Changlang", "Dibang Valley", "East Kameng", "East Siang", "Kra Daadi", "Kurung Kumey", "Lohit", "Longding", "Lower Dibang Valley", "Lower Subansiri", "Namsai", "Papum Pare", "Siang", "Tawang", "Tirap", "Upper Siang", "Upper Subansiri", "West Kameng", "West Siang", "Itanagar"];
         var Assam = ["Baksa", "Barpeta", "Biswanath", "Bongaigaon", "Cachar", "Charaideo", "Chirang", "Darrang", "Dhemaji", "Dhubri", "Dibrugarh", "Goalpara", "Golaghat", "Hailakandi", "Hojai", "Jorhat", "Kamrup Metropolitan", "Kamrup (Rural)", "Karbi Anglong", "Karimganj", "Kokrajhar", "Lakhimpur", "Majuli", "Morigaon", "Nagaon", "Nalbari", "Dima Hasao", "Sivasagar", "Sonitpur", "South Salmara Mankachar", "Tinsukia", "Udalguri", "West Karbi Anglong"];
@@ -367,106 +494,12 @@ header("location:Login.php");
         });
     </script>
 
-<div class="container d-flex justify-content-center align-items-center vh-100">
-    <table class="table">
-        <thead>
-            <tr>
-                <th scope="col">#</th>
-                <th scope="col">Name</th>
-                <th scope="col">BloodGroup</th>
-                <th scope="col">Sate</th>
-                <th scope="col">District</th>
-                <th scope="col">Pincode</th>
-            </tr>
-        </thead>
 
-        <?php
-        include '_DB.php';
-        
-        if ($_SERVER["REQUEST_METHOD"] == "POST") {
-            // Retrieve form data
-            $donorState = $_POST["donorState"];
-            $donorBloodGrp = $_POST["donorBloodGrp"];
-            $donorDistrict= $_POST["donorDistrict"];  
-            $donorPincode= $_POST["donorPincode"];
-            $donorName= $_SESSION['donorName'];
-        
-            //  Construct SQL query based on selected input
-            $sql = "SELECT donorstate, donorname ,donorbloodgrp, donordistrict, donorpincode FROM donor_info WHERE donorstate = $1 AND donorbloodgrp = $2 AND donordistrict = $3 AND donorpincode = $4 AND donorname != $5";
-            $result = pg_query_params($db_connect, $sql, array($donorState, $donorBloodGrp, $donorDistrict, $donorPincode, $donorName));
-            if ($result) {
-                while ($row = pg_fetch_assoc($result)) {
-
-                    echo "<tbody>";
-                    echo "<tr>";
-                    echo "<th scope='row'></th>";
-                    echo "<td>" . $row["donorname"] . "</td>";
-                    echo "<td>" . $row["donorbloodgrp"] . "</td>";
-                    echo "<td>" . $row["donorstate"] . "</td>";
-                    echo "<td>" . $row["donordistrict"] . "</td>";
-                    echo "<td>" . $row["donorpincode"] . "</td>";
-                    echo "</tr>";
-                }
-                echo "</tbody>";
-            } else {
-                echo "Query failed.";
-            }
-        }
-        //  Close the database connection
-        pg_close($db_connect);
-        ?>
-
-
-    </table>
-</div>
-<!-- Replace YOUR_API_KEY with your actual Google Maps API key -->
-<script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY"></script>
-<style>
-    /* Set the size of the map container */
-    #map {
-        height: 400px;
-        width: 100%;
-    }
-</style>
-
-<body>
-    <h1>Dashboard</h1>
-    <!-- Map container -->
-    <div class="container d-flex justify-content-center align-items-center vh-100">
-        <!-- Your content goes here -->
-        <div id="map"></div>
-    </div>
-
-
-    <script>
-        // Initialize and display the map
-        function initMap() {
-            // Specify the coordinates where you want to center the map
-            var center = { lat: 40.7128, lng: -74.0060 }; // Example: New York City coordinates
-
-            // Create a new map object centered at the specified location
-            var map = new google.maps.Map(document.getElementById('map'), {
-                zoom: 12, // Adjust the zoom level as needed
-                center: center
-            });
-
-            // Optionally, you can add markers, shapes, or other features to the map here
-            // Example:
-            // var marker = new google.maps.Marker({
-            //     position: center,
-            //     map: map,
-            //     title: 'Marker Title'
-            // });
-        }
-    </script>
-
-    <!-- Call the initMap function after the Google Maps API has loaded -->
-    <script async defer src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap"></script>
 </body>
 
 </html>
 
 
-
-<?php include ("footer.php");
+<?php
+include 'footer.php';
 ?>
