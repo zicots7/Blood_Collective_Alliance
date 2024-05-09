@@ -1,0 +1,152 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+/* 
+* {
+  
+  box-sizing: border-box;
+  
+}  */
+
+body {
+
+  min-height: 100vh;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  display: flex;
+  z-index: -1;
+  justify-content: center;
+  align-items: center;
+  background: #ececec;
+  background-image: url('../HTML/beautiful-red-heart-shape.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+
+  position: relative;
+}
+.mainsec{
+  position: relative;
+  opacity: 0.8;     
+}
+
+.SPAN{
+  opacity: 6;
+}
+
+/*------------ Login container ------------*/
+
+.box-area {
+  width: 930px; /*930*/
+}
+
+/*------------ Right box ------------*/
+
+.right-box { /*40px 30px 40px 40px*/
+   padding: 40px 30px 40px 40px;
+} 
+/*------------ Text box Placeholder ------------ */
+
+::placeholder {
+  font-size: 17px;
+}
+
+ .rounded-4 {
+  border-radius: 15px; /*20px*/
+}
+
+.rounded-5 {
+  border-radius: 15px;
+}
+
+contact-info {
+  width: 50%;
+}
+
+.contact-info-item {
+  display: flex;
+  margin-bottom: 30px;
+}
+
+.contact-info-icon {
+  height: 70px;
+  width: 70px;
+  background-color: #ffffffa1;
+  text-align: center;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  justify-content: center; 
+  
+}
+
+.contact-info-icon i {
+  font-size: 40px;
+  line-height: 60px;
+}
+
+.fa, .fas {
+  font-weight: 100;
+}
+.contact-info-content {
+  margin-left: 25px;
+}
+
+.contact-info-content h4 {
+  color: #0004ffde;
+  font-size: 1.4em;
+  margin-bottom: 5px;
+}
+
+.contact-info-content p {
+  color: #fffafa;
+  font-size: 1em;
+}
+
+h2 {
+  font-weight: bold;
+  font-size: 2em;
+  margin-bottom: 16px;
+  color: #ff0000;
+}
+
+.input-box {
+  position: relative;
+  width: 100%;
+  margin-top: 5px;
+}
+
+.input-box input[type="submit"]
+{
+  width: 100%;
+  background: #eb142a;
+  color: #ffffff;
+  border: none;
+  cursor: pointer;
+  padding: 7px;
+  font-size: 18px;
+  border: 1px solid #00bcd4;
+  transition: 0.7s;
+}
+
+/*------------ For small screens------------*/
+
+@media only screen and (max-width: 768px) { /*768px*/
+
+  .box-area {
+      margin: 0 10px;
+
+  }
+
+  .left-box {
+      height: 100px;
+      overflow: hidden;
+  }
+
+  .right-box {
+      padding: 40px;
+ 
+  }
+ .container{
+margin-left: 500px;
+ }
+}
