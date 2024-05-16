@@ -102,24 +102,6 @@ header("location:Login.php");
                         maxlength="6" onkeypress="return validateNumeric(event)" autocomplete="off" autofocus required>
                 </div>
 
-                <!-- <div class="col-md-4 lineseparator">
-<input type="text" class="form-control" id="txtBbname" placeholder="Blood Bank or Hospital Name">
-</div>
- Uncomment this to enable search via BB Name-->
-
-                <!-- <div class="col-md-0"> -->
-                <!-- <div class="input-group">
-<input type="text" class="form-control" id="autocomplete" onFocus="geolocate()" placeholder="Location">
-<div class="input-group-append">
-   <span class="input-group-addon" > <button class='btn btn-danger' onclick="getLocation()"><i class="fa  fa-dot-circle-o danger-text"></i></button></span>
-  </div>
-</div> -->
-
-                <!-- <div class="input-group">
-<input type="text" class="form-control" id="autocomplete" onFocus="geolocate()" placeholder="Location">
-  <span style="margin: 0px;padding: 0px;" title="Search Nearby" class="input-group-addon" id="basic-addon2"> <button class='btn btn-danger' onclick="getLocation()"><i class="fa  fa-dot-circle-o danger-text"></i></button></span>
-</div> -->
-
                 <!-- </div> -->
                 <div class="col-mid-3 lineseparator">
                     <label for="donorBloodGrp" autocomplete="off" autofocus required></label> 
