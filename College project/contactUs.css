@@ -73,10 +73,6 @@ contact-info {
   background-color: #ffffffa1;
   text-align: center;
   border-radius: 50%;
-  display: grid;
-  place-items: center;
-  justify-content: center; 
-  
 }
 
 .contact-info-icon i {
@@ -84,9 +80,6 @@ contact-info {
   line-height: 60px;
 }
 
-.fa, .fas {
-  font-weight: 100;
-}
 .contact-info-content {
   margin-left: 25px;
 }
