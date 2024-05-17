@@ -13,7 +13,7 @@
     margin-bottom: 10px;
 }
 #ourservice {
-  background-color: #80e3e9;
+  background-color: #809ce9;
   border-left-style: solid;
   opacity: 0.5;
   padding-left: 20px;
@@ -84,10 +84,6 @@
     background-attachment: local;
     transition: all 30000ms;
 }
-
-/* .service-1:hover{       /*First Service Image Change
-    background-image: url(https://i.ibb.co/mykzQks/services1.jpg);
-} */
 
 .service-wrap:hover:before {
     background: rgba(0, 0, 0, 0.2901960784313726);

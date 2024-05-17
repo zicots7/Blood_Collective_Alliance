@@ -1,6 +1,16 @@
 <?php
 echo "
 <main role='main'>
+
+    <div class='bg-dark col  pb-4 pt-3 mt-5 px-md-5'>
+        <p style='color:white' class='text-center fw-bolder '>The Blood Collective Alliance is made to simplify the
+            procedure of blood donation .Our goal is to make sure anybody can donate and request for blood if
+            required.With observing every modern aspects and various approaches, Blood Collective Alliance is a
+            simple to use for everyone.
+            All the following components of the Blood Collective Alliance is reserved copyright is claimed .
+        </p>
+    </div>
+
     <div class='album py-5 bg-light'>
         <div class='container' style='padding-top: 50px;'>
 
@@ -72,3 +82,4 @@ echo "
 
 </main>
 ";
+?>
