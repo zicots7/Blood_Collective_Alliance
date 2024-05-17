@@ -76,10 +76,32 @@
             <form name="SignUP" method="post" action="Signup.php" autocomplete="off" onchange="">
                 <div class="container d-flex justify-content-center align-items-center min-vh-100">
                     <div class="container">
+                        <br />
                         <div class="card card-container"
                             style="padding: 20px; background: #ffffff; border: 2px; border-radius: 20px; ">
+                            <br>
                             <h2 class="text-danger" align="left">Donor Sign-Up</h2>
-                          
+                            <!-- 
+                        <div id="success" style="display: none;">
+                            Success Message Display Section
+                            <div class="row">
+                                <div class="col-sm-4"></div>
+                                <h4 class="text-danger">You have been successfully
+                                    registered</h4>
+                            </div> -->
+                            <!-- Success Message Display Section Ending here-->
+
+                            <!-- After Success, back to login page-->
+                            <!-- <div class="row">
+                                <div class="col-sm-5"></div>
+                                <div class="col-sm-4">
+                                    <button type="button" class="btn btn-danger" onclick="backTohome()">Click here
+                                        to Login</button>
+                                </div>
+                            </div> 
+                        </div> 
+                        <br>-->
+
                             <!--Dont change anything from here -->
                             <div id="enterDonorIdText" style="display: none;">
                                 <br>
