@@ -12,12 +12,8 @@ echo "
                             alt='Thumbnail [100%x225]' style='height: 225px; width: 100%; display: block;'
                             data-holder-rendered='true' src='M5320856.jpg'>
                         <div class='card-body'>
-                            <p class='card-text'><b>Every Drop a Beacon of Hope: Donate Blood, Power the Fight
-                                    Against Thalassemia</b></p><br>
-                            <p>Life depends on blood. Especially for those with thalassemia, it's a lifeline. Our
-                                website makes finding compatible donors a click away. Give hope, donate blood.
-                                Together, let's ensure no one faces thalassemia alone.
-                                Visit [website URL] and become a lifesaver today.</p>
+                            <p class='card-text text-center'><b>Every Drop a Beacon of Hope: Power the Fight Against Thalassemia</b></p><br>
+                            <p class='text-center'>Thalassemia, a condition critical for life, underscores the vital need for blood. Our website simplifies the search for compatible donors with just a click. Let's join hands to ensure those battling thalassemia never stand alone.</p>
 
                         </div>
                     </div>
@@ -29,14 +25,11 @@ echo "
                             alt='Thumbnail [100%x225]' style='height: 225px; width: 100%; display: block;'
                             data-holder-rendered='true' src='hematologyclinichero.jpg'>
                         <div class='card-body '>
-                            <p class='card-text text-center'><b>Every Drop Counts: Find a Hemophilia Hero Through
-                                    Our Website</b></p>
+                            <p class='card-text text-center'><b>Unlock the Power of Every Drop: Unveil Hemophilia Heroes on Our Website!</b></p>
                             <br>
-                            <p class='text-center'>Hemophilia's uphill battle. Prolonged bleeds. Race against time
-                                for the right blood.
-                                But finding that needle-in-a-haystack donor?
-                                Introducing Blood Collective Alliance: your beacon of hope.
-                                We connect patients with life-saving donors,faster matches.</p>
+                            <p class='text-center'>
+                            Hemophilia is a challenging journey, where time is crucial for the right blood. Finding donors can be like searching for a needle in a haystack. With Blood Collective Alliance, we connect patients and donors swiftly and efficiently.
+                            </p>
 
                         </div>
                     </div>
@@ -48,12 +41,13 @@ echo "
                             alt='Thumbnail [100%x225]' style='height: 225px; width: 100%; display: block;'
                             data-holder-rendered='true' src='Untitled.jpeg'>
                         <div class='card-body'>
-                            <p class='card-text'><b>Every Drop a Beacon of Hope: Donate Blood, Power the Fight
-                                    Against Leukemia</b></p><br>
-                            <p>Leukemia,a blood cancer,steals your body's defense warriors (white blood cells).Fight
-                                back!Find compatible donors instantly with[website name].It’s a vision that fuels
-                                all those who support Leukemia patient and healthcare advocacy.Be a hero,donate
-                                blood,save lives.</p>
+                            <p class='card-text text-center'>
+                            <b>Every Drop a Beacon of Hope: Donate Blood, Power the Fight Against Leukemia</b>
+                            </p><br>
+                            <p class='text-center'>
+                            Leukemia, a blood cancer, steals your body's defense warriors (white blood cells). <br> Fight back! Find compatible donors instantly with . It’s a vision that fuels all those who support Leukemia patient and healthcare advocacy.
+                        </p>
+                        
                             <div class='d-flex justify-content-between align-items-center'>
                                 <div class='btn-group'>
 
