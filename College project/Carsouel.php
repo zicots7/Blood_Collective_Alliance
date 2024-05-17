@@ -1,20 +1,11 @@
-<!-- <!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1"> -->
-    
-  <!-- </head>
-  <body class="p-3 m-0 border-0 bd-example m-0 border-0"> -->
 
-    <!-- Example Code -->
     
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://getbootstrap.com/docs/5.3/assets/css/docs.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
     <?php
-    echo" <div class='bg-dark col  pb-4 pt-3 mt-5 px-md-5'>
+    echo" <div class='bg-dark col  pb-4 pt-3  px-md-5'>   <!--mt-5-->
     <p style='color:white' class='text-center fw-bolder'>The Blood Collective Alliance is made to simplify the
         procedure of blood donation .Our goal is to make sure anybody can donate and request for blood if
         required.With observing every modern aspects and various approaches, Blood Collective Alliance is a
@@ -44,5 +35,3 @@
       </button>
     </div>';
     ?>
-  <!-- </body>
-</html> -->

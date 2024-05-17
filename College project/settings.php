@@ -6,7 +6,7 @@ include '_nav.php'
 include '_DB.php';
 
 $donorEmail = $_SESSION['donorEmail'];
-$sql = "SELECT donorname,donordob,donorgender,donorbloodgrp,donormobile,donoremail,donorpincode,donorstate,donordistrict,donoraddress,donoraltno FROM donor_info WHERE donoremail = $1";
+$sql = "SELECT donorname,donordob,donorgender,donorbloodgrp,donormobile,donorEmail,donorpincode,donorstate,donordistrict,donoraddress,donoraltno FROM donor_info WHERE donorEmail = $1";
 $result = pg_query_params($db_connect, $sql, array($donorEmail));
 //fetching data from database using session 
 
