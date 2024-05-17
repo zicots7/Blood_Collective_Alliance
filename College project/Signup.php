@@ -76,32 +76,10 @@
             <form name="SignUP" method="post" action="Signup.php" autocomplete="off" onchange="">
                 <div class="container d-flex justify-content-center align-items-center min-vh-100">
                     <div class="container">
-                        <br />
                         <div class="card card-container"
                             style="padding: 20px; background: #ffffff; border: 2px; border-radius: 20px; ">
-                            <br>
                             <h2 class="text-danger" align="left">Donor Sign-Up</h2>
-                            <!-- 
-                        <div id="success" style="display: none;">
-                            Success Message Display Section
-                            <div class="row">
-                                <div class="col-sm-4"></div>
-                                <h4 class="text-danger">You have been successfully
-                                    registered</h4>
-                            </div> -->
-                            <!-- Success Message Display Section Ending here-->
-
-                            <!-- After Success, back to login page-->
-                            <!-- <div class="row">
-                                <div class="col-sm-5"></div>
-                                <div class="col-sm-4">
-                                    <button type="button" class="btn btn-danger" onclick="backTohome()">Click here
-                                        to Login</button>
-                                </div>
-                            </div> 
-                        </div> 
-                        <br>-->
-
+                          
                             <!--Dont change anything from here -->
                             <div id="enterDonorIdText" style="display: none;">
                                 <br>
@@ -492,14 +470,15 @@
 
             }
             // Query database to check if account already exists
-            $query = "SELECT *FROM donor_info WHERE donormobile = $1 OR donoremail = $2";
-            $param = array($donorMobile,$donorEmail);
-            $result = pg_query_params($db_connect, $query, $param);
-        
-            if (pg_num_rows($result) > 0) {
+            $ifExt_query = "SELECT COUNT(*) FROM donor_info WHERE donorEmail = $1";
+            $param = array($donorEmail);
+            $result = pg_query_params($db_connect, $ifExt_query, $param);
+            $row = pg_fetch_row($result);
+            $count = intval($row[0]);
+            if ($count > 0) {
                 echo " <div class='container-top '>
                 <div class='alert alert-warning' role='alert' id='myAlert'>
-                An account with this account address already exists, try different phone No and Email.
+                An account with this email address already exists.
                  </div>
                  </div>
                  <style>
@@ -512,7 +491,9 @@
                      z-index: 1000; /* Ensure the container appears above other elements */
                  }
              </style>";
-            
+                $login_signal = true;
+                $signup_signal = false;
+                $logout_signal = false;
             } else {
 
                 // Process form data (e.g., store in database)
@@ -566,7 +547,8 @@
                 } else {
                     // Close the database connection
                     pg_close($db_connect);
-                    
+                    $login_signal = true;
+                    $signup_signal = false;
                     // Redirect to the login page
     
 

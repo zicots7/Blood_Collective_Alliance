@@ -1,6 +1,7 @@
-
+<?php include "_nav.php";
+?>
 <?php
-include "_nav.php";
+
 if(!isset($_SESSION['LoggedIn'])||$_SESSION['LoggedIn']!=true){
 header("location:Login.php");
 
@@ -30,54 +31,7 @@ header("location:Login.php");
     crossorigin="anonymous"></script>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
-        integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
-    <link rel="stylesheet" href="SignUp.css">
-    <title>Sign Up</title>
-    <link href="/HIS/hisglobal/bootstrap5/bootstrap-5.0.2-dist/css/bootstrap.min.css" rel="stylesheet">
-    <script src="../hisglobal/bbpublic/assets/custom/portalBBpublic.js" type="text/javascript"></script>
-    <link href="../hisglobal/bbpublic/assets/elements/css/bootstrap.css" rel="stylesheet">
-    <link href="../hisglobal/bbpublic/assets/font-awesome/css/font-awesome.min.css" rel="stylesheet">
-
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-        crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
-        integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
-        crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"
-        integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T"
-        crossorigin="anonymous"></script>
-
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-        crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
-        integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
-        crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"
-        integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T"
-        crossorigin="anonymous"></script>
-
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-        crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
-        integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
-        crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"
-        integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T"
-        crossorigin="anonymous"></script>
-
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-        crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
-        integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
-        crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"
-        integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T"
-        crossorigin="anonymous"></script>
+    
 <title>Blood Collective Alliance</title>
 
 <form action="main.php" method="post">
@@ -134,7 +88,7 @@ header("location:Login.php");
                                         </select>
                 </div>
 
-                <div class="col-mid-3 lineseparator mt-4">
+                <div class="col-mid-3 lineseparator">
 
                     <label for="inputDistrict"></label>
                     <select class="form-control" id="inputDistrict" name="donorDistrict" autofocus required>
@@ -148,24 +102,6 @@ header("location:Login.php");
                     <input type="text" class="form-control" name="donorPincode" id="donorPincode" placeholder="Pin Code"
                         maxlength="6" onkeypress="return validateNumeric(event)" autocomplete="off" autofocus required>
                 </div>
-
-                <!-- <div class="col-md-4 lineseparator">
-<input type="text" class="form-control" id="txtBbname" placeholder="Blood Bank or Hospital Name">
-</div>
- Uncomment this to enable search via BB Name-->
-
-                <!-- <div class="col-md-0"> -->
-                <!-- <div class="input-group">
-<input type="text" class="form-control" id="autocomplete" onFocus="geolocate()" placeholder="Location">
-<div class="input-group-append">
-   <span class="input-group-addon" > <button class='btn btn-danger' onclick="getLocation()"><i class="fa  fa-dot-circle-o danger-text"></i></button></span>
-  </div>
-</div> -->
-
-                <!-- <div class="input-group">
-<input type="text" class="form-control" id="autocomplete" onFocus="geolocate()" placeholder="Location">
-  <span style="margin: 0px;padding: 0px;" title="Search Nearby" class="input-group-addon" id="basic-addon2"> <button class='btn btn-danger' onclick="getLocation()"><i class="fa  fa-dot-circle-o danger-text"></i></button></span>
-</div> -->
 
                 <!-- </div> -->
                 <div class="col-mid-3 lineseparator">
@@ -387,13 +323,12 @@ header("location:Login.php");
             // Retrieve form data
             $donorState = $_POST["donorState"];
             $donorBloodGrp = $_POST["donorBloodGrp"];
-            $donorDistrict= $_POST["donorDistrict"];  
+            $donorDistrict= $_POST["donorDistrict"];    
             $donorPincode= $_POST["donorPincode"];
-            $donorName= $_SESSION['donorName'];
         
             //  Construct SQL query based on selected input
-            $sql = "SELECT donorstate, donorname ,donorbloodgrp, donordistrict, donorpincode FROM donor_info WHERE donorstate = $1 AND donorbloodgrp = $2 AND donordistrict = $3 AND donorpincode = $4 AND donorname != $5";
-            $result = pg_query_params($db_connect, $sql, array($donorState, $donorBloodGrp, $donorDistrict, $donorPincode, $donorName));
+            $sql = "SELECT donorstate, donorname ,donorbloodgrp, donordistrict, donorpincode FROM donor_info WHERE donorstate = $1 AND donorbloodgrp = $2 AND donordistrict = $3 AND donorpincode = $4";
+            $result = pg_query_params($db_connect, $sql, array($donorState, $donorBloodGrp, $donorDistrict, $donorPincode));
             if ($result) {
                 while ($row = pg_fetch_assoc($result)) {
 
