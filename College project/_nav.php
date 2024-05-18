@@ -6,7 +6,7 @@ $LoggedIn=true;
 }else{
   $LoggedIn=false;
 }
-echo'<nav class="navbar navbar-dark navbar-expand-lg bg-body-tertiary mt-0 py-0 "> 
+echo'<nav class="navbar navbar-dark navbar-expand-lg bg-body-tertiary mt-0 py-0"> 
 <!-- fixed-top -->
 <div class="container-fluid bg-danger " >
   <a class="navbar-brand fs-3" href="main.php">Blood Collective Alliance</a>
@@ -52,7 +52,6 @@ echo'
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-
 <?php
 // require'Login.php';
 ?>
