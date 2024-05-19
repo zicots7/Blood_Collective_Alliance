@@ -74,12 +74,24 @@
     <div class="mainsec">
         <span class="SPAN">
             <form name="SignUP" method="post" action="Signup.php" autocomplete="off" onchange="">
-                <div class="container d-flex justify-content-center align-items-center min-vh-100">
+                <div class="container mt-4 mb-4 d-flex justify-content-center align-items-center min-vh-100">
                     <div class="container">
                         <div class="card card-container"
                             style="padding: 20px; background: #ffffff; border: 2px; border-radius: 20px; ">
                             <h2 class="text-danger" align="left">Donor Sign-Up</h2>
-                          
+                            <div class="form-group">
+                        <div class="d-flex justify-content-center mb-4">
+                            <img id="selectedAvatar" src="avtarUploadPic.png" class="rounded-circle"
+                                style="width: 200px; height: 200px; object-fit: cover;" alt="Profile Picture Upload" />
+                        </div>
+                        <div class="d-flex justify-content-center">
+                            <div data-mdb-ripple-init class="btn btn-primary btn-rounded">
+                                <label class="form-label text-white m-1" for="customFile2">Choose file</label>
+                                <input type="file" class="form-control d-none" id="customFile2"
+                                    onchange="displaySelectedImage(event, 'selectedAvatar')" />
+                            </div>
+                        </div>
+                    </div><br>
                             <!--Dont change anything from here -->
                             <div id="enterDonorIdText" style="display: none;">
                                 <br>
