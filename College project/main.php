@@ -38,7 +38,7 @@ header("location:Login.php");
     <div class="container justify-content-center align-items-center style=" padding: 40px; border: 2px; border-radius:
         20px;">
         <div class="panel panel-danger"><br><br>
-            <h4 class="text-danger" align="center">Nearest Donor Finder</h4><br>
+            <h4 class="text-danger" align="center">Nearby Donor Finder</h4><br>
             <div class="panel-body">
                 <div class="table-responsive">
                 <table class="table table-bordered table-hover">
@@ -480,7 +480,7 @@ $("#inputState").change(function() {
 </style>
 
 <body>
-    <h1>Dashboard</h1>
+    <h1 class="text-danger">Interactive Map</h1>
     <!-- Map container -->
     <div class="container flex justify-content-center align-items-center">
         <!-- Your content goes here -->
