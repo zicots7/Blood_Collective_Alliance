@@ -31,6 +31,10 @@ header("location:Login.php");
 </script>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+ 
+<link rel="stylesheet" href="bodyback.css">
+
+
 
 <title>Blood Collective Alliance</title>
 
@@ -41,99 +45,100 @@ header("location:Login.php");
             <h4 class="text-danger" align="center">Nearby Donor Finder</h4><br>
             <div class="panel-body">
                 <div class="table-responsive">
-                <table class="table table-bordered table-hover">
-                    <thead>
-                        <tr class="table-danger">
-                            <th scope="col">State</th>
-                            <th scope="col">District</th>
-                            <th scope="col">Pin Code</th>
-                            <th scope="col">Blood Group</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>
-                                <label for="inputState" autofocus required></label>
-                                <select class="form-control" id="inputState" name="donorState" autofocus required>
-                                    <option value="">Select State</option>
-                                    <option value="Andra Pradesh">Andra Pradesh</option>
-                                    <option value="Arunachal Pradesh">Arunachal Pradesh</option>
-                                    <option value="Assam">Assam</option>
-                                    <option value="Bihar">Bihar</option>
-                                    <option value="Chhattisgarh">Chhattisgarh</option>
-                                    <option value="Goa">Goa</option>
-                                    <option value="Gujarat">Gujarat</option>
-                                    <option value="Haryana">Haryana</option>
-                                    <option value="Himachal Pradesh">Himachal Pradesh</option>
-                                    <option value="Jammu and Kashmir">Jammu and Kashmir</option>
-                                    <option value="Jharkhand">Jharkhand</option>
-                                    <option value="Karnataka">Karnataka</option>
-                                    <option value="Kerala">Kerala</option>
-                                    <option value="Madya Pradesh">Madya Pradesh</option>
-                                    <option value="Maharashtra">Maharashtra</option>
-                                    <option value="Manipur">Manipur</option>
-                                    <option value="Meghalaya">Meghalaya</option>
-                                    <option value="Mizoram">Mizoram</option>
-                                    <option value="Nagaland">Nagaland</option>
-                                    <option value="Orissa">Orissa</option>
-                                    <option value="Punjab">Punjab</option>
-                                    <option value="Rajasthan">Rajasthan</option>
-                                    <option value="Sikkim">Sikkim</option>
-                                    <option value="Tamil Nadu">Tamil Nadu</option>
-                                    <option value="Telangana">Telangana</option>
-                                    <option value="Tripura">Tripura</option>
-                                    <option value="Uttaranchal">Uttaranchal</option>
-                                    <option value="Uttar Pradesh">Uttar Pradesh</option>
-                                    <option value="West Bengal">West Bengal</option>
+                    <table class="table table-bordered table-hover">
+                        <thead>
+                            <tr class="table-danger">
+                                <th scope="col">State</th>
+                                <th scope="col">District</th>
+                                <th scope="col">Pin Code</th>
+                                <th scope="col">Blood Group</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <label for="inputState" autofocus required></label>
+                                    <select class="form-control" id="inputState" name="donorState" autofocus required>
+                                        <option value="">Select State</option>
+                                        <option value="Andra Pradesh">Andra Pradesh</option>
+                                        <option value="Arunachal Pradesh">Arunachal Pradesh</option>
+                                        <option value="Assam">Assam</option>
+                                        <option value="Bihar">Bihar</option>
+                                        <option value="Chhattisgarh">Chhattisgarh</option>
+                                        <option value="Goa">Goa</option>
+                                        <option value="Gujarat">Gujarat</option>
+                                        <option value="Haryana">Haryana</option>
+                                        <option value="Himachal Pradesh">Himachal Pradesh</option>
+                                        <option value="Jammu and Kashmir">Jammu and Kashmir</option>
+                                        <option value="Jharkhand">Jharkhand</option>
+                                        <option value="Karnataka">Karnataka</option>
+                                        <option value="Kerala">Kerala</option>
+                                        <option value="Madya Pradesh">Madya Pradesh</option>
+                                        <option value="Maharashtra">Maharashtra</option>
+                                        <option value="Manipur">Manipur</option>
+                                        <option value="Meghalaya">Meghalaya</option>
+                                        <option value="Mizoram">Mizoram</option>
+                                        <option value="Nagaland">Nagaland</option>
+                                        <option value="Orissa">Orissa</option>
+                                        <option value="Punjab">Punjab</option>
+                                        <option value="Rajasthan">Rajasthan</option>
+                                        <option value="Sikkim">Sikkim</option>
+                                        <option value="Tamil Nadu">Tamil Nadu</option>
+                                        <option value="Telangana">Telangana</option>
+                                        <option value="Tripura">Tripura</option>
+                                        <option value="Uttaranchal">Uttaranchal</option>
+                                        <option value="Uttar Pradesh">Uttar Pradesh</option>
+                                        <option value="West Bengal">West Bengal</option>
 
-                                </select>
-                            </td>
+                                    </select>
+                                </td>
 
-                            <td>
-                                <label for="inputDistrict"></label>
-                                <select class="form-control" id="inputDistrict" name="donorDistrict" autofocus required>
-                                    <option autofocus required value="">Select City</option>
-                                </select>
-                            </td>
+                                <td>
+                                    <label for="inputDistrict"></label>
+                                    <select class="form-control" id="inputDistrict" name="donorDistrict" autofocus
+                                        required>
+                                        <option autofocus required value="">Select City</option>
+                                    </select>
+                                </td>
 
-                            <td>
-                                <label for="txtBbPincode"></label>
-                                <input type="text" class="form-control" name="donorPincode" id="donorPincode"
-                                    placeholder="Pin Code" maxlength="6" onkeypress="return validateNumeric(event)"
-                                    autocomplete="off" autofocus required>
-                            </td>
+                                <td>
+                                    <label for="txtBbPincode"></label>
+                                    <input type="text" class="form-control" name="donorPincode" id="donorPincode"
+                                        placeholder="Pin Code" maxlength="6" onkeypress="return validateNumeric(event)"
+                                        autocomplete="off" autofocus required>
+                                </td>
 
-                            <td>
-                                <label for="donorBloodGrp" autocomplete="off" autofocus required></label>
-                                <select name="donorBloodGrp" class="form-control" id="donorBloodGrp" autocomplete="off"
-                                    autofocus required>
-                                    <option value="">Select Blood Group</option>
-                                    <option value="AB-Ve">AB-Ve</option>
-                                    <option value="AB+Ve">AB+Ve</option>
-                                    <option value="A-Ve">A-Ve</option>
-                                    <option value="A+Ve">A+Ve</option>
-                                    <option value="B-Ve">B-Ve</option>
-                                    <option value="B+Ve">B+Ve</option>
-                                    <option value="Oh-Ve">Oh-VE</option>
-                                    <option value="Oh+Ve">Oh+VE</option>
-                                    <option value="O-Ve">O-Ve</option>
-                                    <option value="O+Ve">O+Ve</option>
-                                    <option value="all">All Blood Groups</option>
-                                </select>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
+                                <td>
+                                    <label for="donorBloodGrp" autocomplete="off" autofocus required></label>
+                                    <select name="donorBloodGrp" class="form-control" id="donorBloodGrp"
+                                        autocomplete="off" autofocus required>
+                                        <option value="">Select Blood Group</option>
+                                        <option value="AB-Ve">AB-Ve</option>
+                                        <option value="AB+Ve">AB+Ve</option>
+                                        <option value="A-Ve">A-Ve</option>
+                                        <option value="A+Ve">A+Ve</option>
+                                        <option value="B-Ve">B-Ve</option>
+                                        <option value="B+Ve">B+Ve</option>
+                                        <option value="Oh-Ve">Oh-VE</option>
+                                        <option value="Oh+Ve">Oh+VE</option>
+                                        <option value="O-Ve">O-Ve</option>
+                                        <option value="O+Ve">O+Ve</option>
+                                        <option value="all">All Blood Groups</option>
+                                    </select>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
 
-                <br>
+                    <br>
 
-                <div class="row">
-                    <div class="col-md-12" align="center">
-                        <input type="submit" value="Search" class="btn btn-danger">
-                        <br>
-                        <br>
+                    <div class="row">
+                        <div class="col-md-12" align="center">
+                            <input type="submit" value="Search" class="btn btn-danger">
+                            <br>
+                            <br>
+                        </div>
                     </div>
-                </div>
                 </div>
             </div>
         </div>
@@ -459,24 +464,38 @@ $("#inputState").change(function() {
         </table>
     </div>
 </div>
-<!-- Replace YOUR_API_KEY with your actual Google Maps API key -->
-<script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY"></script>
 <style>
-    h1 {
-      text-align: center; /* Center align the heading */
-      margin: 2rem 0; /* Add some margin for spacing */
-      font-size: 2rem; /* Adjust font size as needed */
-    }
+h1 {
+    text-align: center;
+    /* Center align the heading */
+    margin: 2rem 0;
+    /* Add some margin for spacing */
+    font-size: 2rem;
+    /* Adjust font size as needed */
+}
+.map {
+     padding-bottom: 50%;
+     position: relative;
+}
+
+.map iframe {
+     height: 100%;
+     width: 100%;
+     left: 0;
+     top: 0;
+     position: absolute;
+}
 /* Set the size of the map container */
 #map {
     flex: 1;
     height: 100%;
     width: 100%;
 }
- /* Style for the container */
- .container {
-      flex-direction: column;
-    }
+
+/* Style for the container */
+.container {
+    flex-direction: column;
+}
 </style>
 
 <body>
@@ -484,7 +503,9 @@ $("#inputState").change(function() {
     <!-- Map container -->
     <div class="container flex justify-content-center align-items-center">
         <!-- Your content goes here -->
-        <div id="map"></div>
+        <div class="map">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3721955.0392164867!2d85.20880019274185!3d24.356184555163747!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39fa16ff1397e887%3A0x71543a3dc3e7a20a!2sWest%20Bengal!5e0!3m2!1sen!2sin!4v1716459283172!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
     </div><br>
 
 
@@ -492,29 +513,32 @@ $("#inputState").change(function() {
     // Initialize and display the map
     function initMap() {
         // Specify the coordinates where you want to center the map
-        var center = {
-            lat: 40.7128,
-            lng: -74.0060
-        }; // Example: New York City coordinates
-
+        // var center = {
+        //   lat: 40.7128,
+        //   lng: -74.0060
+        // }; // Example: New York City coordinates
+        var mapOptions = {
+            center: new google.maps.LatLng( 22.986757, 87.854976),
+            zoom: 12,
+            mapTypeId: google.maps.MapTypeId.HYBRID,
+            panControl: true,
+            zoomControl: true,
+            mapTypeControl: true,
+            scaleControl: true,
+            streetViewControl: true,
+            overviewMapControl: true,
+            rotateControl: true
+        }
         // Create a new map object centered at the specified location
-        var map = new google.maps.Map(document.getElementById('map'), {
-            zoom: 12, // Adjust the zoom level as needed
-            center: center
-        });
-
-        // Optionally, you can add markers, shapes, or other features to the map here
-        // Example:
-        // var marker = new google.maps.Marker({
-        //     position: center,
-        //     map: map,
-        //     title: 'Marker Title'
-        // });
+        var map = new google.maps.Map(document.getElementById('map', mapOptions));
     }
     </script>
 
-    <!-- Call the initMap function after the Google Maps API has loaded -->
-    <script async defer src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap"></script>
+    <!-- // Call the initMap function after the Google Maps API has loaded -->
+    <!-- <script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBu-916DdpKAjTmJNIgngS6HL_kDIKU0aU&callback=initMap">
+    </script> -->
+
 </body>
 
 </html>

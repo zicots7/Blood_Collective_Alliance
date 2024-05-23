@@ -6,7 +6,7 @@ body {
     background-image:url('beautiful-red-heart-shape.jpg');
     background-repeat: no-repeat;
     background-size: cover;
-    /* z-index: -1; */
+    z-index: -1;
     /* margin: 0;
     padding: 0; */
     background-position: center;

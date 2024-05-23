@@ -9,7 +9,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <title>Blood Collective Alliance Contact Us</title>
     <?php include("_nav.php");
     ?>
@@ -32,44 +32,42 @@
                         <!--------------------------- Left Box ----------------------------->
                 
                         <div class="col-md-6 rounded-5 d-flex justify-content-center  align-items-justify flex-column left-box"
-                            style="background: #2ed452;">
+                            style="background: #ff5462;">
 
                             <div class="contact-info">
-
-                              <div class="contact-info-item">
-
-                                <div class="contact-info-icon">
-                                  <i class="fas fa-clock"></i>
-                                </div>
-              
-                                <div class="contact-info-content">
-                                  <h4>Address</h4>
-                                  <p>4671 Sugar Camp Road,<br /> Owatonna, Minnesota, <br />55060</p>
-                                </div>
+                            <div class="contact-info-item">
+                              <div class="contact-info-icon">
+                                <i class="fas fa-home" style= "font-weight: 900" aria-hidden="true"></i>
                               </div>
-              
-                              <div class="contact-info-item">
-                                <div class="contact-info-icon">
-                                  <i class="fa fa-phone"></i>
-                                </div>
-              
-                                <div class="contact-info-content">
-                                  <h4>Phone</h4>
-                                  <p>571-457-2321</p>
-                                </div>
-                              </div>
-              
-                              <div class="contact-info-item">
-                                <div class="contact-info-icon">
-                                  <i class="fa fa-envelope"></i>
-                                </div>
-              
-                                <div class="contact-info-content">
-                                  <h4>Email</h4>
-                                  <p>ntamerrwael@mfano.ga</p>
-                                </div>
+                              
+                              <div class="contact-info-content" >
+                                <h4>Address</h4>
+                                <p>4671 Sugar Camp Road,<br> Owatonna, Minnesota, <br>55060</p>
                               </div>
                             </div>
+                            
+                            <div class="contact-info-item">
+                              <div class="contact-info-icon">
+                                <i class="fas fa-phone" style= "font-weight: 900" aria-hidden="true"></i>
+                              </div>
+                              
+                              <div class="contact-info-content">
+                                <h4>Phone</h4>
+                                <p>571-457-2321</p>
+                              </div>
+                            </div>
+                            
+                            <div class="contact-info-item">
+                              <div class="contact-info-icon">
+                                <i class="fas fa-envelope" style= "font-weight: 900" aria-hidden="true"></i>
+                              </div>
+                              
+                              <div class="contact-info-content">
+                                <h4>Email</h4>
+                               <p>ntamerrwael@mfano.ga</p>
+                              </div>
+                            </div>
+                          </div>
                         </div>
 
                         <!-------------------- ------ Right Box ---------------------------->

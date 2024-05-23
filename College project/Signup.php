@@ -18,80 +18,98 @@
     <link href="../hisglobal/bbpublic/assets/font-awesome/css/font-awesome.min.css" rel="stylesheet">
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-        crossorigin="anonymous"></script>
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
+    </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
-        integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
-        crossorigin="anonymous"></script>
+        integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous">
+    </script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"
-        integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T"
-        crossorigin="anonymous"></script>
+        integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous">
+    </script>
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-        crossorigin="anonymous"></script>
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
+    </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
-        integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
-        crossorigin="anonymous"></script>
+        integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous">
+    </script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"
-        integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T"
-        crossorigin="anonymous"></script>
+        integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous">
+    </script>
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-        crossorigin="anonymous"></script>
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
+    </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
-        integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
-        crossorigin="anonymous"></script>
+        integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous">
+    </script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"
-        integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T"
-        crossorigin="anonymous"></script>
+        integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous">
+    </script>
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-        crossorigin="anonymous"></script>
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
+    </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
-        integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
-        crossorigin="anonymous"></script>
+        integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous">
+    </script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"
-        integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T"
-        crossorigin="anonymous"></script>
+        integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous">
+    </script>
 </head>
 
 <body>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script>
-        $(document).ready(function () {
-            // Hide the alert after 8 seconds (8000 milliseconds)
-            setTimeout(function () {
-                $("#myAlert").alert('close');
-            }, 8000);
-        });
+    $(document).ready(function() {
+        // Hide the alert after 8 seconds (8000 milliseconds)
+        setTimeout(function() {
+            $("#myAlert").alert('close');
+        }, 8000);
+    });
     </script>
     <?php
     include "_nav.php";
     ?>
     <div class="mainsec">
         <span class="SPAN">
-            <form name="SignUP" method="post" action="Signup.php" autocomplete="off" onchange="">
+            <form name="SignUP" method="post" action="Signup.php" autocomplete="off" onchange=""
+                enctype="multipart/form-data">
                 <div class="container mt-4 mb-4 d-flex justify-content-center align-items-center min-vh-100">
                     <div class="container">
                         <div class="card card-container"
                             style="padding: 20px; background: #ffffff; border: 2px; border-radius: 20px; ">
                             <h2 class="text-danger" align="left">Donor Sign-Up</h2>
                             <div class="form-group">
-                        <div class="d-flex justify-content-center mb-4">
-                            <img id="selectedAvatar" src="avtarUploadPic.png" class="rounded-circle"
-                                style="width: 200px; height: 200px; object-fit: cover;" alt="Profile Picture Upload" />
-                        </div>
-                        <div class="d-flex justify-content-center">
-                            <div data-mdb-ripple-init class="btn btn-primary btn-rounded">
-                                <label class="form-label text-white m-1" for="customFile2">Choose file</label>
-                                <input type="file" class="form-control d-none" id="customFile2"
-                                    onchange="displaySelectedImage(event, 'selectedAvatar')" />
-                            </div>
-                        </div>
-                    </div><br>
+                                <div class="d-flex justify-content-center mb-4">
+                                    <img id="selectedAvatar" src="avtarUploadPic.png" class="rounded-circle"
+                                        style="width: 200px; height: 200px; object-fit: cover;"
+                                        alt="Profile Picture Upload" />
+                                </div>
+                                <div class="d-flex justify-content-center">
+                                    <div data-mdb-ripple-init class="btn btn-primary btn-rounded">
+                                        <label class="form-label text-white m-1" for="customFile2">Choose file</label>
+                                        <input type="file" class="form-control d-none" id="customFile2" name="donorPhoto"
+                                            onchange="displaySelectedImage(event, 'donorPhoto')" />
+                                        <script>
+                                        function displaySelectedImage(event, elementId) {
+                                            const selectedImage = document.getElementById(elementId);
+                                            const fileInput = event.target;
+
+                                            if (fileInput.files && fileInput.files[0]) {
+                                                const reader = new FileReader();
+
+                                                reader.onload = function(e) {
+                                                    selectedImage.src = e.target.result;
+                                                };
+
+                                                reader.readAsDataURL(fileInput.files[0]);
+                                            }
+                                        }
+                                        </script>
+                                    </div>
+                                </div>
+                            </div><br>
                             <!--Dont change anything from here -->
                             <div id="enterDonorIdText" style="display: none;">
                                 <br>
@@ -135,11 +153,10 @@
                                     <div class="col-sm-6">
                                         <label for="donorBloodGrp">Blood Group:</label>
                                         <font color="red">*</font>
-                                    
-                                        <select name="donorBloodGrp" 
-                                            class="form-control" id="donorBloodGrp"  placeholder="e.g.: A+" autofocus
-                                            required>
-                                            <option value="">Select Blood Group</option> 
+
+                                        <select name="donorBloodGrp" class="form-control" id="donorBloodGrp"
+                                            placeholder="e.g.: A+" autofocus required>
+                                            <option value="">Select Blood Group</option>
                                             <option value="AB-Ve">AB-Ve</option>
                                             <option value="AB+Ve">AB+Ve</option>
                                             <option value="A-Ve">A-Ve</option>
@@ -150,7 +167,7 @@
                                             <option value="Oh+Ve">Oh+VE</option>
                                             <option value="O-Ve">O-Ve</option>
                                             <option value="O+Ve">O+Ve</option>
-                                           
+
                                         </select>
                                     </div>
 
@@ -259,12 +276,6 @@
                                 </div>
                             </div>
                             <br>
-                            <!-- <div class="row" id="divsignup">
-                            <div class="col-xs-12" align="center">
-                                <button type="button" class="btn btn-danger" onclick="generateDonorOTP()"
-                                    onkeypress="if(event.keyCode==13) generateDonorOTP()">Sign
-                                    Up</button>
-                            </div> -->
                             <div class="row" id="divsignup">
                                 <div class="col-xs-12" align="center">
                                     <button input type="submit" class="btn btn-danger" value="Submit">Sign Up</button>
@@ -277,168 +288,268 @@
         </span>
     </div>
     <script>
-        var AndraPradesh = ["Anantapur", "Chittoor", "East Godavari", "Guntur", "Kadapa", "Krishna", "Kurnool", "Prakasam", "Nellore", "Srikakulam", "Visakhapatnam", "Vizianagaram", "West Godavari"];
-        var ArunachalPradesh = ["Anjaw", "Changlang", "Dibang Valley", "East Kameng", "East Siang", "Kra Daadi", "Kurung Kumey", "Lohit", "Longding", "Lower Dibang Valley", "Lower Subansiri", "Namsai", "Papum Pare", "Siang", "Tawang", "Tirap", "Upper Siang", "Upper Subansiri", "West Kameng", "West Siang", "Itanagar"];
-        var Assam = ["Baksa", "Barpeta", "Biswanath", "Bongaigaon", "Cachar", "Charaideo", "Chirang", "Darrang", "Dhemaji", "Dhubri", "Dibrugarh", "Goalpara", "Golaghat", "Hailakandi", "Hojai", "Jorhat", "Kamrup Metropolitan", "Kamrup (Rural)", "Karbi Anglong", "Karimganj", "Kokrajhar", "Lakhimpur", "Majuli", "Morigaon", "Nagaon", "Nalbari", "Dima Hasao", "Sivasagar", "Sonitpur", "South Salmara Mankachar", "Tinsukia", "Udalguri", "West Karbi Anglong"];
-        var Bihar = ["Araria", "Arwal", "Aurangabad", "Banka", "Begusarai", "Bhagalpur", "Bhojpur", "Buxar", "Darbhanga", "East Champaran", "Gaya", "Gopalganj", "Jamui", "Jehanabad", "Kaimur", "Katihar", "Khagaria", "Kishanganj", "Lakhisarai", "Madhepura", "Madhubani", "Munger", "Muzaffarpur", "Nalanda", "Nawada", "Patna", "Purnia", "Rohtas", "Saharsa", "Samastipur", "Saran", "Sheikhpura", "Sheohar", "Sitamarhi", "Siwan", "Supaul", "Vaishali", "West Champaran"];
-        var Chhattisgarh = ["Balod", "Baloda Bazar", "Balrampur", "Bastar", "Bemetara", "Bijapur", "Bilaspur", "Dantewada", "Dhamtari", "Durg", "Gariaband", "Janjgir Champa", "Jashpur", "Kabirdham", "Kanker", "Kondagaon", "Korba", "Koriya", "Mahasamund", "Mungeli", "Narayanpur", "Raigarh", "Raipur", "Rajnandgaon", "Sukma", "Surajpur", "Surguja"];
-        var Goa = ["North Goa", "South Goa"];
-        var Gujarat = ["Ahmedabad", "Amreli", "Anand", "Aravalli", "Banaskantha", "Bharuch", "Bhavnagar", "Botad", "Chhota Udaipur", "Dahod", "Dang", "Devbhoomi Dwarka", "Gandhinagar", "Gir Somnath", "Jamnagar", "Junagadh", "Kheda", "Kutch", "Mahisagar", "Mehsana", "Morbi", "Narmada", "Navsari", "Panchmahal", "Patan", "Porbandar", "Rajkot", "Sabarkantha", "Surat", "Surendranagar", "Tapi", "Vadodara", "Valsad"];
-        var Haryana = ["Ambala", "Bhiwani", "Charkhi Dadri", "Faridabad", "Fatehabad", "Gurugram", "Hisar", "Jhajjar", "Jind", "Kaithal", "Karnal", "Kurukshetra", "Mahendragarh", "Mewat", "Palwal", "Panchkula", "Panipat", "Rewari", "Rohtak", "Sirsa", "Sonipat", "Yamunanagar"];
-        var HimachalPradesh = ["Bilaspur", "Chamba", "Hamirpur", "Kangra", "Kinnaur", "Kullu", "Lahaul Spiti", "Mandi", "Shimla", "Sirmaur", "Solan", "Una"];
-        var JammuKashmir = ["Anantnag", "Bandipora", "Baramulla", "Budgam", "Doda", "Ganderbal", "Jammu", "Kargil", "Kathua", "Kishtwar", "Kulgam", "Kupwara", "Leh", "Poonch", "Pulwama", "Rajouri", "Ramban", "Reasi", "Samba", "Shopian", "Srinagar", "Udhampur"];
-        var Jharkhand = ["Bokaro", "Chatra", "Deoghar", "Dhanbad", "Dumka", "East Singhbhum", "Garhwa", "Giridih", "Godda", "Gumla", "Hazaribagh", "Jamtara", "Khunti", "Koderma", "Latehar", "Lohardaga", "Pakur", "Palamu", "Ramgarh", "Ranchi", "Sahebganj", "Seraikela Kharsawan", "Simdega", "West Singhbhum"];
-        var Karnataka = ["Bagalkot", "Bangalore Rural", "Bangalore Urban", "Belgaum", "Bellary", "Bidar", "Vijayapura", "Chamarajanagar", "Chikkaballapur", "Chikkamagaluru", "Chitradurga", "Dakshina Kannada", "Davanagere", "Dharwad", "Gadag", "Gulbarga", "Hassan", "Haveri", "Kodagu", "Kolar", "Koppal", "Mandya", "Mysore", "Raichur", "Ramanagara", "Shimoga", "Tumkur", "Udupi", "Uttara Kannada", "Yadgir"];
-        var Kerala = ["Alappuzha", "Ernakulam", "Idukki", "Kannur", "Kasaragod", "Kollam", "Kottayam", "Kozhikode", "Malappuram", "Palakkad", "Pathanamthitta", "Thiruvananthapuram", "Thrissur", "Wayanad"];
-        var MadhyaPradesh = ["Agar Malwa", "Alirajpur", "Anuppur", "Ashoknagar", "Balaghat", "Barwani", "Betul", "Bhind", "Bhopal", "Burhanpur", "Chhatarpur", "Chhindwara", "Damoh", "Datia", "Dewas", "Dhar", "Dindori", "Guna", "Gwalior", "Harda", "Hoshangabad", "Indore", "Jabalpur", "Jhabua", "Katni", "Khandwa", "Khargone", "Mandla", "Mandsaur", "Morena", "Narsinghpur", "Neemuch", "Panna", "Raisen", "Rajgarh", "Ratlam", "Rewa", "Sagar", "Satna",
-            "Sehore", "Seoni", "Shahdol", "Shajapur", "Sheopur", "Shivpuri", "Sidhi", "Singrauli", "Tikamgarh", "Ujjain", "Umaria", "Vidisha"];
-        var Maharashtra = ["Ahmednagar", "Akola", "Amravati", "Aurangabad", "Beed", "Bhandara", "Buldhana", "Chandrapur", "Dhule", "Gadchiroli", "Gondia", "Hingoli", "Jalgaon", "Jalna", "Kolhapur", "Latur", "Mumbai City", "Mumbai Suburban", "Nagpur", "Nanded", "Nandurbar", "Nashik", "Osmanabad", "Palghar", "Parbhani", "Pune", "Raigad", "Ratnagiri", "Sangli", "Satara", "Sindhudurg", "Solapur", "Thane", "Wardha", "Washim", "Yavatmal"];
-        var Manipur = ["Bishnupur", "Chandel", "Churachandpur", "Imphal East", "Imphal West", "Jiribam", "Kakching", "Kamjong", "Kangpokpi", "Noney", "Pherzawl", "Senapati", "Tamenglong", "Tengnoupal", "Thoubal", "Ukhrul"];
-        var Meghalaya = ["East Garo Hills", "East Jaintia Hills", "East Khasi Hills", "North Garo Hills", "Ri Bhoi", "South Garo Hills", "South West Garo Hills", "South West Khasi Hills", "West Garo Hills", "West Jaintia Hills", "West Khasi Hills"];
-        var Mizoram = ["Aizawl", "Champhai", "Kolasib", "Lawngtlai", "Lunglei", "Mamit", "Saiha", "Serchhip", "Aizawl", "Champhai", "Kolasib", "Lawngtlai", "Lunglei", "Mamit", "Saiha", "Serchhip"];
-        var Nagaland = ["Dimapur", "Kiphire", "Kohima", "Longleng", "Mokokchung", "Mon", "Peren", "Phek", "Tuensang", "Wokha", "Zunheboto"];
-        var Odisha = ["Angul", "Balangir", "Balasore", "Bargarh", "Bhadrak", "Boudh", "Cuttack", "Debagarh", "Dhenkanal", "Gajapati", "Ganjam", "Jagatsinghpur", "Jajpur", "Jharsuguda", "Kalahandi", "Kandhamal", "Kendrapara", "Kendujhar", "Khordha", "Koraput", "Malkangiri", "Mayurbhanj", "Nabarangpur", "Nayagarh", "Nuapada", "Puri", "Rayagada", "Sambalpur", "Subarnapur", "Sundergarh"];
-        var Punjab = ["Amritsar", "Barnala", "Bathinda", "Faridkot", "Fatehgarh Sahib", "Fazilka", "Firozpur", "Gurdaspur", "Hoshiarpur", "Jalandhar", "Kapurthala", "Ludhiana", "Mansa", "Moga", "Mohali", "Muktsar", "Pathankot", "Patiala", "Rupnagar", "Sangrur", "Shaheed Bhagat Singh Nagar", "Tarn Taran"];
-        var Rajasthan = ["Ajmer", "Alwar", "Banswara", "Baran", "Barmer", "Bharatpur", "Bhilwara", "Bikaner", "Bundi", "Chittorgarh", "Churu", "Dausa", "Dholpur", "Dungarpur", "Ganganagar", "Hanumangarh", "Jaipur", "Jaisalmer", "Jalore", "Jhalawar", "Jhunjhunu", "Jodhpur", "Karauli", "Kota", "Nagaur", "Pali", "Pratapgarh", "Rajsamand", "Sawai Madhopur", "Sikar", "Sirohi", "Tonk", "Udaipur"];
-        var Sikkim = ["East Sikkim", "North Sikkim", "South Sikkim", "West Sikkim"];
-        var TamilNadu = ["Ariyalur", "Chennai", "Coimbatore", "Cuddalore", "Dharmapuri", "Dindigul", "Erode", "Kanchipuram", "Kanyakumari", "Karur", "Krishnagiri", "Madurai", "Nagapattinam", "Namakkal", "Nilgiris", "Perambalur", "Pudukkottai", "Ramanathapuram", "Salem", "Sivaganga", "Thanjavur", "Theni", "Thoothukudi", "Tiruchirappalli", "Tirunelveli", "Tiruppur", "Tiruvallur", "Tiruvannamalai", "Tiruvarur", "Vellore", "Viluppuram", "Virudhunagar"];
-        var Telangana = ["Adilabad", "Bhadradri Kothagudem", "Hyderabad", "Jagtial", "Jangaon", "Jayashankar", "Jogulamba", "Kamareddy", "Karimnagar", "Khammam", "Komaram Bheem", "Mahabubabad", "Mahbubnagar", "Mancherial", "Medak", "Medchal", "Nagarkurnool", "Nalgonda", "Nirmal", "Nizamabad", "Peddapalli", "Rajanna Sircilla", "Ranga Reddy", "Sangareddy", "Siddipet", "Suryapet", "Vikarabad", "Wanaparthy", "Warangal Rural", "Warangal Urban", "Yadadri Bhuvanagiri"];
-        var Tripura = ["Dhalai", "Gomati", "Khowai", "North Tripura", "Sepahijala", "South Tripura", "Unakoti", "West Tripura"];
-        var UttarPradesh = ["Agra", "Aligarh", "Allahabad", "Ambedkar Nagar", "Amethi", "Amroha", "Auraiya", "Azamgarh", "Baghpat", "Bahraich", "Ballia", "Balrampur", "Banda", "Barabanki", "Bareilly", "Basti", "Bhadohi", "Bijnor", "Budaun", "Bulandshahr", "Chandauli", "Chitrakoot", "Deoria", "Etah", "Etawah", "Faizabad", "Farrukhabad", "Fatehpur", "Firozabad", "Gautam Buddha Nagar", "Ghaziabad", "Ghazipur", "Gonda", "Gorakhpur", "Hamirpur", "Hapur", "Hardoi", "Hathras", "Jalaun", "Jaunpur", "Jhansi", "Kannauj", "Kanpur Dehat", "Kanpur Nagar", "Kasganj", "Kaushambi", "Kheri", "Kushinagar", "Lalitpur", "Lucknow", "Maharajganj", "Mahoba", "Mainpuri", "Mathura", "Mau", "Meerut", "Mirzapur", "Moradabad", "Muzaffarnagar", "Pilibhit", "Pratapgarh", "Raebareli", "Rampur", "Saharanpur", "Sambhal", "Sant Kabir Nagar", "Shahjahanpur", "Shamli", "Shravasti", "Siddharthnagar", "Sitapur", "Sonbhadra", "Sultanpur", "Unnao", "Varanasi"];
-        var Uttarakhand = ["Almora", "Bageshwar", "Chamoli", "Champawat", "Dehradun", "Haridwar", "Nainital", "Pauri", "Pithoragarh", "Rudraprayag", "Tehri", "Udham Singh Nagar", "Uttarkashi"];
-        var WestBengal = ["Alipurduar", "Bankura", "Birbhum", "Cooch Behar", "Dakshin Dinajpur", "Darjeeling", "Hooghly", "Howrah", "Jalpaiguri", "Jhargram", "Kalimpong", "Kolkata", "Malda", "Murshidabad", "Nadia", "North 24 Parganas", "Paschim Bardhaman", "Paschim Medinipur", "Purba Bardhaman", "Purba Medinipur", "Purulia", "South 24 Parganas", "Uttar Dinajpur"];
-        var AndamanNicobar = ["Nicobar", "North Middle Andaman", "South Andaman"];
-        var Chandigarh = ["Chandigarh"];
-        var DadraHaveli = ["Dadra Nagar Haveli"];
-        var DamanDiu = ["Daman", "Diu"];
-        var Delhi = ["Central Delhi", "East Delhi", "New Delhi", "North Delhi", "North East Delhi", "North West Delhi", "Shahdara", "South Delhi", "South East Delhi", "South West Delhi", "West Delhi"];
-        var Lakshadweep = ["Lakshadweep"];
-        var Puducherry = ["Karaikal", "Mahe", "Puducherry", "Yanam"];
+    var AndraPradesh = ["Anantapur", "Chittoor", "East Godavari", "Guntur", "Kadapa", "Krishna", "Kurnool", "Prakasam",
+        "Nellore", "Srikakulam", "Visakhapatnam", "Vizianagaram", "West Godavari"
+    ];
+    var ArunachalPradesh = ["Anjaw", "Changlang", "Dibang Valley", "East Kameng", "East Siang", "Kra Daadi",
+        "Kurung Kumey", "Lohit", "Longding", "Lower Dibang Valley", "Lower Subansiri", "Namsai", "Papum Pare",
+        "Siang", "Tawang", "Tirap", "Upper Siang", "Upper Subansiri", "West Kameng", "West Siang", "Itanagar"
+    ];
+    var Assam = ["Baksa", "Barpeta", "Biswanath", "Bongaigaon", "Cachar", "Charaideo", "Chirang", "Darrang", "Dhemaji",
+        "Dhubri", "Dibrugarh", "Goalpara", "Golaghat", "Hailakandi", "Hojai", "Jorhat", "Kamrup Metropolitan",
+        "Kamrup (Rural)", "Karbi Anglong", "Karimganj", "Kokrajhar", "Lakhimpur", "Majuli", "Morigaon", "Nagaon",
+        "Nalbari", "Dima Hasao", "Sivasagar", "Sonitpur", "South Salmara Mankachar", "Tinsukia", "Udalguri",
+        "West Karbi Anglong"
+    ];
+    var Bihar = ["Araria", "Arwal", "Aurangabad", "Banka", "Begusarai", "Bhagalpur", "Bhojpur", "Buxar", "Darbhanga",
+        "East Champaran", "Gaya", "Gopalganj", "Jamui", "Jehanabad", "Kaimur", "Katihar", "Khagaria", "Kishanganj",
+        "Lakhisarai", "Madhepura", "Madhubani", "Munger", "Muzaffarpur", "Nalanda", "Nawada", "Patna", "Purnia",
+        "Rohtas", "Saharsa", "Samastipur", "Saran", "Sheikhpura", "Sheohar", "Sitamarhi", "Siwan", "Supaul",
+        "Vaishali", "West Champaran"
+    ];
+    var Chhattisgarh = ["Balod", "Baloda Bazar", "Balrampur", "Bastar", "Bemetara", "Bijapur", "Bilaspur", "Dantewada",
+        "Dhamtari", "Durg", "Gariaband", "Janjgir Champa", "Jashpur", "Kabirdham", "Kanker", "Kondagaon", "Korba",
+        "Koriya", "Mahasamund", "Mungeli", "Narayanpur", "Raigarh", "Raipur", "Rajnandgaon", "Sukma", "Surajpur",
+        "Surguja"
+    ];
+    var Goa = ["North Goa", "South Goa"];
+    var Gujarat = ["Ahmedabad", "Amreli", "Anand", "Aravalli", "Banaskantha", "Bharuch", "Bhavnagar", "Botad",
+        "Chhota Udaipur", "Dahod", "Dang", "Devbhoomi Dwarka", "Gandhinagar", "Gir Somnath", "Jamnagar", "Junagadh",
+        "Kheda", "Kutch", "Mahisagar", "Mehsana", "Morbi", "Narmada", "Navsari", "Panchmahal", "Patan", "Porbandar",
+        "Rajkot", "Sabarkantha", "Surat", "Surendranagar", "Tapi", "Vadodara", "Valsad"
+    ];
+    var Haryana = ["Ambala", "Bhiwani", "Charkhi Dadri", "Faridabad", "Fatehabad", "Gurugram", "Hisar", "Jhajjar",
+        "Jind", "Kaithal", "Karnal", "Kurukshetra", "Mahendragarh", "Mewat", "Palwal", "Panchkula", "Panipat",
+        "Rewari", "Rohtak", "Sirsa", "Sonipat", "Yamunanagar"
+    ];
+    var HimachalPradesh = ["Bilaspur", "Chamba", "Hamirpur", "Kangra", "Kinnaur", "Kullu", "Lahaul Spiti", "Mandi",
+        "Shimla", "Sirmaur", "Solan", "Una"
+    ];
+    var JammuKashmir = ["Anantnag", "Bandipora", "Baramulla", "Budgam", "Doda", "Ganderbal", "Jammu", "Kargil",
+        "Kathua", "Kishtwar", "Kulgam", "Kupwara", "Leh", "Poonch", "Pulwama", "Rajouri", "Ramban", "Reasi",
+        "Samba", "Shopian", "Srinagar", "Udhampur"
+    ];
+    var Jharkhand = ["Bokaro", "Chatra", "Deoghar", "Dhanbad", "Dumka", "East Singhbhum", "Garhwa", "Giridih", "Godda",
+        "Gumla", "Hazaribagh", "Jamtara", "Khunti", "Koderma", "Latehar", "Lohardaga", "Pakur", "Palamu", "Ramgarh",
+        "Ranchi", "Sahebganj", "Seraikela Kharsawan", "Simdega", "West Singhbhum"
+    ];
+    var Karnataka = ["Bagalkot", "Bangalore Rural", "Bangalore Urban", "Belgaum", "Bellary", "Bidar", "Vijayapura",
+        "Chamarajanagar", "Chikkaballapur", "Chikkamagaluru", "Chitradurga", "Dakshina Kannada", "Davanagere",
+        "Dharwad", "Gadag", "Gulbarga", "Hassan", "Haveri", "Kodagu", "Kolar", "Koppal", "Mandya", "Mysore",
+        "Raichur", "Ramanagara", "Shimoga", "Tumkur", "Udupi", "Uttara Kannada", "Yadgir"
+    ];
+    var Kerala = ["Alappuzha", "Ernakulam", "Idukki", "Kannur", "Kasaragod", "Kollam", "Kottayam", "Kozhikode",
+        "Malappuram", "Palakkad", "Pathanamthitta", "Thiruvananthapuram", "Thrissur", "Wayanad"
+    ];
+    var MadhyaPradesh = ["Agar Malwa", "Alirajpur", "Anuppur", "Ashoknagar", "Balaghat", "Barwani", "Betul", "Bhind",
+        "Bhopal", "Burhanpur", "Chhatarpur", "Chhindwara", "Damoh", "Datia", "Dewas", "Dhar", "Dindori", "Guna",
+        "Gwalior", "Harda", "Hoshangabad", "Indore", "Jabalpur", "Jhabua", "Katni", "Khandwa", "Khargone", "Mandla",
+        "Mandsaur", "Morena", "Narsinghpur", "Neemuch", "Panna", "Raisen", "Rajgarh", "Ratlam", "Rewa", "Sagar",
+        "Satna",
+        "Sehore", "Seoni", "Shahdol", "Shajapur", "Sheopur", "Shivpuri", "Sidhi", "Singrauli", "Tikamgarh",
+        "Ujjain", "Umaria", "Vidisha"
+    ];
+    var Maharashtra = ["Ahmednagar", "Akola", "Amravati", "Aurangabad", "Beed", "Bhandara", "Buldhana", "Chandrapur",
+        "Dhule", "Gadchiroli", "Gondia", "Hingoli", "Jalgaon", "Jalna", "Kolhapur", "Latur", "Mumbai City",
+        "Mumbai Suburban", "Nagpur", "Nanded", "Nandurbar", "Nashik", "Osmanabad", "Palghar", "Parbhani", "Pune",
+        "Raigad", "Ratnagiri", "Sangli", "Satara", "Sindhudurg", "Solapur", "Thane", "Wardha", "Washim", "Yavatmal"
+    ];
+    var Manipur = ["Bishnupur", "Chandel", "Churachandpur", "Imphal East", "Imphal West", "Jiribam", "Kakching",
+        "Kamjong", "Kangpokpi", "Noney", "Pherzawl", "Senapati", "Tamenglong", "Tengnoupal", "Thoubal", "Ukhrul"
+    ];
+    var Meghalaya = ["East Garo Hills", "East Jaintia Hills", "East Khasi Hills", "North Garo Hills", "Ri Bhoi",
+        "South Garo Hills", "South West Garo Hills", "South West Khasi Hills", "West Garo Hills",
+        "West Jaintia Hills", "West Khasi Hills"
+    ];
+    var Mizoram = ["Aizawl", "Champhai", "Kolasib", "Lawngtlai", "Lunglei", "Mamit", "Saiha", "Serchhip", "Aizawl",
+        "Champhai", "Kolasib", "Lawngtlai", "Lunglei", "Mamit", "Saiha", "Serchhip"
+    ];
+    var Nagaland = ["Dimapur", "Kiphire", "Kohima", "Longleng", "Mokokchung", "Mon", "Peren", "Phek", "Tuensang",
+        "Wokha", "Zunheboto"
+    ];
+    var Odisha = ["Angul", "Balangir", "Balasore", "Bargarh", "Bhadrak", "Boudh", "Cuttack", "Debagarh", "Dhenkanal",
+        "Gajapati", "Ganjam", "Jagatsinghpur", "Jajpur", "Jharsuguda", "Kalahandi", "Kandhamal", "Kendrapara",
+        "Kendujhar", "Khordha", "Koraput", "Malkangiri", "Mayurbhanj", "Nabarangpur", "Nayagarh", "Nuapada", "Puri",
+        "Rayagada", "Sambalpur", "Subarnapur", "Sundergarh"
+    ];
+    var Punjab = ["Amritsar", "Barnala", "Bathinda", "Faridkot", "Fatehgarh Sahib", "Fazilka", "Firozpur", "Gurdaspur",
+        "Hoshiarpur", "Jalandhar", "Kapurthala", "Ludhiana", "Mansa", "Moga", "Mohali", "Muktsar", "Pathankot",
+        "Patiala", "Rupnagar", "Sangrur", "Shaheed Bhagat Singh Nagar", "Tarn Taran"
+    ];
+    var Rajasthan = ["Ajmer", "Alwar", "Banswara", "Baran", "Barmer", "Bharatpur", "Bhilwara", "Bikaner", "Bundi",
+        "Chittorgarh", "Churu", "Dausa", "Dholpur", "Dungarpur", "Ganganagar", "Hanumangarh", "Jaipur", "Jaisalmer",
+        "Jalore", "Jhalawar", "Jhunjhunu", "Jodhpur", "Karauli", "Kota", "Nagaur", "Pali", "Pratapgarh",
+        "Rajsamand", "Sawai Madhopur", "Sikar", "Sirohi", "Tonk", "Udaipur"
+    ];
+    var Sikkim = ["East Sikkim", "North Sikkim", "South Sikkim", "West Sikkim"];
+    var TamilNadu = ["Ariyalur", "Chennai", "Coimbatore", "Cuddalore", "Dharmapuri", "Dindigul", "Erode", "Kanchipuram",
+        "Kanyakumari", "Karur", "Krishnagiri", "Madurai", "Nagapattinam", "Namakkal", "Nilgiris", "Perambalur",
+        "Pudukkottai", "Ramanathapuram", "Salem", "Sivaganga", "Thanjavur", "Theni", "Thoothukudi",
+        "Tiruchirappalli", "Tirunelveli", "Tiruppur", "Tiruvallur", "Tiruvannamalai", "Tiruvarur", "Vellore",
+        "Viluppuram", "Virudhunagar"
+    ];
+    var Telangana = ["Adilabad", "Bhadradri Kothagudem", "Hyderabad", "Jagtial", "Jangaon", "Jayashankar", "Jogulamba",
+        "Kamareddy", "Karimnagar", "Khammam", "Komaram Bheem", "Mahabubabad", "Mahbubnagar", "Mancherial", "Medak",
+        "Medchal", "Nagarkurnool", "Nalgonda", "Nirmal", "Nizamabad", "Peddapalli", "Rajanna Sircilla",
+        "Ranga Reddy", "Sangareddy", "Siddipet", "Suryapet", "Vikarabad", "Wanaparthy", "Warangal Rural",
+        "Warangal Urban", "Yadadri Bhuvanagiri"
+    ];
+    var Tripura = ["Dhalai", "Gomati", "Khowai", "North Tripura", "Sepahijala", "South Tripura", "Unakoti",
+        "West Tripura"
+    ];
+    var UttarPradesh = ["Agra", "Aligarh", "Allahabad", "Ambedkar Nagar", "Amethi", "Amroha", "Auraiya", "Azamgarh",
+        "Baghpat", "Bahraich", "Ballia", "Balrampur", "Banda", "Barabanki", "Bareilly", "Basti", "Bhadohi",
+        "Bijnor", "Budaun", "Bulandshahr", "Chandauli", "Chitrakoot", "Deoria", "Etah", "Etawah", "Faizabad",
+        "Farrukhabad", "Fatehpur", "Firozabad", "Gautam Buddha Nagar", "Ghaziabad", "Ghazipur", "Gonda",
+        "Gorakhpur", "Hamirpur", "Hapur", "Hardoi", "Hathras", "Jalaun", "Jaunpur", "Jhansi", "Kannauj",
+        "Kanpur Dehat", "Kanpur Nagar", "Kasganj", "Kaushambi", "Kheri", "Kushinagar", "Lalitpur", "Lucknow",
+        "Maharajganj", "Mahoba", "Mainpuri", "Mathura", "Mau", "Meerut", "Mirzapur", "Moradabad", "Muzaffarnagar",
+        "Pilibhit", "Pratapgarh", "Raebareli", "Rampur", "Saharanpur", "Sambhal", "Sant Kabir Nagar",
+        "Shahjahanpur", "Shamli", "Shravasti", "Siddharthnagar", "Sitapur", "Sonbhadra", "Sultanpur", "Unnao",
+        "Varanasi"
+    ];
+    var Uttarakhand = ["Almora", "Bageshwar", "Chamoli", "Champawat", "Dehradun", "Haridwar", "Nainital", "Pauri",
+        "Pithoragarh", "Rudraprayag", "Tehri", "Udham Singh Nagar", "Uttarkashi"
+    ];
+    var WestBengal = ["Alipurduar", "Bankura", "Birbhum", "Cooch Behar", "Dakshin Dinajpur", "Darjeeling", "Hooghly",
+        "Howrah", "Jalpaiguri", "Jhargram", "Kalimpong", "Kolkata", "Malda", "Murshidabad", "Nadia",
+        "North 24 Parganas", "Paschim Bardhaman", "Paschim Medinipur", "Purba Bardhaman", "Purba Medinipur",
+        "Purulia", "South 24 Parganas", "Uttar Dinajpur"
+    ];
+    var AndamanNicobar = ["Nicobar", "North Middle Andaman", "South Andaman"];
+    var Chandigarh = ["Chandigarh"];
+    var DadraHaveli = ["Dadra Nagar Haveli"];
+    var DamanDiu = ["Daman", "Diu"];
+    var Delhi = ["Central Delhi", "East Delhi", "New Delhi", "North Delhi", "North East Delhi", "North West Delhi",
+        "Shahdara", "South Delhi", "South East Delhi", "South West Delhi", "West Delhi"
+    ];
+    var Lakshadweep = ["Lakshadweep"];
+    var Puducherry = ["Karaikal", "Mahe", "Puducherry", "Yanam"];
 
 
-        $("#inputState").change(function () {
-            var StateSelected = $(this).val();
-            var optionsList;
-            var htmlString = "";
+    $("#inputState").change(function() {
+        var StateSelected = $(this).val();
+        var optionsList;
+        var htmlString = "";
 
-            switch (StateSelected) {
-                case "Andra Pradesh":
-                    optionsList = AndraPradesh;
-                    break;
-                case "Arunachal Pradesh":
-                    optionsList = ArunachalPradesh;
-                    break;
-                case "Assam":
-                    optionsList = Assam;
-                    break;
-                case "Bihar":
-                    optionsList = Bihar;
-                    break;
-                case "Chhattisgarh":
-                    optionsList = Chhattisgarh;
-                    break;
-                case "Goa":
-                    optionsList = Goa;
-                    break;
-                case "Gujarat":
-                    optionsList = Gujarat;
-                    break;
-                case "Haryana":
-                    optionsList = Haryana;
-                    break;
-                case "Himachal Pradesh":
-                    optionsList = HimachalPradesh;
-                    break;
-                case "Jammu and Kashmir":
-                    optionsList = JammuKashmir;
-                    break;
-                case "Jharkhand":
-                    optionsList = Jharkhand;
-                    break;
-                case "Karnataka":
-                    optionsList = Karnataka;
-                    break;
-                case "Kerala":
-                    optionsList = Kerala;
-                    break;
-                case "Madya Pradesh":
-                    optionsList = MadhyaPradesh;
-                    break;
-                case "Maharashtra":
-                    optionsList = Maharashtra;
-                    break;
-                case "Manipur":
-                    optionsList = Manipur;
-                    break;
-                case "Meghalaya":
-                    optionsList = Meghalaya;
-                    break;
-                case "Mizoram":
-                    optionsList = Mizoram;
-                    break;
-                case "Nagaland":
-                    optionsList = Nagaland;
-                    break;
-                case "Orissa":
-                    optionsList = Orissa;
-                    break;
-                case "Punjab":
-                    optionsList = Punjab;
-                    break;
-                case "Rajasthan":
-                    optionsList = Rajasthan;
-                    break;
-                case "Sikkim":
-                    optionsList = Sikkim;
-                    break;
-                case "Tamil Nadu":
-                    optionsList = TamilNadu;
-                    break;
-                case "Telangana":
-                    optionsList = Telangana;
-                    break;
-                case "Tripura":
-                    optionsList = Tripura;
-                    break;
-                case "Uttaranchal":
-                    optionsList = Uttaranchal;
-                    break;
-                case "Uttar Pradesh":
-                    optionsList = UttarPradesh;
-                    break;
-                case "West Bengal":
-                    optionsList = WestBengal;
-                    break;
-                case "Andaman and Nicobar Islands":
-                    optionsList = AndamanNicobar;
-                    break;
-                case "Chandigarh":
-                    optionsList = Chandigarh;
-                    break;
-                case "Dadar and Nagar Haveli":
-                    optionsList = DadraHaveli;
-                    break;
-                case "Daman and Diu":
-                    optionsList = DamanDiu;
-                    break;
-                case "Delhi":
-                    optionsList = Delhi;
-                    break;
-                case "Lakshadeep":
-                    optionsList = Lakshadeep;
-                    break;
-                case "Pondicherry":
-                    optionsList = Pondicherry;
-                    break;
-            }
+        switch (StateSelected) {
+            case "Andra Pradesh":
+                optionsList = AndraPradesh;
+                break;
+            case "Arunachal Pradesh":
+                optionsList = ArunachalPradesh;
+                break;
+            case "Assam":
+                optionsList = Assam;
+                break;
+            case "Bihar":
+                optionsList = Bihar;
+                break;
+            case "Chhattisgarh":
+                optionsList = Chhattisgarh;
+                break;
+            case "Goa":
+                optionsList = Goa;
+                break;
+            case "Gujarat":
+                optionsList = Gujarat;
+                break;
+            case "Haryana":
+                optionsList = Haryana;
+                break;
+            case "Himachal Pradesh":
+                optionsList = HimachalPradesh;
+                break;
+            case "Jammu and Kashmir":
+                optionsList = JammuKashmir;
+                break;
+            case "Jharkhand":
+                optionsList = Jharkhand;
+                break;
+            case "Karnataka":
+                optionsList = Karnataka;
+                break;
+            case "Kerala":
+                optionsList = Kerala;
+                break;
+            case "Madya Pradesh":
+                optionsList = MadhyaPradesh;
+                break;
+            case "Maharashtra":
+                optionsList = Maharashtra;
+                break;
+            case "Manipur":
+                optionsList = Manipur;
+                break;
+            case "Meghalaya":
+                optionsList = Meghalaya;
+                break;
+            case "Mizoram":
+                optionsList = Mizoram;
+                break;
+            case "Nagaland":
+                optionsList = Nagaland;
+                break;
+            case "Orissa":
+                optionsList = Orissa;
+                break;
+            case "Punjab":
+                optionsList = Punjab;
+                break;
+            case "Rajasthan":
+                optionsList = Rajasthan;
+                break;
+            case "Sikkim":
+                optionsList = Sikkim;
+                break;
+            case "Tamil Nadu":
+                optionsList = TamilNadu;
+                break;
+            case "Telangana":
+                optionsList = Telangana;
+                break;
+            case "Tripura":
+                optionsList = Tripura;
+                break;
+            case "Uttaranchal":
+                optionsList = Uttaranchal;
+                break;
+            case "Uttar Pradesh":
+                optionsList = UttarPradesh;
+                break;
+            case "West Bengal":
+                optionsList = WestBengal;
+                break;
+            case "Andaman and Nicobar Islands":
+                optionsList = AndamanNicobar;
+                break;
+            case "Chandigarh":
+                optionsList = Chandigarh;
+                break;
+            case "Dadar and Nagar Haveli":
+                optionsList = DadraHaveli;
+                break;
+            case "Daman and Diu":
+                optionsList = DamanDiu;
+                break;
+            case "Delhi":
+                optionsList = Delhi;
+                break;
+            case "Lakshadeep":
+                optionsList = Lakshadeep;
+                break;
+            case "Pondicherry":
+                optionsList = Pondicherry;
+                break;
+        }
 
 
-            for (var i = 0; i < optionsList.length; i++) {
-                htmlString = htmlString + "<option value=" + optionsList[i] + ">" + optionsList[i] + "</option>";
-            }
-            $("#inputDistrict").html(htmlString);
+        for (var i = 0; i < optionsList.length; i++) {
+            htmlString = htmlString + "<option value=" + optionsList[i] + ">" + optionsList[i] + "</option>";
+        }
+        $("#inputDistrict").html(htmlString);
 
-        });
+    });
     </script>
 
     <?php
@@ -449,6 +560,7 @@
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $donorName = $_POST['donorName'];
             $donorDob = $_POST['donorDob'];
+            $donorPhoto = $_POST['donorPhoto'];
             $donorGender = $_POST['donorGender'];
             $donorBloodGrp = $_POST['donorBloodGrp'];
             $donorMobile = $_POST['donorMobile'];
@@ -461,7 +573,7 @@
             $donorAltNo = $_POST['donorAltNo'];
 
             // Validate name
-            if (empty($donorName) || empty($donorEmail) || empty($donorAltNo) || !filter_var($donorEmail, FILTER_VALIDATE_EMAIL) || empty($donorDob) || empty($donorGender) || empty($donorBloodGrp) || empty($donorMobile) || empty($donorState) || empty($donorpincode) || empty($donorDistrict) || empty($donorAddress) || empty($donorPassword)) {
+            if (empty($donorName) || empty($donorEmail) || empty($donorAltNo) || !filter_var($donorEmail, FILTER_VALIDATE_EMAIL) || empty($donorDob) || empty($donorGender) || empty($donorBloodGrp) || empty($donorMobile) || empty($donorState) || empty($donorpincode) || empty($donorDistrict) || empty($donorAddress) || empty($donorPassword) || empty($donorPhoto)) {
 
 
                 echo " <div class='container-top '>
@@ -537,14 +649,15 @@
                 $donorState = pg_escape_string($db_connect, $donorState);
                 $donorDistrict = pg_escape_string($db_connect, $donorDistrict);
                 $donorAddress = pg_escape_string($db_connect, $donorAddress);
+                $donorPhoto = pg_escape_string($db_connect, $donorPhoto);
                 $donorAltNo = pg_escape_string($db_connect, $donorAltNo);
                 $donorPassword = pg_escape_string($db_connect, $donorPassword);
                 $password_hash = password_hash($donorPassword, PASSWORD_DEFAULT);
 
                 //  -- Inserting a sample entry into the Customer_Info table
-                $SqlQuery = "INSERT INTO donor_info (donorName,donorDob,donorGender,donorBloodGrp,donorMobile,donorEmail,donorpincode,donorState,donorDistrict,donorAddress,donorAltNo,donorPassword) VALUES($1, $2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12)";
+                $SqlQuery = "INSERT INTO donor_info (donorName,donorDob,donorGender,donorBloodGrp,donorMobile,donorEmail,donorpincode,donorState,donorDistrict,donorAddress,donorAltNo,donorPassword, donorPhoto) VALUES($1, $2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12, $13)";
 
-                $param = array($donorName, $donorDob, $donorGender, $donorBloodGrp, $donorMobile, $donorEmail, $donorpincode, $donorState, $donorDistrict, $donorAddress, $donorAltNo, $password_hash);
+                $param = array($donorName, $donorDob, $donorGender, $donorBloodGrp, $donorMobile, $donorEmail, $donorpincode, $donorState, $donorDistrict, $donorAddress, $donorAltNo, $password_hash, $donorPhoto);
                 // print_r($param);
                 $result = pg_query_params($db_connect, $SqlQuery, $param);
 
