@@ -6,7 +6,7 @@
         $password = 'Silver@123';
 
         $db_connect = pg_connect("host=$host dbname=$dbname user=$user password=$password");
-
+     
         if (!$db_connect) {
             echo "Failed to connect to PostgreSQL database.";
             exit;

@@ -6,12 +6,14 @@ include '_nav.php'
 include '_DB.php';
 
 $donorEmail = $_SESSION['donorEmail'];
+$donorPhoto=$_SESSION['donorPhoto'];
 $sql = "SELECT donorname,donordob,donorgender,donorbloodgrp,donormobile,donorEmail,donorpincode,donorstate,donordistrict,donoraddress,donoraltno FROM donor_info WHERE donorEmail = $1";
 $result = pg_query_params($db_connect, $sql, array($donorEmail));
 //fetching data from database using session 
 
 if ($result) {
     while ($row = pg_fetch_assoc($result)) {
+       
         $donorName = $row['donorname'];
         $donorDob = $row['donordob'];
         $donorGender = $row['donorgender'];
@@ -22,6 +24,9 @@ if ($result) {
         $donorDistrict = $row['donordistrict'];
         $donorAddress = $row['donoraddress'];
         $donorAltNo = $row['donoraltno'];
+       
+        
+    }
     }
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $newDonorName = $_POST['newDonorName'];
@@ -35,6 +40,7 @@ if ($result) {
         $newDonorDistrict = $_POST['newDonorDistrict'];
         $newDonorAddress = $_POST['newDonorAddress'];
         $newDonorAltNo = $_POST['newDonorAltNo'];
+        
             // -----------------  Sanitize code here----------------
             $newDonorName = pg_escape_string($db_connect, $newDonorName);
             $newDonorDob = pg_escape_string($db_connect, $newDonorDob);
@@ -112,7 +118,7 @@ if ($result) {
                         </script>";
             }
   
-            } 
+           
           
 } else {
     echo "Query failed.";
@@ -187,183 +193,16 @@ pg_close($db_connect);
 </head>
 
 <body>
-    <!-- <div class="container justify-content-center align-items-center min-vh-50">
-        <div class="container">
-        <div class="card card-container" style="padding: 40px; background: #ffffff; border: 2px; border-radius: 20px; ">
-            <form id="editForm" method="POST" action="settings.php" autocomplete="off" onchange="">
 
-                <div class="form-group">
-                    <div class="d-flex justify-content-center mb-4">
-                        <img id="selectedAvatar" src="avtarUploadPic.png"
-                            class="rounded-circle" style="width: 200px; height: 200px; object-fit: cover;"
-                            alt="Profile Picture Upload" />
-                    </div>
-                    <div class="d-flex justify-content-center">
-                        <div data-mdb-ripple-init class="btn btn-primary btn-rounded">
-                            <label class="form-label text-white m-1" for="customFile2">Choose file</label>
-                            <input type="file" class="form-control d-none" id="customFile2"
-                                onchange="displaySelectedImage(event, 'selectedAvatar')" />
-                        </div>
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <div class="row">
-                        <div class="col-sm-6">
-                            <label for="name">Name:</label>
-                            <input type="text" class="form-control" id="name" name="newDonorName"
-                                value=<?php echo $donorName; ?>>
-                        </div>
-                        <div class="col-sm-6">
-                            <label for="txtBbEmail">Email: </label>
-                            <input type="email" name="newDonorEmail" maxlength="254" value="<?php echo $donorEmail; ?>"
-                                class="form-control" id="txtBbEmail" autocomplete="off"
-                                placeholder="e.g.: xyz@gmail.com" disabled>
-
-                        </div>
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <div class="row">
-                        <div class="col-sm-6">
-                            <label for="selectDob">Date of Birth: </label>
-                            <font color="red">*</font>
-                            <input type="date" name="newDonorDob" maxlength="2" value="<?php echo $donorDob; ?>"
-                                onkeypress="return validateNumeric(event)" class="form-control" autocomplete="off"
-                                disabled>
-                        </div>
-                        <div class="col-sm-6">
-                            <label for="selectGender">Gender: </label>
-                            <font color="red">*</font>
-                            <select name="newDonorGender" class="form-control" disabled>
-                                <option value="<?php echo $donorGender; ?>"><?php echo $donorGender; ?></option>
-                                <option value="Male">Male</option>
-                                <option value="Female">Female</option>
-                                <option value="Other">Other</option>
-                            </select>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <div class="row">
-                        <div class="col-sm-6">
-                            <label for="txtBbMobile">Mobile: </label>
-                            <font color="red">*</font>
-                            <input type="tel" class="form-control" name="newDonorMobile" id="txtBbMobile"
-                                placeholder="e.g.: 0125245628" maxlength="10" value="<?php echo $donorMobile; ?>"
-                                onkeypress="return validateNumeric(event)" pattern="[0-9]{10}" autocomplete="off">
-                        </div>
-                        <div class="col-sm-6">
-                            <label for="txtBbAltMobile">Alternative No: </label>
-                            <input type="tel" name="newDonorAltNo" maxlength="10" value="<?php echo $donorAltNo; ?>"
-                                class="form-control" id="txtBbAltMobileNo" autocomplete="off" placeholder="535363778">
-                        </div>
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <div class="row">
-                        <div class="col-sm-6">
-                            <label for="donorBloodGrp">Blood Group:</label>
-                            <font color="red">*</font>
-                            <select name="newDonorBloodGrp" class="form-control" id="newDonorBloodGrp"
-                                placeholder="e.g.: A+" disabled>
-                                <option value="<?php echo $donorBloodGrp; ?>"><?php echo $donorBloodGrp; ?></option>
-                                <option value="AB-Ve">AB-Ve</option>
-                                <option value="AB+Ve">AB+Ve</option>
-                                <option value="A-Ve">A-Ve</option>
-                                <option value="A+Ve">A+Ve</option>
-                                <option value="B-Ve">B-Ve</option>
-                                <option value="B+Ve">B+Ve</option>
-                                <option value="Oh-Ve">Oh-VE</option>
-                                <option value="Oh+Ve">Oh+VE</option>
-                                <option value="O-Ve">O-Ve</option>
-                                <option value="O+Ve">O+Ve</option>
-                            </select>
-                        </div>
-                        <div class="col-sm-6">
-                            <label for="txtBbPincode" class="mb-2">PinCode: </label>
-                            <font color="red">*</font>
-                            <input type="text" class="form-control" name="newDonorpincode" id="txtBbPincode"
-                                placeholder="Pin Code" maxlength="6" value="<?php echo $donorpincode; ?>"
-                                onkeypress="return validateNumeric(event)" autocomplete="off">
-                        </div>
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <div class="row">
-                        <div class="col-sm-6">
-                            <label for="inputState">State</label>
-                            <select class="form-control" id="inputState" name="newDonorState">
-                                <option value="<?php echo $donorState; ?>"><?php echo $donorState; ?></option>
-                                <option value="Andra Pradesh">Andra Pradesh</option>
-                                <option value="Arunachal Pradesh">Arunachal Pradesh</option>
-                                <option value="Assam">Assam</option>
-                                <option value="Bihar">Bihar</option>
-                                <option value="Chhattisgarh">Chhattisgarh</option>
-                                <option value="Goa">Goa</option>
-                                <option value="Gujarat">Gujarat</option>
-                                <option value="Haryana">Haryana</option>
-                                <option value="Himachal Pradesh">Himachal Pradesh</option>
-                                <option value="Jammu and Kashmir">Jammu and Kashmir</option>
-                                <option value="Jharkhand">Jharkhand</option>
-                                <option value="Karnataka">Karnataka</option>
-                                <option value="Kerala">Kerala</option>
-                                <option value="Madya Pradesh">Madya Pradesh</option>
-                                <option value="Maharashtra">Maharashtra</option>
-                                <option value="Manipur">Manipur</option>
-                                <option value="Meghalaya">Meghalaya</option>
-                                <option value="Mizoram">Mizoram</option>
-                                <option value="Nagaland">Nagaland</option>
-                                <option value="Orissa">Orissa</option>
-                                <option value="Punjab">Punjab</option>
-                                <option value="Rajasthan">Rajasthan</option>
-                                <option value="Sikkim">Sikkim</option>
-                                <option value="Tamil Nadu">Tamil Nadu</option>
-                                <option value="Telangana">Telangana</option>
-                                <option value="Tripura">Tripura</option>
-                                <option value="Uttaranchal">Uttaranchal</option>
-                                <option value="Uttar Pradesh">Uttar Pradesh</option>
-                                <option value="West Bengal">West Bengal</option>
-
-                            </select>
-                        </div>
-                        <div class="col-sm-6">
-                            <label for="inputDistrict">District</label>
-                            <select class="form-control" id="inputDistrict" name="newDonorDistrict">
-                                <option value="<?php echo $donorDistrict; ?>"><?php echo $donorDistrict; ?></option>
-                            </select>
-                            </select>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <label>Address:</label>
-                    <textarea class="form-control" name="newDonorAddress" id="addrew" rows="2"
-                        value="<?php echo $donorAddress; ?>"><?php echo $donorAddress; ?></textarea>
-                </div>
-                <div class="text-center">
-                    <button type="submit" class="btn btn-danger text-nowrap btn-lg">Update</button>
-                </div>
-
-            </form>
-        </div>
-        </div>
-    </div> -->
 <div class="mainsec">
     <span class="SPAN">
     <form id="editForm" method="POST" action="settings.php" autocomplete="off" onchange="">
         <div class="container mt-5 mb-5 d-flex justify-content-center align-items-center min-vh-100">
             <div class="container">
-                <div class="card card-container"
-                    style="padding: 40px; background: #ffffff; border: 2px; border-radius: 20px; ">
+                <div class="card card-container"style="padding: 40px; background: #ffffff; border: 2px; border-radius: 20px; ">
                     <div class="form-group">
                         <div class="d-flex justify-content-center mb-4">
-                            <img id="selectedAvatar" src="avtarUploadPic.png" class="rounded-circle"
+                            <img id=<?php getImageSrc()?>  class="rounded-circle"
                                 style="width: 200px; height: 200px; object-fit: cover;" alt="Profile Picture Upload" />
                         </div>
                         <div class="d-flex justify-content-center">

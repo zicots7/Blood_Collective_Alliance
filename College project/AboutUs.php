@@ -16,11 +16,7 @@ include('Contributors.php');
 ?>
 <?php include('footer.php');
   ?>
-<!doctype html>
-<html lang='en'>
 
-<meta charset='utf-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1'>
 <title>Blood Collective Alliance</title>
 
 <link rel="stylesheet" href="Contribution.css" />
@@ -37,4 +33,3 @@ include('Contributors.php');
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 </div>
 
-</html>

@@ -8,7 +8,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     //---------- Retrieve form data--------
     $donorEmail = $_POST["donorEmail"];
     $donorPassword = $_POST["donorPassword"];
-
+   
     $donorEmail = pg_escape_string($db_connect, $donorEmail);
     $donorPassword = pg_escape_string($db_connect, $donorPassword);
     
@@ -29,15 +29,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         
         // var_dump($row);
         if($row){
+            
             $hashedPasswordFromDB = $row["donorpassword"];
+            
 //if user enters all correct informations
             if(password_verify($donorPassword, $hashedPasswordFromDB)){
                 
-                session_start();
-                
+                include("_nav.php");
 
                 $_SESSION['donorEmail'] = $row['donoremail'];
+               
                 $_SESSION['LoggedIn']=true;
+        
                  //to disable Signup button on Nav bar
 
                 echo" <div class='container-top '>
@@ -58,11 +61,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                  
                  <script>
                  $(document).ready(function(){
-                    // Set a delay of 5 seconds (5000 milliseconds)
+                    // Set a delay of 2 seconds (2000 milliseconds)
                     setTimeout(function(){
                       // Redirect to main.php
                       window.location.replace('main.php');
-                    }, 5000); 
+                    }, 2000); 
                     // Change the delay time as needed (in milliseconds)
                   });
                 </script>";
@@ -91,11 +94,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         
          echo'<script>
          $(document).ready(function(){
-            // Set a delay of 3 seconds (3000 milliseconds)
+            // Set a delay of 2 seconds (2000 milliseconds)
             setTimeout(function(){
               // Redirect to Signup.php
               window.location.replace("Login.php");
-            }, 5000); 
+            }, 2000); 
             // Change the delay time as needed (in milliseconds)
           });
         </script>';
@@ -127,7 +130,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 setTimeout(function(){
                   // Redirect to Signup.php
                   window.location.replace("Signup.php");
-                }, 5000); 
+                }, 3000); 
                 // Change the delay time as needed (in milliseconds)
               });
             </script>
