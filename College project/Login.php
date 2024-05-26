@@ -42,7 +42,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 $_SESSION['LoggedIn']=true;
         
                  //to disable Signup button on Nav bar
-
+                //  header("Location: main.php");
                 echo" <div class='container-top '>
                 <div class='alert alert-success' role='alert' id='myAlert'>
                 Successfully Logged in 
@@ -69,7 +69,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     // Change the delay time as needed (in milliseconds)
                   });
                 </script>";
-                header("Location: main.php");
+                
  
                     exit;
                  
