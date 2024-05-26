@@ -1,9 +1,10 @@
 <?php
-session_start( );
+
 // Function to fetch and return the image source
 function getImageSrc() {
  include("_DB.php");
 //  $donorPhoto=$_SESSION['donorPhoto'];
+
  $donorEmail=$_SESSION['donorEmail'];
     // Fetch photo from the database based on photo ID
  // Replace '1' with the actual photo ID
@@ -32,7 +33,7 @@ function getImageSrc() {
 }
 ?>
 <?php
-
+session_start( );
 
 if (isset($_SESSION['LoggedIn']) && ($_SESSION['LoggedIn'] == true)) {
   $LoggedIn = true;

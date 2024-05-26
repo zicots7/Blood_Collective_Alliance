@@ -60,15 +60,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                  </style>
                  
                  <script>
-                 $(document).ready(function(){
-                    // Set a delay of 2 seconds (2000 milliseconds)
-                    setTimeout(function(){
-                      // Redirect to main.php
-                      window.location.replace('main.php');
-                    }, 2000); 
-                    // Change the delay time as needed (in milliseconds)
-                  });
-                </script>";
+                 
+                 function myFunc() { 
+                     location.replace('main.php'); 
+                 } 
+                 myFunc()
+                 </script>";
                 
  
                     exit;
@@ -92,18 +89,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
              }
          </style> ';
         
-         echo'<script>
-         $(document).ready(function(){
-            // Set a delay of 2 seconds (2000 milliseconds)
-            setTimeout(function(){
-              // Redirect to Signup.php
-              window.location.replace("Login.php");
-            }, 2000); 
-            // Change the delay time as needed (in milliseconds)
-          });
-        </script>';
+         echo'<script> 
+         function myFunc() { 
+             location.replace("Login.php"); 
+         } 
+         myFunc()
+         </script>';
  
-            }
+        }
         
         // Check if user does not exist 
   
@@ -125,14 +118,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
              </style> ';
             
              echo'<script>
-             $(document).ready(function(){
-                // Set a delay of 3 seconds (3000 milliseconds)
-                setTimeout(function(){
-                  // Redirect to Signup.php
-                  window.location.replace("Signup.php");
-                }, 3000); 
-                // Change the delay time as needed (in milliseconds)
-              });
+             <script> 
+             function myFunc() { 
+                 location.replace("Signup.php"); 
+             } 
+             myFunc()
             </script>
        ';
     
@@ -278,7 +268,7 @@ $(document).ready(function(){
 
 
  <?php
-  include 'footer.php';
+  include ('footer.php');
     ?>
 </body>
 

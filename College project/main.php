@@ -1,19 +1,15 @@
-<?php include "_nav.php";
+<?php include ("_nav.php");
 ?>
 
 <?php
 if (!isset($_SESSION['LoggedIn']) || $_SESSION['LoggedIn'] != true) {
 
-    echo '<script>
-    $(document).ready(function(){
-       // Set a delay of 1 seconds (1000 milliseconds)
-       setTimeout(function(){
-         // Redirect to Signup.php
-         window.location.replace("Login.php");
-       }, 1); 
-       // Change the delay time as needed (in milliseconds)
-     });
-   </script>';
+    echo '<script> 
+    function myFunc() { 
+        location.replace("Login.php"); 
+    } 
+    myFunc()
+</script> ';
 }
 ?>
 
