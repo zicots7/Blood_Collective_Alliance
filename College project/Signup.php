@@ -1,6 +1,4 @@
-<?php
-include "_nav.php";
-?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -60,7 +58,9 @@ include "_nav.php";
         </script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
-
+<?php 
+include ("_nav.php");
+?>
 <body>
 
     <script>
@@ -574,13 +574,14 @@ include "_nav.php";
 
     <?php
 
-    require '_DB.php';
+    require ('_DB.php');
     // Check if the form is submitted
     
     if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_FILES["image"])) {
-        if ($_FILES["image"]["error"] == 0) {
+        // if ($_FILES["image"]["error"] == 0) {
             // Read image data
-            $imageData = pg_escape_bytea($db_connect, file_get_contents($_FILES["image"]["tmp_name"]));
+           
+            // pg_escape_bytea($db_connect, file_get_contents($_FILES["image"]["tmp_name"]));
             $donorName = $_POST['donorName'];
             $donorDob = $_POST['donorDob'];
             $donorGender = $_POST['donorGender'];
@@ -593,10 +594,13 @@ include "_nav.php";
             $donorAddress = $_POST['donorAddress'];
             $donorPassword = $_POST['donorPassword'];
             $donorAltNo = $_POST['donorAltNo'];
+            $imageData = $_FILES["image"]["name"];
+            $imagetmp = $_FILES["image"]["tmp_name"];
+
             // $Photo = $_FILES["image"]["tmp_name"];
             // $donorPhoto = addslashes(file_get_contents($Photo));
             // Validate name
-        }
+        // }
         if (empty($donorName) || empty($donorEmail) || empty($donorAltNo) || !filter_var($donorEmail, FILTER_VALIDATE_EMAIL) || empty($donorDob) || empty($donorGender) || empty($donorBloodGrp) || empty($donorMobile) || empty($donorState) || empty($donorpincode) || empty($donorDistrict) || empty($donorAddress) || empty($donorPassword)) {
 
 
@@ -675,13 +679,20 @@ include "_nav.php";
                 $donorPassword = pg_escape_string($db_connect, $donorPassword);
                 $password_hash = password_hash($donorPassword, PASSWORD_DEFAULT);
 
-                // $donorPhoto=pg_lo_import($db_connect, $imageData);
-                //  -- Inserting a sample entry into the Customer_Info table
-                $SqlQuery = "INSERT INTO donor_info (donorName,donorDob,donorGender,donorBloodGrp,donorMobile,donorEmail,donorpincode,donorState,donorDistrict,donorAddress,donorAltNo,donorPassword, donorPhoto) VALUES($1, $2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12, $13)";
+                $img_ex=pathinfo($imageData,PATHINFO_EXTENSION);
+                $img_ex_lc=strtolower($img_ex);
+                $allow_extn=array("jpg","jpeg","png","gif");
+                if(in_array($img_ex_lc,$allow_extn)){
+                    $new_img_name=uniqid("IMG-",true).'.'.$img_ex_lc;
+                    $img_upload_path='uploads/'.$new_img_name;
+                    move_uploaded_file($imagetmp,$img_upload_path);
+                }  
+                $SqlQuery = "INSERT INTO donor_info (donorname,donordob,donorgender,donorbloodgrp,donormobile,donoremail,donorpincode,donorstate,donordistrict,donoraddress,donoraltno,donorpassword, donorphoto) VALUES($1, $2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12, $13)";
 
-                $param = array($donorName, $donorDob, $donorGender, $donorBloodGrp, $donorMobile, $donorEmail, $donorpincode, $donorState, $donorDistrict, $donorAddress, $donorAltNo, $password_hash, $imageData);
-                // print_r($param);
+                $param = array($donorName, $donorDob, $donorGender, $donorBloodGrp, $donorMobile, $donorEmail, $donorpincode, $donorState, $donorDistrict, $donorAddress, $donorAltNo, $password_hash, $new_img_name);
+              
                 $result = pg_query_params($db_connect, $SqlQuery, $param);
+          
             } catch (Exception $E) {
             }
             ;

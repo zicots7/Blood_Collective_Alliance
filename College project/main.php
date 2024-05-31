@@ -1,19 +1,3 @@
-<?php include ("_nav.php");
-?>
-
-<?php
-if (!isset($_SESSION['LoggedIn']) || $_SESSION['LoggedIn'] != true) {
-
-    echo '<script> 
-    function myFunc() { 
-        location.replace("Login.php"); 
-    } 
-    myFunc()
-</script> ';
-}
-?>
-
-
 <!doctype html>
 <html lang="en">
 <meta charset="utf-8">
@@ -30,6 +14,23 @@ if (!isset($_SESSION['LoggedIn']) || $_SESSION['LoggedIn'] != true) {
 
 
 <title>Blood Collective Alliance</title>
+<?php include ("_nav.php");
+?>
+
+<?php
+if (!isset($_SESSION['LoggedIn']) || $_SESSION['LoggedIn'] != true) {
+
+    echo '<script> 
+    function myFunc() { 
+        location.replace("Login.php"); 
+    } 
+    myFunc()
+</script> ';
+}
+?>
+
+
+
 
 <form action="main.php" method="post">
     <div

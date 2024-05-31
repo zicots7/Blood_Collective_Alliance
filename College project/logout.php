@@ -1,6 +1,7 @@
 <?php
+ include("_DB.php");
 session_start();
-
+pg_close($db_connect);
 session_unset();
 session_destroy();
 header("location:Login.php");

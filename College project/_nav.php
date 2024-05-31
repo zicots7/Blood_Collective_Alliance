@@ -1,38 +1,4 @@
 <?php
-
-// Function to fetch and return the image source
-function getImageSrc() {
- include("_DB.php");
-//  $donorPhoto=$_SESSION['donorPhoto'];
-
- $donorEmail=$_SESSION['donorEmail'];
-    // Fetch photo from the database based on photo ID
- // Replace '1' with the actual photo ID
-    $query = "SELECT donorphoto FROM donor_info WHERE donoremail = $1";
-    $result = pg_query_params($db_connect, $query, array($donorEmail));
-
-    if ($result) {
-        $row = pg_fetch_assoc($result);
-        if ($row) {
-            // Encode the image data as base64
-            $_SESSION['donorPhoto']=base64_encode($row['donorphoto']);
-            $imageData = base64_encode($row['donorphoto']);
-            
-            // Construct the data URI
-            $src = 'data:image/jpeg;base64,' . $imageData;
-            return $src;
-        } else {
-            return "Photo not found.";
-        }
-    } else {
-        return "Error fetching photo: " . pg_last_error($db_connect);
-    }
-
-    // Close connection
-
-}
-?>
-<?php
 session_start( );
 
 if (isset($_SESSION['LoggedIn']) && ($_SESSION['LoggedIn'] == true)) {
@@ -65,9 +31,10 @@ if (!$LoggedIn) {
     </ul>';
 }
 if ($LoggedIn) {
-  echo '<li class="nav-item dropdown show">
+  echo '
+  <li class="nav-item dropdown show">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          <img id="image-container"alt="Profile Picture" style="width: 50px; height: 50px; border-radius: 50%;">
+          <img id="image-container"  src="'.getImageSrc().'"style="width: 50px; height: 50px; border-radius: 50%;">
         </a>
         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
           <a class="dropdown-item" href="#">Profile</a>
@@ -82,18 +49,44 @@ echo '
 </div>
 </nav>';
 ?>
- <script>// Assuming imageData contains the Base64 encoded image data
-var imageData = <?php getImageSrc() ?> // Your encoded image data
 
-// Create an image element
-var img = new Image();
+<?php
 
-// Set the source of the image to the decoded Base64 data
-img.src = "data:image/jpeg;base64," + imageData;
+// Function to fetch and return the image source
+function getImageSrc() {
+ include("_DB.php");
+//  $donorPhoto=$_SESSION['donorPhoto'];
 
-// Append the image element to the document body or any other container element
-document.getElementById("image-container").appendChild(img);
-</script>
+ $donorEmail=$_SESSION['donorEmail'];
+    // Fetch photo from the database based on photo ID
+ // Replace '1' with the actual photo ID
+    $query = "SELECT donorphoto FROM donor_info WHERE donoremail = $1";
+    $result = pg_query_params($db_connect, $query, array($donorEmail));
+
+    if ($result) {
+        $row = pg_fetch_assoc($result);
+        if ($row) {
+           
+           
+            // $imageData =$row['donorphoto'];
+            
+            // Construct the data URI
+            $src = 'uploads/'.$row["donorphoto"].'';
+            $_SESSION['donorphoto']=$src;
+            return $src;
+        } else {
+            return "Photo not found.";
+        }
+    } else {
+        return "Error fetching photo: " . pg_last_error($db_connect);
+    }
+  
+
+
+}
+?>
+
+
 <!-- Bootstrap JS and dependencies -->
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>

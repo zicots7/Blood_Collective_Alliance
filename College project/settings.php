@@ -1,134 +1,3 @@
-<?php
-include '_nav.php'
-?>
-
-<?php
-include '_DB.php';
-
-$donorEmail = $_SESSION['donorEmail'];
-$donorPhoto=$_SESSION['donorPhoto'];
-$sql = "SELECT donorname,donordob,donorgender,donorbloodgrp,donormobile,donorEmail,donorpincode,donorstate,donordistrict,donoraddress,donoraltno FROM donor_info WHERE donorEmail = $1";
-$result = pg_query_params($db_connect, $sql, array($donorEmail));
-//fetching data from database using session 
-
-if ($result) {
-    while ($row = pg_fetch_assoc($result)) {
-       
-        $donorName = $row['donorname'];
-        $donorDob = $row['donordob'];
-        $donorGender = $row['donorgender'];
-        $donorBloodGrp = $row['donorbloodgrp'];
-        $donorMobile = $row['donormobile'];
-        $donorpincode = $row['donorpincode'];
-        $donorState = $row['donorstate'];
-        $donorDistrict = $row['donordistrict'];
-        $donorAddress = $row['donoraddress'];
-        $donorAltNo = $row['donoraltno'];
-       
-        
-    }
-    }
-    if ($_SERVER["REQUEST_METHOD"] == "POST") {
-        $newDonorName = $_POST['newDonorName'];
-        $newDonorDob = $_POST['newDonorDob'];
-        $newDonorGender = $_POST['newDonorGender'];
-        $newDonorBloodGrp = $_POST['newDonorBloodGrp'];
-        $newDonorMobile = $_POST['newDonorMobile'];
-        $newDonorEmail = $_POST['newDonorEmail'];
-        $newDonorpincode = $_POST['newDonorpincode'];
-        $newDonorState = $_POST['newDonorState'];
-        $newDonorDistrict = $_POST['newDonorDistrict'];
-        $newDonorAddress = $_POST['newDonorAddress'];
-        $newDonorAltNo = $_POST['newDonorAltNo'];
-        
-            // -----------------  Sanitize code here----------------
-            $newDonorName = pg_escape_string($db_connect, $newDonorName);
-            $newDonorDob = pg_escape_string($db_connect, $newDonorDob);
-            $newDonorGender = pg_escape_string($db_connect, $newDonorGender);
-            $newDonorBloodGrp = pg_escape_string($db_connect, $newDonorBloodGrp);
-            $newDonorMobile = pg_escape_string($db_connect, $newDonorMobile);
-            $newDonorEmail = pg_escape_string($db_connect, $newDonorEmail);
-            $newDonorpincode = pg_escape_string($db_connect, $newDonorpincode);
-            $newDonorState = pg_escape_string($db_connect, $newDonorState);
-            $newDonorDistrict = pg_escape_string($db_connect, $newDonorDistrict);
-            $newDonorAddress = pg_escape_string($db_connect, $newDonorAddress);
-            $newDonorAltNo = pg_escape_string($db_connect, $newDonorAltNo);
-
-            $ifExt_query = "SELECT *FROM donor_info WHERE donoremail = $1 and donormobile=$2";
-            $param = array($newDonorEmail,$newDonorMobile);
-            $result = pg_query_params($db_connect, $ifExt_query, $param);
-            if (pg_num_rows($result) > 0) {
-                echo " <div class='container-top '>
-                <div class='alert alert-warning' role='alert' id='myAlert'>
-                An account with this email address and phone number already exists, try different .
-                 </div>
-                 </div>
-                 <style>
-                 .container-top {
-                     position: fixed;
-                     top: 38px;
-                     width: 100%;
-                     padding: 20px;
-                     text-align: center;
-                     z-index: 1000; /* Ensure the container appears above other elements */
-                 }
-             </style>
-              <script>
-             $(document).ready(function(){
-                // Set a delay of 3 seconds (3000 milliseconds)
-                setTimeout(function(){
-                  // Redirect to Signup.php
-                  window.location.replace('settings.php');
-                }, 5000); 
-                // Change the delay time as needed (in milliseconds)
-              });
-            </script>
-    ";
-    
-            } else{
-                $query = "UPDATE donor_info SET donorname=$1,donordob=$2,donorgender=$3,donorbloodgrp=$4,donormobile=$5,donoremail=$6,donorpincode=$7,donorstate=$8,donordistrict=$9,donoraddress=$10,donoraltno=$11";
-                $result2 = pg_query_params($db_connect, $query, array($newDonorName,$newDonorDob,$newDonorGender,$newDonorBloodGrp,$newDonorMobile,$newDonorEmail,$newDonorpincode,$newDonorState,$newDonorDistrict,$newDonorAddress,$newDonorAltNo));
-                
-                    // update  the main data (e.g., store in database)
-                
-                        echo " <div class='container-top '>
-                        <div class='alert alert-success' role='alert' id='myAlert'>
-                        Updated successfully!
-                             </div>
-                             </div>
-                             <style>
-                             .container-top {
-                                 position: fixed;
-                                 top: 38px;
-                                 width: 100%;
-                                 padding: 20px;
-                                 text-align: center;
-                                 z-index: 1000; /* Ensure the container appears above other elements */
-                             }
-                         </style>
-                         <script>
-                         $(document).ready(function(){
-                            // Set a delay of 3 seconds (3000 milliseconds)
-                            setTimeout(function(){
-                              // Redirect to Signup.php
-                              window.location.replace('settings.php');
-                            }, 5000); 
-                            // Change the delay time as needed (in milliseconds)
-                          });
-                        </script>";
-            }
-  
-           
-          
-} else {
-    echo "Query failed.";
-
-
-//  Close the database connection
-pg_close($db_connect);
-}
-
-?>
 
 <!doctype html>
 <html lang="en">
@@ -192,24 +61,93 @@ pg_close($db_connect);
 <title>Settings</title>
 </head>
 
+<?php
+
+include ('_nav.php');
+include ('_DB.php');
+
+$donorEmail = $_SESSION['donorEmail'];
+$donorPhoto=$_SESSION['donorphoto'];
+$sql = "SELECT donorname,donordob,donorgender,donorbloodgrp,donormobile,donorEmail,donorpincode,donorstate,donordistrict,donoraddress,donoraltno FROM donor_info WHERE donoremail = $1";
+$result = pg_query_params($db_connect, $sql, array($donorEmail));
+//fetching data from database using session 
+
+if ($result) {
+    $row = pg_fetch_assoc($result);
+       
+        $donorName = $row['donorname'];
+        $donorDob = $row['donordob'];
+        $donorGender = $row['donorgender'];
+        $donorBloodGrp = $row['donorbloodgrp'];
+        $donorMobile = $row['donormobile'];
+        $donorpincode = $row['donorpincode'];
+        $donorState = $row['donorstate'];
+        $donorDistrict = $row['donordistrict'];
+        $donorAddress = $row['donoraddress'];
+        $donorAltNo = $row['donoraltno'];
+       
+        
+  
+    }
+?>
+
+
 <body>
 
 <div class="mainsec">
     <span class="SPAN">
-    <form id="editForm" method="POST" action="settings.php" autocomplete="off" onchange="">
+    <form id="editForm" method="POST" action="settings.php" autocomplete="off"  enctype="multipart/form-data">
         <div class="container mt-5 mb-5 d-flex justify-content-center align-items-center min-vh-100">
             <div class="container">
                 <div class="card card-container"style="padding: 40px; background: #ffffff; border: 2px; border-radius: 20px; ">
                     <div class="form-group">
-                        <div class="d-flex justify-content-center mb-4">
-                            <img id=<?php getImageSrc()?>  class="rounded-circle"
-                                style="width: 200px; height: 200px; object-fit: cover;" alt="Profile Picture Upload" />
-                        </div>
+                    <div class="d-flex justify-content-center mb-4">
+                                    <img id="preview" name="image"  src="<?php echo $donorPhoto;?>" alt="Image Preview"
+                                        class="rounded-circle" style="width: 200px; height: 200px; object-fit: cover;">
+                                </div>
                         <div class="d-flex justify-content-center">
-                            <div data-mdb-ripple-init class="btn btn-primary btn-rounded">
-                                <label class="form-label text-white m-1" for="customFile2">Choose file</label>
-                                <input type="file" class="form-control d-none" id="customFile2"
-                                    onchange="displaySelectedImage(event, 'selectedAvatar')" />
+                           <div data-mdb-ripple-init class="btn btn-primary btn-rounded">
+                                        <label class="form-label text-white m-1" for="customFile2">Choose file</label>
+                                        <input type="file" class="form-control d-none" id="customFile2" name="image"
+                                            onchange="displaySelectedImage(event, 'preview')" />
+                                        <input type="file" name="image" id="image" src="" accept="image/*"
+                                            onchange="previewImage(event)">
+
+                                        <script>
+                                            function previewImage(event) {
+                                                var preview = document.querySelector('#preview');
+                                                var file = event.target.files[0];
+                                                var reader = new FileReader();
+
+                                                reader.onloadend = function () {
+                                                    preview.src = reader.result;
+                                                }
+
+                                                if (file) {
+                                                    reader.readAsDataURL(file);
+                                                } else {
+                                                    preview.src = " $donorPhoto;";
+                                                }
+                                            }
+
+                                            function displaySelectedImage(event, targetId) {
+                                                var preview = document.getElementById(targetId);
+                                                var file = event.target.files[0];
+                                                var reader = new FileReader();
+
+                                                reader.onloadend = function () {
+                                                    preview.src = reader.result;
+                                                }
+
+                                                if (file) {
+                                                    reader.readAsDataURL(file);
+                                                } else {
+                                                    preview.src = "$donorPhoto;";
+                                                }
+                                            }
+                                        </script>
+
+                                    </div>
                             </div>
                         </div>
                     </div>
@@ -217,10 +155,12 @@ pg_close($db_connect);
                     <div class="form-group">
                         <div class="row">
                             <div class="col-sm-6">
-                                <label for="name">Name:</label>
-                                <input type="text" class="form-control" id="name" name="newDonorName"
-                                    value=<?php echo $donorName; ?>>
-                            </div>
+                            <label for="name">Name:</label>
+                                        <input type="text" name="newDonorName" maxlength="50" value="<?php echo $donorName; ?>"
+                                            onkeypress="return validateAlphaOnlyWithDotAndSpace(event)"
+                                            class="form-control" id="txtBbFName" name="newDonorName"
+                                            placeholder="e.g.: Robin Hood" >
+                                    </div>
                             <div class="col-sm-6">
                                 <label for="txtBbEmail">Email: </label>
                                 <input type="email" name="newDonorEmail" maxlength="254"
@@ -238,12 +178,12 @@ pg_close($db_connect);
                                 <font color="red">*</font>
                                 <input type="date" name="newDonorDob" maxlength="2" value="<?php echo $donorDob; ?>"
                                     onkeypress="return validateNumeric(event)" class="form-control" autocomplete="off"
-                                    disabled>
+                                    >
                             </div>
                             <div class="col-sm-6">
                                 <label for="selectGender">Gender: </label>
                                 <font color="red">*</font>
-                                <select name="newDonorGender" class="form-control" disabled>
+                                <select name="newDonorGender" class="form-control" >
                                     <option value="<?php echo $donorGender; ?>"><?php echo $donorGender; ?></option>
                                     <option value="Male">Male</option>
                                     <option value="Female">Female</option>
@@ -277,7 +217,7 @@ pg_close($db_connect);
                                 <label for="donorBloodGrp">Blood Group:</label>
                                 <font color="red">*</font>
                                 <select name="newDonorBloodGrp" class="form-control" id="newDonorBloodGrp"
-                                    placeholder="e.g.: A+" disabled>
+                                    placeholder="e.g.: A+" >
                                     <option value="<?php echo $donorBloodGrp; ?>"><?php echo $donorBloodGrp; ?></option>
                                     <option value="AB-Ve">AB-Ve</option>
                                     <option value="AB+Ve">AB+Ve</option>
@@ -351,8 +291,8 @@ pg_close($db_connect);
 
                     <div class="form-group">
                         <label>Address:</label>
-                        <textarea class="form-control" name="newDonorAddress" id="addrew" rows="2" style="resize: none;"
-                            value="<?php echo $donorAddress; ?>"><?php echo $donorAddress; ?></textarea>
+                        <textarea class="form-control" name="newDonorAddress" id="addrew" rows="2" cols="20" maxlength="100" style="resize: none;"
+                            value=""><?php echo $donorAddress; ?></textarea>
                     </div>
                     <div class="text-center">
                         <button type="submit" class="btn btn-danger text-nowrap btn-lg">Update</button>
@@ -635,7 +575,152 @@ pg_close($db_connect);
 </body>
 
 </html>
+<?php
+if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_FILES["image"])) {
+    $newDonorName = $_POST['newDonorName'];
+    $newDonorDob = $_POST['newDonorDob'];
+    $newDonorGender = $_POST['newDonorGender'];
+    $newDonorBloodGrp = $_POST['newDonorBloodGrp'];
+    $newDonorMobile = $_POST['newDonorMobile'];
+    $newDonorpincode = $_POST['newDonorpincode'];
+    $newDonorState = $_POST['newDonorState'];
+    $newDonorDistrict = $_POST['newDonorDistrict'];
+    $newDonorAddress = $_POST['newDonorAddress'];
+    $newDonorAltNo = $_POST['newDonorAltNo'];
+    $Crnt_imageData = $_FILES["image"]["name"];
+    $Crnt_imagetmp = $_FILES["image"]["tmp_name"];
+    
+    // Sanitize input here
 
+    // Update the donor photo only if a new image is uploaded
+    $new_img_name = $Crnt_imageData; // Default to the existing image data
+    if ($_FILES['image']['name']) {
+        $new_img_name = '';
+        $Crnt_imageData = $_FILES['image']['name'];
+        $img_ex = pathinfo($Crnt_imageData, PATHINFO_EXTENSION);
+        $img_ex_lc = strtolower($img_ex);
+        $allow_extn = array("jpg", "jpeg", "png","gif");
+
+        if (in_array($img_ex_lc, $allow_extn)) {
+            $new_img_name = uniqid("IMG-", true) . '.' . $img_ex_lc;
+            $img_upload_path = 'uploads/' . $new_img_name;
+            move_uploaded_file($_FILES['image']['tmp_name'], $img_upload_path);
+            
+            // Fetch existing donor photo filename
+            $query_fetch_photo = "SELECT donorphoto FROM donor_info WHERE donoremail='$donorEmail'";
+            $result_fetch_photo = pg_query($db_connect, $query_fetch_photo);
+            if ($row = pg_fetch_assoc($result_fetch_photo)) {
+                $old_img_name = $row['donorphoto'];
+                
+                // Delete the old photo from the database
+                $query_delete_photo = "UPDATE donor_info SET donorphoto = '$new_img_name' WHERE donoremail= '$donorEmail'";
+                pg_query($db_connect, $query_delete_photo);
+                
+                // Delete the old photo from the folder
+                if (!empty($old_img_name)) {
+                    $old_img_path = 'uploads/' . $old_img_name;
+                    if (file_exists($old_img_path)) {
+                        unlink($old_img_path);
+                    }
+                }
+            }
+        }
+    } else {
+        // If no new image is uploaded, retain the existing image data
+        $new_img_name = $Crnt_imageData;
+    }
+
+    // Prepare the SQL query and parameters
+    $query = "UPDATE donor_info SET donorname=$1, donordob=$2, donorgender=$3, donorbloodgrp=$4, donormobile=$5, donoraltno=$6, donorpincode=$7, donorstate=$8, donordistrict=$9, donoraddress=$10";
+    $parameters = array($newDonorName, $newDonorDob, $newDonorGender, $newDonorBloodGrp, $newDonorMobile, $newDonorAltNo, $newDonorpincode, $newDonorState, $newDonorDistrict, $newDonorAddress);
+
+    // Add donorphoto parameter if new image is provided
+    if ($_FILES['image']['name']) {
+        $parameters[] = $new_img_name;
+        $query .= ", donorphoto=$" . (count($parameters));
+    }
+
+    // Execute the query
+    $result2 = pg_query_params($db_connect, $query, $parameters);
+}
+
+
+
+
+
+        // update  the main data (e.g., store in database)
+    
+            // echo " <div class='container-top '>
+            // <div class='alert alert-success' role='alert' id='myAlert'>
+            // Updated successfully!
+            //      </div>
+            //      </div>
+            //      <style>
+            //      .container-top {
+            //          position: fixed;
+            //          top: 38px;
+            //          width: 100%;
+            //          padding: 20px;
+            //          text-align: center;
+            //          z-index: 1000; /* Ensure the container appears above other elements */
+            //      }
+            //  </style>
+            //  <script>
+            //  $(document).ready(function(){
+            //     // Set a delay of 3 seconds (3000 milliseconds)
+            //     setTimeout(function(){
+            //       // Redirect to Signup.php
+            //       window.location.replace('settings.php');
+            //     }, 5000); 
+            //     // Change the delay time as needed (in milliseconds)
+            //   });
+            // </script>";
+
+
+
+
+
+      // $ifExt_query = "SELECT COUNT(*) FROM donor_info WHERE donormobile=$1";
+            // $param = array($newDonorMobile);
+            // $result = pg_query_params($db_connect, $ifExt_query, $param);
+            // $row = pg_fetch_row($result);
+            // $count = intval($row[0]);
+            // if ($count > 0) {
+    //             echo " <div class='container-top '>
+    //             <div class='alert alert-warning' role='alert' id='myAlert'>
+    //             An account with this  phone number already exists, try different .
+    //              </div>
+    //              </div>
+    //              <style>
+    //              .container-top {
+    //                  position: fixed;
+    //                  top: 38px;
+    //                  width: 100%;
+    //                  padding: 20px;
+    //                  text-align: center;
+    //                  z-index: 1000; /* Ensure the container appears above other elements */
+    //              }
+    //          </style>
+    //           <script>
+    //          $(document).ready(function(){
+    //             // Set a delay of 3 seconds (3000 milliseconds)
+    //             setTimeout(function(){
+    //               // Redirect to Signup.php
+    //               window.location.replace('settings.php');
+    //             }, 5000); 
+    //             // Change the delay time as needed (in milliseconds)
+    //           });
+    //         </script>
+    // ";
+    
+            
+
+
+//  Close the database connection
+
+
+
+?>
 
 <?php
 include 'footer.php';
