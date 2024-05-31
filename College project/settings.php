@@ -642,13 +642,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_FILES["image"])) {
 
     // Execute the query
     $result2 = pg_query_params($db_connect, $query, $parameters);
-         <script>
+           echo"    <script>
                  
-                 function myFunc() { 
-                     location.replace('settings.php'); 
-                 } 
-                 myFunc()
-                 </script>";
+     function myFunc() { 
+         location.replace('settings.php'); 
+     } 
+     myFunc()
+     </script>";
+
 }
 
 
