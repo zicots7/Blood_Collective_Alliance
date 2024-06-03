@@ -37,7 +37,7 @@ if ($LoggedIn) {
           <img id="image-container"  src="'.getImageSrc().'"style="width: 50px; height: 50px; border-radius: 50%;">
         </a>
         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="#">Profile</a>
+          <a class="dropdown-item" href="#">'.$_SESSION['donorName'].'</a>
           <a class="dropdown-item" href="settings.php">Settings</a>
           <div class="dropdown-divider"></div>
           <a class="dropdown-item" href="logout.php">Logout</a>
@@ -60,14 +60,14 @@ function getImageSrc() {
  $donorEmail=$_SESSION['donorEmail'];
     // Fetch photo from the database based on photo ID
  // Replace '1' with the actual photo ID
-    $query = "SELECT donorphoto FROM donor_info WHERE donoremail = $1";
+    $query = "SELECT donorname ,donorphoto FROM donor_info WHERE donoremail = $1";
     $result = pg_query_params($db_connect, $query, array($donorEmail));
 
     if ($result) {
         $row = pg_fetch_assoc($result);
         if ($row) {
            
-           
+          $_SESSION['donorName']= $row["donorname"];
             // $imageData =$row['donorphoto'];
             
             // Construct the data URI

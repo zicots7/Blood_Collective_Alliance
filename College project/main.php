@@ -10,7 +10,18 @@
     integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 
 
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+<!-- Leaflet CSS -->
+<link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+<!-- Leaflet CSS -->
+<link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
 
+<!-- Leaflet JavaScript -->
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+
+<!-- Leaflet JavaScript -->
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
 
 
 <title>Blood Collective Alliance</title>
@@ -33,8 +44,8 @@ if (!isset($_SESSION['LoggedIn']) || $_SESSION['LoggedIn'] != true) {
 
 
 <form action="main.php" method="post">
-    <div
-        class="container justify-content-center align-items-center" style= "padding: 40px; border: 2px; border-radius:20px;">
+    <div class="container justify-content-center align-items-center"
+        style="padding: 40px; border: 2px; border-radius:20px;">
         <div class="panel panel-danger"><br><br>
             <h4 class="text-danger" align="center">Nearby Donor Finder</h4><br>
             <div class="panel-body">
@@ -44,7 +55,7 @@ if (!isset($_SESSION['LoggedIn']) || $_SESSION['LoggedIn'] != true) {
                             <tr class="table-danger">
                                 <th scope="col">State</th>
                                 <th scope="col">District</th>
-                                <th scope="col">Pin Code</th>
+                                <!-- <th scope="col">Pin Code</th> -->
                                 <th scope="col">Blood Group</th>
                             </tr>
                         </thead>
@@ -95,12 +106,12 @@ if (!isset($_SESSION['LoggedIn']) || $_SESSION['LoggedIn'] != true) {
                                     </select>
                                 </td>
 
-                                <td>
+                                <!-- <td>
                                     <label for="txtBbPincode"></label>
                                     <input type="text" class="form-control" name="donorPincode" id="donorPincode"
                                         placeholder="Pin Code" maxlength="6" onkeypress="return validateNumeric(event)"
                                         autocomplete="off" autofocus required>
-                                </td>
+                                </td> -->
 
                                 <td>
                                     <label for="donorBloodGrp" autocomplete="off" autofocus required></label>
@@ -411,9 +422,11 @@ if (!isset($_SESSION['LoggedIn']) || $_SESSION['LoggedIn'] != true) {
                     <th scope="col" class='text-center'>Blood Group</th>
                     <th scope="col">Sate</th>
                     <th scope="col">District</th>
+                    <th scope="col">Address</th>
                     <th scope="col" class='text-center'>Pincode</th>
                     <th scope="col" class='text-center'>Contact No.</th>
                     <th scope="col" class='text-center'>Alternative No.</th>
+
                 </tr>
             </thead>
 
@@ -426,11 +439,12 @@ if (!isset($_SESSION['LoggedIn']) || $_SESSION['LoggedIn'] != true) {
                 $donorState = $_POST["donorState"];
                 $donorBloodGrp = $_POST["donorBloodGrp"];
                 $donorDistrict = $_POST["donorDistrict"];
-                $donorPincode = $_POST["donorPincode"];
+                // $donorPincode = $_POST["donorPincode"];
+                $donorEmail = $_SESSION['donorEmail'];
 
                 //  Construct SQL query based on selected input
-                $sql = "SELECT donorstate, donorname, donorbloodgrp, donordistrict, donorpincode, donormobile, donoraltno FROM donor_info WHERE donorstate = $1 AND donorbloodgrp = $2 AND donordistrict = $3 AND donorpincode = $4";
-                $result = pg_query_params($db_connect, $sql, array($donorState, $donorBloodGrp, $donorDistrict, $donorPincode));
+                $sql = "SELECT donorstate,donoraddress, donorname, donorbloodgrp, donordistrict, donorpincode, donormobile, donoraltno FROM donor_info WHERE donorstate = $1 AND donorbloodgrp = $2 AND donordistrict = $3 AND donoremail  <> $4";
+                $result = pg_query_params($db_connect, $sql, array($donorState, $donorBloodGrp, $donorDistrict, $donorEmail));
                 if ($result) {
                     while ($row = pg_fetch_assoc($result)) {
                         echo "<tbody>";
@@ -440,6 +454,7 @@ if (!isset($_SESSION['LoggedIn']) || $_SESSION['LoggedIn'] != true) {
                         echo "<td class='text-center'>" . $row["donorbloodgrp"] . "</td>";
                         echo "<td>" . $row["donorstate"] . "</td>";
                         echo "<td>" . $row["donordistrict"] . "</td>";
+                        echo "<td>" . $row["donoraddress"] . "</td>";
                         echo "<td class='text-center'>" . $row["donorpincode"] . "</td>";
                         echo "<td class='text-center'>" . $row["donormobile"] . "</td>";
                         echo "<td class='text-center'>" . $row["donoraltno"] . "</td>";
@@ -451,7 +466,7 @@ if (!isset($_SESSION['LoggedIn']) || $_SESSION['LoggedIn'] != true) {
                 }
             }
             //  Close the database connection
-            pg_close($db_connect);
+            
             ?>
 
 
@@ -494,49 +509,113 @@ if (!isset($_SESSION['LoggedIn']) || $_SESSION['LoggedIn'] != true) {
     }
 </style>
 
+<style>
+    #map-container {
+        width: 80%;
+        /* Adjust the width as needed */
+        height: 500px;
+        /* Adjust the height as needed */
+        margin: 0 auto;
+        /* Center horizontally */
+        border: 1px solid #ccc;
+        /* Optional: Add border for better visibility */
+    }
+
+    #map {
+        width: 100%;
+        height: 100%;
+    }
+</style>
+
+
+</head>
+
 <body>
-    <h1 class="text-danger">Interactive Map</h1>
-    <!-- Map container -->
-    <div class="container flex justify-content-center align-items-center">
-        <!-- Your content goes here -->
-        <div class="map">
-            <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3721955.0392164867!2d85.20880019274185!3d24.356184555163747!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39fa16ff1397e887%3A0x71543a3dc3e7a20a!2sWest%20Bengal!5e0!3m2!1sen!2sin!4v1716459283172!5m2!1sen!2sin"
-                width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
-                referrerpolicy="no-referrer-when-downgrade"></iframe>
-        </div>
-    </div><br>
+
+    <div id="map-container">
+        <div id="map"></div>
+    </div>
 
 
     <script>
-        // Initialize and display the map
-        function initMap() {
-            // Specify the coordinates where you want to center the map
-            // var center = {
-            //   lat: 40.7128,
-            //   lng: -74.0060
-            // }; // Example: New York City coordinates
-            var mapOptions = {
-                center: new google.maps.LatLng(22.986757, 87.854976),
-                zoom: 12,
-                mapTypeId: google.maps.MapTypeId.HYBRID,
-                panControl: true,
-                zoomControl: true,
-                mapTypeControl: true,
-                scaleControl: true,
-                streetViewControl: true,
-                overviewMapControl: true,
-                rotateControl: true
-            }
-            // Create a new map object centered at the specified location
-            var map = new google.maps.Map(document.getElementById('map', mapOptions));
-        }
-    </script>
 
-    <!-- // Call the initMap function after the Google Maps API has loaded -->
-    <!-- <script async defer
-        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBu-916DdpKAjTmJNIgngS6HL_kDIKU0aU&callback=initMap">
-    </script> -->
+
+var map = L.map('map').setView([20.5937, 78.9629], 5); // Centered at India
+
+L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+}).addTo(map);
+
+var markers = [];
+
+        function geocodeAddress(address, callback) {
+            var url = 'https://nominatim.openstreetmap.org/search?format=json&limit=1&q=' + encodeURIComponent(address);
+            console.log('Geocoding URL:', url); // Debugging: Log geocoding URL
+            fetch(url)
+                .then(response => response.json())
+                .then(data => {
+                    console.log('Geocoding Response:', data); // Debugging: Log geocoding response
+                    if (data && data.length > 0) {
+                        var latlng = [parseFloat(data[0].lat), parseFloat(data[0].lon)];
+                        callback(latlng);
+                    } else {
+                        callback(null);
+                    }
+                })
+                .catch(error => {
+                    console.error('Error geocoding address:', error);
+                    callback(null);
+                });
+        }
+
+        <?php
+        //  // Assuming you haven't started the session yet
+        if ($_SERVER["REQUEST_METHOD"] == "POST") {
+            // Retrieve form data
+            $donorState = $_POST["donorState"];
+            $donorBloodGrp = $_POST["donorBloodGrp"];
+            $donorDistrict = $_POST["donorDistrict"];
+            // $donorPincode = $_POST["donorPincode"];
+            $_SESSION['donorEmail'];
+
+            //  Construct SQL query based on selected input
+            $sql = "SELECT donorstate, donordistrict,donorbloodgrp,donoraddress,donorpincode,donorname FROM donor_info WHERE donorstate = $1 AND donordistrict = $2 AND donorbloodgrp=$3 AND donoremail  <> $4";
+            $result = pg_query_params($db_connect, $sql, array($donorState, $donorDistrict, $donorBloodGrp, $_SESSION['donorEmail']));
+            if ($result) {
+                $markers = []; // Array to hold marker positions
+        
+                while ($row = pg_fetch_assoc($result)) {
+                    $donorName = $row["donorname"];
+                    $donorState = $row["donorstate"];
+                    $donorBloodGrp = $row["donorbloodgrp"];
+                    $donorDistrict = $row["donordistrict"];
+                    $donorAddress = $row["donoraddress"];
+                    $donorPincode = $row["donorpincode"];
+
+                    $address = "$donorAddress, $donorDistrict, $donorState, $donorPincode";
+                    echo "console.log('Address:', '$address');"; // Debugging: Log address
+        
+                    echo "geocodeAddress('$address', function(latlng) {";
+                    echo "    if (latlng) {";
+                    echo "        var marker = L.marker(latlng).addTo(map).bindPopup('$donorName - $address');";
+                    echo "        markers.push(marker);";
+                    echo "        map.fitBounds(L.featureGroup(markers).getBounds());"; // This will adjust the map to fit all markers
+                    echo "    } else {";
+                    echo "        console.error('Geocoding failed for address: $address');";
+                    echo "    }";
+                    echo "});";
+                }
+
+                // After all markers have been added, fit the map bounds to include all markers
+                echo "map.fitBounds(markers);";
+            } else {
+                echo "Error executing query: " . pg_last_error($db_connect);
+            }
+        }
+
+        ?>
+  
+</script>
 
 </body>
 
