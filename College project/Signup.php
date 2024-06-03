@@ -574,6 +574,7 @@ include ("_nav.php");
 
     <?php
 
+   function singup(){
     require ('_DB.php');
     // Check if the form is submitted
     
@@ -728,6 +729,8 @@ include ("_nav.php");
             }
         }
     }
+   }
+   singup();
     ?>
     <?php
     include ("footer.php");

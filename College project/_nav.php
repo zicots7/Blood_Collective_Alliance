@@ -1,12 +1,16 @@
 <?php
-session_start( );
+  session_start( );
+function start_nav(){
 
 if (isset($_SESSION['LoggedIn']) && ($_SESSION['LoggedIn'] == true)) {
-  $LoggedIn = true;
+  return $LoggedIn = true;
 } else {
-  $LoggedIn = false;
+  return $LoggedIn = false;
 }
-echo '<nav class="navbar navbar-dark navbar-expand-lg bg-body-tertiary mt-0 py-0"> 
+}
+function display_nav(){
+
+  echo '<nav class="navbar navbar-dark navbar-expand-lg bg-body-tertiary mt-0 py-0"> 
 <!-- fixed-top -->
 <div class="container-fluid bg-danger " >
   <a class="navbar-brand fs-3" href="main.php">Blood Collective Alliance</a>
@@ -21,7 +25,7 @@ echo '<nav class="navbar navbar-dark navbar-expand-lg bg-body-tertiary mt-0 py-0
       <li class="nav-item ">
         <a class="  nav-link active text-white fs-3" href="ContactUs.php" >Contact Us</a>
       </li>';
-if (!$LoggedIn) {
+if (!start_nav()) {
   echo '<li class="nav-item " >
         <a  class=" nav-link active text-white fs-3" href="Login.php" >Sign In </a>
       </li>
@@ -30,7 +34,7 @@ if (!$LoggedIn) {
       </li>
     </ul>';
 }
-if ($LoggedIn) {
+if (start_nav()) {
   echo '
   <li class="nav-item dropdown show">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -48,6 +52,10 @@ echo '
   </div>
 </div>
 </nav>';
+}
+
+
+display_nav();
 ?>
 
 <?php
@@ -88,6 +96,8 @@ function getImageSrc() {
 
 
 <!-- Bootstrap JS and dependencies -->
+
+
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
@@ -131,5 +141,3 @@ function getImageSrc() {
   integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"
   integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
-
-  
