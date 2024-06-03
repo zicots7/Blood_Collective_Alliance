@@ -62,10 +62,8 @@
 </head>
 
 <?php
-
 include ('_nav.php');
 include ('_DB.php');
-
 $donorEmail = $_SESSION['donorEmail'];
 $donorPhoto=$_SESSION['donorphoto'];
 $sql = "SELECT donorname,donordob,donorgender,donorbloodgrp,donormobile,donorEmail,donorpincode,donorstate,donordistrict,donoraddress,donoraltno FROM donor_info WHERE donoremail = $1";
@@ -89,6 +87,8 @@ if ($result) {
         
   
     }
+
+
 ?>
 
 
@@ -102,7 +102,7 @@ if ($result) {
                 <div class="card card-container"style="padding: 40px; background: #ffffff; border: 2px; border-radius: 20px; ">
                     <div class="form-group">
                     <div class="d-flex justify-content-center mb-4">
-                                    <img id="preview" name="image"  src="<?php echo $donorPhoto;?>" alt="Image Preview"
+                                    <img id="preview" name="image"  src="<?php  echo $donorPhoto;?>" alt="Image Preview"
                                         class="rounded-circle" style="width: 200px; height: 200px; object-fit: cover;">
                                 </div>
                         <div class="d-flex justify-content-center">
@@ -576,6 +576,7 @@ if ($result) {
 
 </html>
 <?php
+include ('_DB.php');
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_FILES["image"])) {
     $newDonorName = $_POST['newDonorName'];
     $newDonorDob = $_POST['newDonorDob'];
@@ -607,14 +608,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_FILES["image"])) {
             move_uploaded_file($_FILES['image']['tmp_name'], $img_upload_path);
             
             // Fetch existing donor photo filename
-            $query_fetch_photo = "SELECT donorphoto FROM donor_info WHERE donoremail='$donorEmail'";
-            $result_fetch_photo = pg_query($db_connect, $query_fetch_photo);
+            $query_fetch_photo = "SELECT donorphoto FROM donor_info WHERE donoremail=$1";
+            $result_fetch_photo = pg_query_params($db_connect, $query_fetch_photo, array($donorEmail));
             if ($row = pg_fetch_assoc($result_fetch_photo)) {
                 $old_img_name = $row['donorphoto'];
                 
                 // Delete the old photo from the database
-                $query_delete_photo = "UPDATE donor_info SET donorphoto = '$new_img_name' WHERE donoremail= '$donorEmail'";
-                pg_query($db_connect, $query_delete_photo);
+                $query_delete_photo = "UPDATE donor_info SET donorphoto = NULL WHERE donoremail= $1";
+                pg_query_params($db_connect, $query_delete_photo, array($donorEmail));
                 
                 // Delete the old photo from the folder
                 if (!empty($old_img_name)) {
@@ -631,8 +632,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_FILES["image"])) {
     }
 
     // Prepare the SQL query and parameters
-    $query = "UPDATE donor_info SET donorname=$1, donordob=$2, donorgender=$3, donorbloodgrp=$4, donormobile=$5, donoraltno=$6, donorpincode=$7, donorstate=$8, donordistrict=$9, donoraddress=$10 where donoremail=$11" ;
-    $parameters = array($newDonorName, $newDonorDob, $newDonorGender, $newDonorBloodGrp, $newDonorMobile, $newDonorAltNo, $newDonorpincode, $newDonorState, $newDonorDistrict, $newDonorAddress,$donorEmail);
+    $query = "UPDATE donor_info SET donorname=$1, donordob=$2, donorgender=$3, donorbloodgrp=$4, donormobile=$5, donoraltno=$6, donorpincode=$7, donorstate=$8, donordistrict=$9, donoraddress=$10";
+    $parameters = array($newDonorName, $newDonorDob, $newDonorGender, $newDonorBloodGrp, $newDonorMobile, $newDonorAltNo, $newDonorpincode, $newDonorState, $newDonorDistrict, $newDonorAddress);
 
     // Add donorphoto parameter if new image is provided
     if ($_FILES['image']['name']) {
@@ -640,93 +641,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_FILES["image"])) {
         $query .= ", donorphoto=$" . (count($parameters));
     }
 
+    $query .= " WHERE donoremail=$" . (count($parameters) + 1);
+    $parameters[] = $donorEmail;
+
     // Execute the query
-    $result2 = pg_query_params($db_connect, $query, $parameters);
-           echo"    <script>
-                 
-     function myFunc() { 
-         location.replace('settings.php'); 
-     } 
-     myFunc()
-     </script>";
+    $result = pg_query_params($db_connect, $query, $parameters);
 
+    if ($result) {
+        echo "<script>location.replace('settings.php');</script>";
+    } else {
+        echo "Error updating donor information.";
+    }
 }
-
-
-
-
-
-        // update  the main data (e.g., store in database)
-    
-            // echo " <div class='container-top '>
-            // <div class='alert alert-success' role='alert' id='myAlert'>
-            // Updated successfully!
-            //      </div>
-            //      </div>
-            //      <style>
-            //      .container-top {
-            //          position: fixed;
-            //          top: 38px;
-            //          width: 100%;
-            //          padding: 20px;
-            //          text-align: center;
-            //          z-index: 1000; /* Ensure the container appears above other elements */
-            //      }
-            //  </style>
-            //  <script>
-            //  $(document).ready(function(){
-            //     // Set a delay of 3 seconds (3000 milliseconds)
-            //     setTimeout(function(){
-            //       // Redirect to Signup.php
-            //       window.location.replace('settings.php');
-            //     }, 5000); 
-            //     // Change the delay time as needed (in milliseconds)
-            //   });
-            // </script>";
-
-
-
-
-
-      // $ifExt_query = "SELECT COUNT(*) FROM donor_info WHERE donormobile=$1";
-            // $param = array($newDonorMobile);
-            // $result = pg_query_params($db_connect, $ifExt_query, $param);
-            // $row = pg_fetch_row($result);
-            // $count = intval($row[0]);
-            // if ($count > 0) {
-    //             echo " <div class='container-top '>
-    //             <div class='alert alert-warning' role='alert' id='myAlert'>
-    //             An account with this  phone number already exists, try different .
-    //              </div>
-    //              </div>
-    //              <style>
-    //              .container-top {
-    //                  position: fixed;
-    //                  top: 38px;
-    //                  width: 100%;
-    //                  padding: 20px;
-    //                  text-align: center;
-    //                  z-index: 1000; /* Ensure the container appears above other elements */
-    //              }
-    //          </style>
-    //           <script>
-    //          $(document).ready(function(){
-    //             // Set a delay of 3 seconds (3000 milliseconds)
-    //             setTimeout(function(){
-    //               // Redirect to Signup.php
-    //               window.location.replace('settings.php');
-    //             }, 5000); 
-    //             // Change the delay time as needed (in milliseconds)
-    //           });
-    //         </script>
-    // ";
-    
-            
-
-
-//  Close the database connection
-
-
 
 ?>
 

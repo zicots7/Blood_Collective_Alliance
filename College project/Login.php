@@ -14,111 +14,84 @@
     <title>Blood Collective Alliance login</title>
 
 <?php
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
+function check_login(){
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
-    require ('_DB.php');
-    //---------- Retrieve form data--------
-    $donorEmail = $_POST["donorEmail"];
-    $donorPassword = $_POST["donorPassword"];
-   
-    $donorEmail = pg_escape_string($db_connect, $donorEmail);
-    $donorPassword = pg_escape_string($db_connect, $donorPassword);
-    
-
-        
-        $query = "SELECT donorEmail ,donorPassword FROM donor_info WHERE donorEmail = $1";
-        $param = array($donorEmail);
-        
-        $result = pg_query_params($db_connect, $query, $param);
-        // $login_check = pg_num_rows($result);
-  
-
-        if (!$result) { 
-            die("Query failed"); 
-            pg_close($db_connect);
-        } 
+        require ('_DB.php');
+        //---------- Retrieve form data--------
+        $donorEmail = $_POST["donorEmail"];
+        $donorPassword = $_POST["donorPassword"];
        
+        $donorEmail = pg_escape_string($db_connect, $donorEmail);
+        $donorPassword = pg_escape_string($db_connect, $donorPassword);
         
-
-        $row = pg_fetch_assoc($result);
-        
-        // var_dump($row);
-        if($row){
+    
             
-            $hashedPasswordFromDB = $row["donorpassword"];
+            $query = "SELECT donorEmail ,donorPassword FROM donor_info WHERE donorEmail = $1";
+            $param = array($donorEmail);
             
-//if user enters all correct informations
-            if(password_verify($donorPassword, $hashedPasswordFromDB)){
+            $result = pg_query_params($db_connect, $query, $param);
+            // $login_check = pg_num_rows($result);
+      
+    
+            if (!$result) { 
+                die("Query failed"); 
+                pg_close($db_connect);
+            } 
+           
+            
+    
+            $row = pg_fetch_assoc($result);
+            
+            // var_dump($row);
+            if($row){
                 
-                include("_nav.php");
-
-                $_SESSION['donorEmail'] = $row['donoremail'];
-               
-                $_SESSION['LoggedIn']=true;
-        
-                 //to disable Signup button on Nav bar
-                //  header("Location: main.php");
-                echo" <div class='container-top '>
-                <div class='alert alert-success' role='alert' id='myAlert'>
-                Successfully Logged in 
-                     </div>
-                     </div>
-                     <style>
-                     .container-top {
-                         position: fixed;
-                         top: 38px;
-                         width: 100%;
-                         padding: 20px;
-                         text-align: center;
-                         z-index: 1000; /* Ensure the container appears above other elements */
-                     }
-                 </style>
-                 
-                 <script>
-                 
-                 function myFunc() { 
-                     location.replace('main.php'); 
-                 } 
-                 myFunc()
-                 </script>";
+                $hashedPasswordFromDB = $row["donorpassword"];
                 
- 
-                    exit;
-                 
-              
-            }else{                       
-                //if user enters a wrong password
-        echo'<div class="container-top ">
-        <div class="alert alert-danger "role="alert" id="myAlert">
-        Incorrect Password 
-             </div>
-             </div>
-             <style>
-             .container-top {
-                 position: fixed;
-                 top: 38px;
-                 width: 100%;
-                 padding: 20px;
-                 text-align: center;
-                 z-index: 1000; /* Ensure the container appears above other elements */
-             }
-         </style> ';
-        
-         echo'<script> 
-         function myFunc() { 
-             location.replace("Login.php"); 
-         } 
-         myFunc()
-         </script>';
- 
-        }
-        
-        // Check if user does not exist 
-  
-        }else { 
+    //if user enters all correct informations
+                if(password_verify($donorPassword, $hashedPasswordFromDB)){
+                    
+                    include("_nav.php");
+    
+                    $_SESSION['donorEmail'] = $row['donoremail'];
+                   
+                    $_SESSION['LoggedIn']=true;
+            
+                     //to disable Signup button on Nav bar
+                    //  header("Location: main.php");
+                    echo" <div class='container-top '>
+                    <div class='alert alert-success' role='alert' id='myAlert'>
+                    Successfully Logged in 
+                         </div>
+                         </div>
+                         <style>
+                         .container-top {
+                             position: fixed;
+                             top: 38px;
+                             width: 100%;
+                             padding: 20px;
+                             text-align: center;
+                             z-index: 1000; /* Ensure the container appears above other elements */
+                         }
+                     </style>
+                     
+                     <script>
+                     
+                     function myFunc() { 
+                         location.replace('main.php'); 
+                     } 
+                     myFunc()
+                     </script>";
+                    
+     
+                        exit;
+                     
+                  
+                }else{                       
+                    //if user enters a wrong password
             echo'<div class="container-top ">
             <div class="alert alert-danger "role="alert" id="myAlert">
-            Account does not exist, Please Sign Up.
+            Incorrect Password 
                  </div>
                  </div>
                  <style>
@@ -132,26 +105,56 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                  }
              </style> ';
             
-             echo'<script>
-             <script> 
+             echo'<script> 
              function myFunc() { 
-                 location.replace("Signup.php"); 
+                 location.replace("Login.php"); 
              } 
              myFunc()
-            </script>
-       ';
+             </script>';
+     
+            }
+            
+            // Check if user does not exist 
+      
+            }else { 
+                echo'<div class="container-top ">
+                <div class="alert alert-danger "role="alert" id="myAlert">
+                Account does not exist, Please Sign Up.
+                     </div>
+                     </div>
+                     <style>
+                     .container-top {
+                         position: fixed;
+                         top: 38px;
+                         width: 100%;
+                         padding: 20px;
+                         text-align: center;
+                         z-index: 1000; /* Ensure the container appears above other elements */
+                     }
+                 </style> ';
+                
+                 echo'<script>
+                 <script> 
+                 function myFunc() { 
+                     location.replace("Signup.php"); 
+                 } 
+                 myFunc()
+                </script>
+           ';
+        
+                    }
+                    // if($signal){
+                      
     
-                }
-                // if($signal){
-                  
-
-
-                    
-                // }
-        }
-   
-
-   
+    
+                        
+                    // }
+            }
+       
+    
+       
+}
+check_login();
 ?>
 
     <script>

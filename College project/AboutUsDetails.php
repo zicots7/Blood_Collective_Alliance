@@ -1,5 +1,6 @@
 <?php
-echo "
+function aboutus_show(){
+    echo "
 <main role='main'>
     <div class='album py-5 bg-light'>
         <div class='container' style='padding-top: 50px;'>
@@ -66,3 +67,7 @@ echo "
 
 </main>
 ";
+}
+aboutus_show();
+?>
+

@@ -23,21 +23,23 @@
 <!-- Leaflet JavaScript -->
 <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
 
-
 <title>Blood Collective Alliance</title>
 <?php include ("_nav.php");
 ?>
 
 <?php
-if (!isset($_SESSION['LoggedIn']) || $_SESSION['LoggedIn'] != true) {
+function Logincheck(){
+    if (!isset($_SESSION['LoggedIn']) || $_SESSION['LoggedIn'] != true) {
 
-    echo '<script> 
-    function myFunc() { 
-        location.replace("Login.php"); 
-    } 
-    myFunc()
-</script> ';
+        echo '<script> 
+        function myFunc() { 
+            location.replace("Login.php"); 
+        } 
+        myFunc()
+    </script> ';
+    }
 }
+Logincheck();
 ?>
 
 
@@ -431,9 +433,11 @@ if (!isset($_SESSION['LoggedIn']) || $_SESSION['LoggedIn'] != true) {
             </thead>
 
             <?php
-            $counter = 1; // Initialize counter to 1 for Serial no. display
+             // Initialize counter to 1 for Serial no. display
+            
+            function data_fetch_form(){
             include '_DB.php';
-
+            $counter = 1;
             if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 // Retrieve form data
                 $donorState = $_POST["donorState"];
@@ -466,6 +470,9 @@ if (!isset($_SESSION['LoggedIn']) || $_SESSION['LoggedIn'] != true) {
                 }
             }
             //  Close the database connection
+
+            }
+data_fetch_form();
             
             ?>
 
@@ -567,52 +574,56 @@ var markers = [];
                     callback(null);
                 });
         }
-
         <?php
-        //  // Assuming you haven't started the session yet
-        if ($_SERVER["REQUEST_METHOD"] == "POST") {
-            // Retrieve form data
-            $donorState = $_POST["donorState"];
-            $donorBloodGrp = $_POST["donorBloodGrp"];
-            $donorDistrict = $_POST["donorDistrict"];
-            // $donorPincode = $_POST["donorPincode"];
-            $_SESSION['donorEmail'];
+        function map_load(){
 
-            //  Construct SQL query based on selected input
-            $sql = "SELECT donorstate, donordistrict,donorbloodgrp,donoraddress,donorpincode,donorname FROM donor_info WHERE donorstate = $1 AND donordistrict = $2 AND donorbloodgrp=$3 AND donoremail  <> $4";
-            $result = pg_query_params($db_connect, $sql, array($donorState, $donorDistrict, $donorBloodGrp, $_SESSION['donorEmail']));
-            if ($result) {
-                $markers = []; // Array to hold marker positions
-        
-                while ($row = pg_fetch_assoc($result)) {
-                    $donorName = $row["donorname"];
-                    $donorState = $row["donorstate"];
-                    $donorBloodGrp = $row["donorbloodgrp"];
-                    $donorDistrict = $row["donordistrict"];
-                    $donorAddress = $row["donoraddress"];
-                    $donorPincode = $row["donorpincode"];
+ if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    include ('_db.php');
+    // Retrieve form data
+    $donorState = $_POST["donorState"];
+    $donorBloodGrp = $_POST["donorBloodGrp"];
+    $donorDistrict = $_POST["donorDistrict"];
+    // $donorPincode = $_POST["donorPincode"];
+    $_SESSION['donorEmail'];
 
-                    $address = "$donorAddress, $donorDistrict, $donorState, $donorPincode";
-                    echo "console.log('Address:', '$address');"; // Debugging: Log address
-        
-                    echo "geocodeAddress('$address', function(latlng) {";
-                    echo "    if (latlng) {";
-                    echo "        var marker = L.marker(latlng).addTo(map).bindPopup('$donorName - $address');";
-                    echo "        markers.push(marker);";
-                    echo "        map.fitBounds(L.featureGroup(markers).getBounds());"; // This will adjust the map to fit all markers
-                    echo "    } else {";
-                    echo "        console.error('Geocoding failed for address: $address');";
-                    echo "    }";
-                    echo "});";
-                }
+    //  Construct SQL query based on selected input
+    $sql = "SELECT donorstate, donordistrict,donorbloodgrp,donoraddress,donorpincode,donorname FROM donor_info WHERE donorstate = $1 AND donordistrict = $2 AND donorbloodgrp=$3 AND donoremail  <> $4";
+    $result = pg_query_params($db_connect, $sql, array($donorState, $donorDistrict, $donorBloodGrp, $_SESSION['donorEmail']));
+    if ($result) {
+        $markers = []; // Array to hold marker positions
 
-                // After all markers have been added, fit the map bounds to include all markers
-                echo "map.fitBounds(markers);";
-            } else {
-                echo "Error executing query: " . pg_last_error($db_connect);
-            }
+        while ($row = pg_fetch_assoc($result)) {
+            $donorName = $row["donorname"];
+            $donorState = $row["donorstate"];
+            $donorBloodGrp = $row["donorbloodgrp"];
+            $donorDistrict = $row["donordistrict"];
+            $donorAddress = $row["donoraddress"];
+            $donorPincode = $row["donorpincode"];
+
+            $address = "$donorAddress, $donorDistrict, $donorState, $donorPincode";
+            echo "console.log('Address:', '$address');"; // Debugging: Log address
+
+            echo "geocodeAddress('$address', function(latlng) {";
+            echo "    if (latlng) {";
+            echo "        var marker = L.marker(latlng).addTo(map).bindPopup('$donorName - $address');";
+            echo "        markers.push(marker);";
+            echo "        map.fitBounds(L.featureGroup(markers).getBounds());"; // This will adjust the map to fit all markers
+            echo "    } else {";
+            echo "        console.error('Geocoding failed for address: $address');";
+            echo "    }";
+            echo "});";
         }
 
+        // After all markers have been added, fit the map bounds to include all markers
+        echo "map.fitBounds(markers);";
+    } else {
+        echo "Error executing query: " . pg_last_error($db_connect);
+    }
+}
+        }
+       
+
+  map_load();
         ?>
   
 </script>
