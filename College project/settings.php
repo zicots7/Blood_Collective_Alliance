@@ -631,8 +631,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_FILES["image"])) {
     }
 
     // Prepare the SQL query and parameters
-    $query = "UPDATE donor_info SET donorname=$1, donordob=$2, donorgender=$3, donorbloodgrp=$4, donormobile=$5, donoraltno=$6, donorpincode=$7, donorstate=$8, donordistrict=$9, donoraddress=$10";
-    $parameters = array($newDonorName, $newDonorDob, $newDonorGender, $newDonorBloodGrp, $newDonorMobile, $newDonorAltNo, $newDonorpincode, $newDonorState, $newDonorDistrict, $newDonorAddress);
+    $query = "UPDATE donor_info SET donorname=$1, donordob=$2, donorgender=$3, donorbloodgrp=$4, donormobile=$5, donoraltno=$6, donorpincode=$7, donorstate=$8, donordistrict=$9, donoraddress=$10 where donoremail=$11" ;
+    $parameters = array($newDonorName, $newDonorDob, $newDonorGender, $newDonorBloodGrp, $newDonorMobile, $newDonorAltNo, $newDonorpincode, $newDonorState, $newDonorDistrict, $newDonorAddress,$donorEmail);
 
     // Add donorphoto parameter if new image is provided
     if ($_FILES['image']['name']) {
