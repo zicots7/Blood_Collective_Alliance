@@ -1,148 +1,158 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
-/* 
-* {
-  
-  box-sizing: border-box;
-  
-}  */
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
 
-body {
+    * {
 
-  min-height: 100vh;
-  padding: 0;
-  margin: 0;
-  width: 100%;
-  z-index: -1;
-  justify-content: center;
-  align-items: center;
-  background: #ececec;
-  background-image: url('../HTML/beautiful-red-heart-shape.jpg');
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
+      box-sizing: border-box;
 
-  position: relative;
-}
-.mainsec{
-  position: relative;
-  opacity: 0.8;     
-}
+    } 
 
-.SPAN{
-  opacity: 6;
-}
+    body {
 
-/*------------ Login container ------------*/
+      min-height: 100vh;
+      width: 100%;
+      justify-content: center;
+      align-items: center;
+/*      background-image: url('beautiful-red-heart-shape.jpg');*/
+    background-color:hsla(0,100%,50%,1);
+        background-image:
+        radial-gradient(at 40% 20%, hsla(28,100%,74%,1) 0px, transparent 50%),
+        radial-gradient(at 80% 0%, hsla(189,100%,56%,1) 0px, transparent 50%),
+        radial-gradient(at 0% 50%, hsla(355,100%,93%,1) 0px, transparent 50%),
+        radial-gradient(at 80% 50%, hsla(340,100%,76%,1) 0px, transparent 50%),
+        radial-gradient(at 0% 100%, hsla(22,100%,77%,1) 0px, transparent 50%),
+        radial-gradient(at 80% 100%, hsla(242,100%,70%,1) 0px, transparent 50%),
+        radial-gradient(at 0% 0%, hsla(343,100%,76%,1) 0px, transparent 50%);
+/*
+      background-repeat: no-repeat;
+      background-size: cover;
+*/
+/*
+      background-position: center;
+      position: relative;
+*/
+    }
+    .mainsec{
+      position: relative;
+/*      opacity: 0.8;     */
+    }
 
-.box-area {
-  width: 930px; /*930*/
-}
+/*
+    .SPAN{
+      opacity: 0.8;
+    }
+*/
 
-/*------------ Right box ------------*/
+    /*------------ Login container ------------*/
 
-.right-box { /*40px 30px 40px 40px*/
-   padding: 40px 30px 40px 40px;
-} 
-/*------------ Text box Placeholder ------------ */
+    .box-area {
+      width: 930px; /*930*/
+    }
 
-::placeholder {
-  font-size: 17px;
-}
+    /*------------ Right box ------------*/
 
- .rounded-4 {
-  border-radius: 15px; /*20px*/
-}
+    .right-box { /*40px 30px 40px 40px*/
+       padding: 40px 30px 40px 40px;
+    } 
+    /*------------ Text box Placeholder ------------ */
 
-.rounded-5 {
-  border-radius: 15px;
-}
+    ::placeholder {
+      font-size: 17px;
+    }
 
-contact-info {
-  width: 50%;
-}
+     .rounded-4 {
+      border-radius: 15px; /*20px*/
+    }
 
-.contact-info-item {
-  display: flex;
-  margin-bottom: 30px;
-}
+    .rounded-5 {
+      border-radius: 15px;
+    }
 
-.contact-info-icon {
-  height: 70px;
-  background-color: grey;
-  width: 70px;
-  text-align: center;
-  border-radius: 50%;
-  display: grid;
-  place-items: center;
-  justify-content: center; 
-  
-}
+    contact-info {
+      width: 50%;
+    }
 
-.contact-info-icon i {
-  font-size: 40px;
-  line-height: 60px;
-}
+    .contact-info-item {
+      display: flex;
+      margin-bottom: 30px;
+    }
 
-.contact-info-content {
-  margin-left: 25px;
-}
+    .contact-info-icon {
+      height: 70px;
+      background-color: springgreen;
+      width: 70px;
+      text-align: center;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      justify-content: center; 
 
-.contact-info-content h4 {
-  color: #47fca7de!important;
-  font-size: 1.4em!important;
-  margin-bottom: 5px!important;
-}
+    }
 
-.contact-info-content p {
-  color: #fffafa;
-  font-size: 1em;
-}
+    .contact-info-icon i {
+      font-size: 40px;
+      line-height: 60px;
+    }
 
-h2 {
-  font-weight: bold;
-  font-size: 2em;
-  margin-bottom: 16px;
-  color: #ff0000;
-}
+    .contact-info-content {
+      margin-left: 25px;
+    }
 
-.input-box {
-  position: relative;
-  width: 100%;
-  margin-top: 5px;
-}
+    .contact-info-content h4 {
+      color: #FFC436 !important;
+      font-size: 1.4em!important;
+      margin-bottom: 5px!important;
+    }
 
-.input-box input[type="submit"]
-{
-  width: 100%;
-  background: #eb142a;
-  color: #ffffff;
-  border: none;
-  cursor: pointer;
-  padding: 7px;
-  font-size: 18px;
-  border: 1px solid #00bcd4;
-  transition: 0.7s;
-}
+    .contact-info-content p {
+      color: white;
+      font-size: 1em;
+    }
 
-/*------------ For small screens------------*/
+    h1 {
+      
+      font-size: 2em;
+      margin-bottom: 16px;
+      color: #ff0000 !important;
+    }
 
-@media only screen and (max-width: 768px) { /*768px*/
+    .input-box {
+      position: relative;
+      width: 100%;
+      margin-top: 5px;
+    }
 
-  .box-area {
-      margin: 0 10px;
+    .input-box input[type="submit"]
+    {
+      width: 100%;
+      background: #eb142a;
+      color: #ffffff;
+      border: none;
+      cursor: pointer;
+      padding: 7px;
+      font-size: 18px;
+      border: 1px solid #00bcd4;
+      transition: 0.7s;
+    }
 
-  }
+    /*------------ For small screens------------*/
 
-  .left-box {
-      height: 100px;
-      overflow: hidden;
-  }
+    @media only screen and (max-width: 768px) { /*768px*/
 
-  .right-box {
-      padding: 40px;
- 
-  }
- .container{
-margin-left: 500px;
- }
-}
+      .box-area {
+          margin: 0 10px;
+
+      }
+
+      .left-box {
+          height: 100px;
+          overflow: hidden;
+      }
+
+      .right-box {
+          padding: 40px;
+
+      }
+     .container{
+    margin-left: 500px;
+     }
+    }
