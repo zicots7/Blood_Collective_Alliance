@@ -1,5 +1,5 @@
 .service-grid {
-    background: #fcfcfc;
+    background: #fcfcfc00;
 }
     .service-title h4 {
     position: relative;
@@ -12,38 +12,28 @@
     padding: 0 190px;
     margin-bottom: 10px;
 }
-#ourservice {
-  background-color: #80e3e9;
-  border-left-style: solid;
-  opacity: 0.5;
-  padding-left: 20px;
-  border-right-style: solid;
-  border-left-width: 0px;
-  border-right-width: 0px;
-  padding-right: 20px;
-  padding-top: 30px;
-}
-#ourservice:hover{
+
+.ourservice:hover{
     opacity: 1;
 }
 
 .paragaph{
     font-family:Arial, Helvetica, sans-serif;
     font-weight: bolder;
-    font-style: italic;
+    /* font-style: italic; */
     font-size: 18px;
 }
 .about-info-text h2 {
     margin-bottom: 23px;
     text-transform: capitalize;
-    font-weight: 700;
+    font-weight: 900;
     line-height: .9;
 }
 .about-info-text p {
     padding: 0 100px;
     font-size: 18px;
     margin-bottom: 26px;
-      position: relative;
+    position: relative;
 }
 .head{
     text-overflow: inherit;
@@ -51,7 +41,7 @@
     font-weight: bolder;
 }
 #headings{
-    font-size: 26px;
+    font-size: 30px;
 
 }
 .about-content p {
@@ -59,7 +49,7 @@
 }
 .about-info-text a {
     margin-bottom: 20px;
-      position: relative;
+    position: relative;
 }
 .service-icon i {
     font-size: 40px;
@@ -68,27 +58,40 @@
     display: inline-block;
 }
 .service-wrap {
-    border: 1px solid #e6e6e6;
-    padding: 50px 30px;
-      position: relative;
+    border: 1px solid #e6e6e600;
+    padding: 50px 50px;
+    position: relative;
 }
 
 .service-wrap p{
-      position: relative;
+    position: relative;
 }
 
 .service-wrap:hover {
-    background-image: url(https://i.ibb.co/mykzQks/services1.jpg);
     background-size: cover;
     background-position: center center;
     background-attachment: local;
-    transition: all 30000ms;
+    transition: 1000ms;
 }
 
-/* .service-1:hover{       /*First Service Image Change
-    background-image: url(https://i.ibb.co/mykzQks/services1.jpg);
-} */
-
+.service-1:hover{ 
+    background-image: url(https://i.ibb.co/d2ddxK7/image.png);
+}
+.service-2:hover{ 
+    background-image: url(https://i.ibb.co/R3pH63W/preview-173430-LG3-Bz-Fp1-GC-high-0013-1655993229.jpg);
+}
+.service-3:hover{
+    background-image: url(https://i.ibb.co/KhM2yv0/onlineshopping-06887.jpg);
+}
+.service-4:hover{
+    background-image: url(https://i.ibb.co/nDkS7dQ/image.png);
+}
+.service-5:hover{
+    background-image: url(https://i.ibb.co/0C9rxTT/image.png);
+}
+.service-6:hover{
+    background-image: url(https://i.ibb.co/PrLgBBB/image.png);
+}
 .service-wrap:hover:before {
     background: rgba(0, 0, 0, 0.2901960784313726);
     position: absolute;
@@ -109,11 +112,11 @@
     margin-bottom: 17px;
     font-size: 18px;
     text-transform: capitalize;
-      position: relative;
+    position: relative;
 }
 .service-wrap a {
     font-size: 14px;
     font-weight: 600;
-      position: relative;
+    position: relative;
 
 }

@@ -28,11 +28,8 @@ body {
   margin: 0;
   padding: 0;
   overflow-x: hidden;
-  /* display: flex; */
   justify-content: bottom;
   font-family: "Lato", Arial, Helvetica, serif;
-  /*--dark*/
-  /*background: linear-gradient(90deg, #131417, var(--SeaShell) 35% 65%, #131417)*/
   background-color: #302d2d;
   font-size: 1em;
 }
