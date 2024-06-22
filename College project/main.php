@@ -2,33 +2,15 @@
 <html lang="en">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <meta name="description" content="Blood Collective Alliance connects blood donors directly with patients in critical need, eliminating middlemen. Our mission is to save lives by reducing wait times, expanding the donor pool, and empowering communities through voluntary blood donations. Join us in making a difference today!">
-    <meta name="keywords" content="Blood Donation, Blood Collective Alliance,blood colective allaince, Blood Donor, India, Blood, Voluntary Blood Donation, Donate Blood, Blood Collection Services, Donor Finder, Blood Donor Finder, Blood Donation Near Me, Blood Donation Center, Blood Drive, Find Blood Donors, Blood Donor Finder India, Blood Donation online, ">
-    <meta name="robots" content="notranslate">
-<head>
-    <title>Donor Finder</title>
-    <!-- jQuery -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-
-<!-- Bootstrap JS Bundle (with Popper) -->
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
-
+<link rel="stylesheet" href="bodyback.css">
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous">
     </script>
-
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-<!-- Leaflet CSS -->
-<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
-     integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
-     crossorigin=""/>
-<!-- Make sure you put this AFTER Leaflet's CSS -->
- <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
-     integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
-     crossorigin=""></script>
-     <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
 <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
 <!-- Leaflet CSS -->
 <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
@@ -40,175 +22,130 @@
 
 <!-- Leaflet JavaScript -->
 <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
-<style>
 
-body{
-          min-height: 100vh;
-      width: 100%;
-    background: linear-gradient(to bottom, #D5DEE7 0%, #E8EBF2 50%, #E2E7ED 100%), linear-gradient(to bottom, rgba(0,0,0,0.02) 50%, rgba(255,255,255,0.02) 61%, rgba(0,0,0,0.02) 73%), linear-gradient(33deg, rgba(255,255,255,0.20) 0%, rgba(0,0,0,0.20) 100%);
- background-blend-mode: normal,color-burn;
-}
-.table {
-
-background-color: #F5F5F5;
-text-align: center;
-
-}
- h1 {
-        text-align: center;
-        /* Center align the heading */
-        margin: 2rem 0;
-        /* Add some margin for spacing */
-        font-size: 2rem;
-        /* Adjust font size as needed */
-    }
-
-    .map {
-        padding-bottom: 50%;
-        position: relative;
-    }
-
-    .map iframe {
-        height: 100%;
-        width: 100%;
-        left: 0;
-        top: 0;
-        position: absolute;
-    }
-
-    /* Set the size of the map container */
-    #map {
-        flex: 1;
-        height: 100%;
-        width: 100%;
-    }
-
-    /* Style for the container */
-    .container {
-        flex-direction: column;
-    }
-        /* Set the size of the map container */
-#map {
-    height: 500px;
-}
-
-#map-container {
-        width: 50%;
-        height: 500px;
-        margin: 0 auto;
-        border: 1px solid black;
-}
-</style>
-
-    </head>
-<?php
-include ("_nav.php");
+<title>Blood Collective Alliance</title>
+<?php include ("_nav.php");
 ?>
-    
+
 <?php
-function Logincheck()
-    {
+function Logincheck(){
     if (!isset($_SESSION['LoggedIn']) || $_SESSION['LoggedIn'] != true) {
 
         echo '<script> 
-    function myFunc() { 
-    window.location.href="Login.php";
-    } 
-    myFunc()
-</script> ';
-        }
+        function myFunc() { 
+            location.replace("Login.php"); 
+        } 
+        myFunc()
+    </script> ';
     }
+}
 Logincheck();
 ?>
-<body>
+
+
+
+
 <form action="main.php" method="post">
-    <div class="container justify-content-center align-items-center">
-        <div class="panel-group">
-            <div class="panel panel-danger"><br>
-                <h3 class="text-danger mb-5 mt-2" align="center"><strong>NEARBY BLOOD DONOR FINDER</strong></h3>
-                <div class="panel-body">
-                    <div class="table-responsive mb-1">
-                        <table class="table table-bordered table-hover">
-                            <thead>
-                                <tr class="table-danger">
-                                    <th scope="col">State</th>
-                                    <th scope="col">District</th>
-                                    <th scope="col">Blood Group</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>
-                                        <label for="inputState" autofocus required></label>
-                                        <select class="form-control" id="inputState" name="donorState" autofocus
-                                            required>
-                                            <option value="">Select State</option>
-                                            <option value="Andra Pradesh">Andra Pradesh</option>
-                                            <option value="Arunachal Pradesh">Arunachal Pradesh</option>
-                                            <option value="Assam">Assam</option>
-                                            <option value="Bihar">Bihar</option>
-                                            <option value="Chhattisgarh">Chhattisgarh</option>
-                                            <option value="Goa">Goa</option>
-                                            <option value="Gujarat">Gujarat</option>
-                                            <option value="Haryana">Haryana</option>
-                                            <option value="Himachal Pradesh">Himachal Pradesh</option>
-                                            <option value="Jammu and Kashmir">Jammu and Kashmir</option>
-                                            <option value="Jharkhand">Jharkhand</option>
-                                            <option value="Karnataka">Karnataka</option>
-                                            <option value="Kerala">Kerala</option>
-                                            <option value="Madya Pradesh">Madya Pradesh</option>
-                                            <option value="Maharashtra">Maharashtra</option>
-                                            <option value="Manipur">Manipur</option>
-                                            <option value="Meghalaya">Meghalaya</option>
-                                            <option value="Mizoram">Mizoram</option>
-                                            <option value="Nagaland">Nagaland</option>
-                                            <option value="Orissa">Orissa</option>
-                                            <option value="Punjab">Punjab</option>
-                                            <option value="Rajasthan">Rajasthan</option>
-                                            <option value="Sikkim">Sikkim</option>
-                                            <option value="Tamil Nadu">Tamil Nadu</option>
-                                            <option value="Telangana">Telangana</option>
-                                            <option value="Tripura">Tripura</option>
-                                            <option value="Uttaranchal">Uttaranchal</option>
-                                            <option value="Uttar Pradesh">Uttar Pradesh</option>
-                                            <option value="West Bengal">West Bengal</option>
+    <div class="container justify-content-center align-items-center"
+        style="padding: 40px; border: 2px; border-radius:20px;">
+        <div class="panel panel-danger"><br><br>
+            <h4 class="text-danger" align="center">Nearby Donor Finder</h4><br>
+            <div class="panel-body">
+                <div class="table-responsive">
+                    <table class="table table-bordered table-hover">
+                        <thead>
+                            <tr class="table-danger">
+                                <th scope="col">State</th>
+                                <th scope="col">District</th>
+                                <!-- <th scope="col">Pin Code</th> -->
+                                <th scope="col">Blood Group</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <label for="inputState" autofocus required></label>
+                                    <select class="form-control" id="inputState" name="donorState" autofocus required>
+                                        <option value="">Select State</option>
+                                        <option value="Andra Pradesh">Andra Pradesh</option>
+                                        <option value="Arunachal Pradesh">Arunachal Pradesh</option>
+                                        <option value="Assam">Assam</option>
+                                        <option value="Bihar">Bihar</option>
+                                        <option value="Chhattisgarh">Chhattisgarh</option>
+                                        <option value="Goa">Goa</option>
+                                        <option value="Gujarat">Gujarat</option>
+                                        <option value="Haryana">Haryana</option>
+                                        <option value="Himachal Pradesh">Himachal Pradesh</option>
+                                        <option value="Jammu and Kashmir">Jammu and Kashmir</option>
+                                        <option value="Jharkhand">Jharkhand</option>
+                                        <option value="Karnataka">Karnataka</option>
+                                        <option value="Kerala">Kerala</option>
+                                        <option value="Madya Pradesh">Madya Pradesh</option>
+                                        <option value="Maharashtra">Maharashtra</option>
+                                        <option value="Manipur">Manipur</option>
+                                        <option value="Meghalaya">Meghalaya</option>
+                                        <option value="Mizoram">Mizoram</option>
+                                        <option value="Nagaland">Nagaland</option>
+                                        <option value="Orissa">Orissa</option>
+                                        <option value="Punjab">Punjab</option>
+                                        <option value="Rajasthan">Rajasthan</option>
+                                        <option value="Sikkim">Sikkim</option>
+                                        <option value="Tamil Nadu">Tamil Nadu</option>
+                                        <option value="Telangana">Telangana</option>
+                                        <option value="Tripura">Tripura</option>
+                                        <option value="Uttaranchal">Uttaranchal</option>
+                                        <option value="Uttar Pradesh">Uttar Pradesh</option>
+                                        <option value="West Bengal">West Bengal</option>
 
-                                        </select>
-                                    </td>
+                                    </select>
+                                </td>
 
-                                    <td>
-                                        <label for="inputDistrict"></label>
-                                        <select class="form-control" id="inputDistrict" name="donorDistrict" autofocus
-                                            required>
-                                            <option autofocus required value="">Select City</option>
-                                        </select>
-                                    </td>
+                                <td>
+                                    <label for="inputDistrict"></label>
+                                    <select class="form-control" id="inputDistrict" name="donorDistrict" autofocus
+                                        required>
+                                        <option autofocus required value="">Select City</option>
+                                    </select>
+                                </td>
 
-                                    <td>
-                                        <label for="donorBloodGrp" autocomplete="off" autofocus required></label>
-                                        <select name="donorBloodGrp" class="form-control" id="donorBloodGrp"
-                                            autocomplete="off" autofocus required>
-                                            <option value="">Select Blood Group</option>
-                                                    <option value="A+">A+</option>
-                                                    <option value="A-">A-</option>
-                                                    <option value="B+">B+</option>
-                                                    <option value="B-">B-</option>
-                                                    <option value="AB+">AB+</option>
-                                                    <option value="AB-">AB-</option>
-                                                    <option value="O+">O+</option>
-                                                    <option value="O-">O-</option>
-                                        </select>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
+                                <!-- <td>
+                                    <label for="txtBbPincode"></label>
+                                    <input type="text" class="form-control" name="donorPincode" id="donorPincode"
+                                        placeholder="Pin Code" maxlength="6" onkeypress="return validateNumeric(event)"
+                                        autocomplete="off" autofocus required>
+                                </td> -->
+
+                                <td>
+                                    <label for="donorBloodGrp" autocomplete="off" autofocus required></label>
+                                    <select name="donorBloodGrp" class="form-control" id="donorBloodGrp"
+                                        autocomplete="off" autofocus required>
+                                        <option value="">Select Blood Group</option>
+                                        <option value="AB-Ve">AB-Ve</option>
+                                        <option value="AB+Ve">AB+Ve</option>
+                                        <option value="A-Ve">A-Ve</option>
+                                        <option value="A+Ve">A+Ve</option>
+                                        <option value="B-Ve">B-Ve</option>
+                                        <option value="B+Ve">B+Ve</option>
+                                        <option value="Oh-Ve">Oh-VE</option>
+                                        <option value="Oh+Ve">Oh+VE</option>
+                                        <option value="O-Ve">O-Ve</option>
+                                        <option value="O+Ve">O+Ve</option>
+                                        <option value="all">All Blood Groups</option>
+                                    </select>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <br>
+
                     <div class="row">
-                            <div class="col-md-12 mb-4" align="center">
-                                <input type="submit" value="Search" class="btn btn-danger">
-        
-                            </div>
+                        <div class="col-md-12" align="center">
+                            <input type="submit" value="Search" class="btn btn-danger">
+                            <br>
+                            <br>
                         </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -357,8 +294,7 @@ Logincheck();
         var optionsList;
         var htmlString = "";
 
-        switch (StateSelected)
-        {
+        switch (StateSelected) {
             case "Andra Pradesh":
                 optionsList = AndraPradesh;
                 break;
@@ -470,8 +406,7 @@ Logincheck();
         }
 
 
-        for (var i = 0; i < optionsList.length; i++)
-        {
+        for (var i = 0; i < optionsList.length; i++) {
             htmlString = htmlString + "<option value=" + optionsList[i] + ">" + optionsList[i] + "</option>";
         }
         $("#inputDistrict").html(htmlString);
@@ -480,7 +415,7 @@ Logincheck();
 </script>
 
 <div class="container justify-content-center align-items-center">
-    <div class="table-responsive mb-2">
+    <div class="table-responsive">
         <table class="table table-striped table-bordered table-hover">
             <thead>
                 <tr class="table-danger">
@@ -493,93 +428,126 @@ Logincheck();
                     <th scope="col" class='text-center'>Pincode</th>
                     <th scope="col" class='text-center'>Contact No.</th>
                     <th scope="col" class='text-center'>Alternative No.</th>
+
                 </tr>
             </thead>
 
             <?php
+             // Initialize counter to 1 for Serial no. display
+            
             function data_fetch_form(){
-                include ('_DB.php');
-                $counter = 1; // Initialize counter to 1 for Serial no. display
-                
+            include '_DB.php';
+            $counter = 1;
+            if ($_SERVER["REQUEST_METHOD"] == "POST") {
+                // Retrieve form data
+                $donorState = $_POST["donorState"];
+                $donorBloodGrp = $_POST["donorBloodGrp"];
+                $donorDistrict = $_POST["donorDistrict"];
+                // $donorPincode = $_POST["donorPincode"];
+                $donorEmail = $_SESSION['donorEmail'];
 
-                if ($_SERVER["REQUEST_METHOD"] == "POST") {
-                    // Retrieve form data
-                    $donorState = $_POST["donorState"];
-                    $donorBloodGrp = $_POST["donorBloodGrp"];
-                    $donorDistrict = $_POST["donorDistrict"];
-                    $donorEmail = $_SESSION['donorEmail'];
-
-                    //  Construct SQL query based on selected input
-                    $sql = "SELECT donorstate, donorname, donorbloodgrp, donordistrict, donorpincode, donoraddress, donormobile, donoraltno FROM donor_info WHERE donorstate = $1 AND donorbloodgrp = $2 AND donordistrict = $3 AND donoremail  <> $4";
-                    $result = pg_query_params($db_connect, $sql, array($donorState, $donorBloodGrp, $donorDistrict, $donorEmail));
-                    if ($result) {
-                        while ($row = pg_fetch_assoc($result)) {
-                            echo "<tbody>";
-                            echo "<tr>";
-                            echo "<td>" . $counter++ . "</td>"; // Print counter and increment after use
-                            echo "<td>" . $row["donorname"] . "</td>";
-                            echo "<td class='text-center'>" . $row["donorbloodgrp"] . "</td>";
-                            echo "<td>" . $row["donorstate"] . "</td>";
-                            echo "<td>" . $row["donordistrict"] . "</td>";
-                            echo "<td>" . $row["donoraddress"] . "</td>";
-                            echo "<td class='text-center'>" . $row["donorpincode"] . "</td>";
-                            echo "<td class='text-center'>" . $row["donormobile"] . "</td>";
-                            echo "<td class='text-center'>" . $row["donoraltno"] . "</td>";
-                            echo "</tr>";
-                            }
-                        echo "</tbody>";
-                        } else {
-                        echo "
-                        <div class='modal fade' id='messageSentModal' tabindex='-1' aria-labelledby='messageSentModalLabel' aria-hidden='true'>
-  <div class='modal-dialog'>
-    <div class='modal-content'>
-      <div class='modal-header'>
-        <h5 class='modal-title' id='messageSentModalLabel'>Message Sent</h5>
-        <button type='button' class='btn-close' onclick='dismissModalAndRedirect() aria-label='Close'></button>
-      </div>
-      <div class='modal-body'>
-        Please try again after some time.
-      </div>
-      <div class='modal-footer'>
-        <button type='button' class='btn btn-primary' onclick='dismissModalAndRedirect()'>OK</button>
-        
-      </div>
-    </div>
-  </div>
-</div>
-  <script>
-    // JavaScript function to dismiss modal and redirect
-    function dismissModalAndRedirect() {
-        $('#messageSentModal').modal('hide'); // Hide the modal
-        window.location.href = 'AboutUs.php'; // Redirect to AboutUs.php
-    }
-    $(document).ready(function() {
-        $('#messageSentModal').modal('show');
-    });
-    </script>
-                        ";
-                        }
+                //  Construct SQL query based on selected input
+                $sql = "SELECT donorstate,donoraddress, donorname, donorbloodgrp, donordistrict, donorpincode, donormobile, donoraltno FROM donor_info WHERE donorstate = $1 AND donorbloodgrp = $2 AND donordistrict = $3 AND donoremail  <> $4";
+                $result = pg_query_params($db_connect, $sql, array($donorState, $donorBloodGrp, $donorDistrict, $donorEmail));
+                if ($result) {
+                    while ($row = pg_fetch_assoc($result)) {
+                        echo "<tbody>";
+                        echo "<tr>";
+                        echo "<td>" . $counter++ . "</td>"; // Print counter and increment after use
+                        echo "<td>" . $row["donorname"] . "</td>";
+                        echo "<td class='text-center'>" . $row["donorbloodgrp"] . "</td>";
+                        echo "<td>" . $row["donorstate"] . "</td>";
+                        echo "<td>" . $row["donordistrict"] . "</td>";
+                        echo "<td>" . $row["donoraddress"] . "</td>";
+                        echo "<td class='text-center'>" . $row["donorpincode"] . "</td>";
+                        echo "<td class='text-center'>" . $row["donormobile"] . "</td>";
+                        echo "<td class='text-center'>" . $row["donoraltno"] . "</td>";
+                        echo "</tr>";
                     }
+                    echo "</tbody>";
+                } else {
+                    echo "Query failed.";
                 }
-            data_fetch_form();
+            }
+            //  Close the database connection
 
+            }
+data_fetch_form();
+            
             ?>
+
+
         </table>
     </div>
 </div>
+<style>
+    h1 {
+        text-align: center;
+        /* Center align the heading */
+        margin: 2rem 0;
+        /* Add some margin for spacing */
+        font-size: 2rem;
+        /* Adjust font size as needed */
+    }
 
-            
-<!-- <body>-->
-     <h4 class="text-danger pt-2" align="center"><strong>GEOLOCATION OF NEAREST DONORS</strong></h4>
-     <div class="container-fluid mb-3 pt-2">
+    .map {
+        padding-bottom: 50%;
+        position: relative;
+    }
+
+    .map iframe {
+        height: 100%;
+        width: 100%;
+        left: 0;
+        top: 0;
+        position: absolute;
+    }
+
+    /* Set the size of the map container */
+    #map {
+        flex: 1;
+        height: 100%;
+        width: 100%;
+    }
+
+    /* Style for the container */
+    .container {
+        flex-direction: column;
+    }
+</style>
+
+<style>
+    #map-container {
+        width: 80%;
+        /* Adjust the width as needed */
+        height: 500px;
+        /* Adjust the height as needed */
+        margin: 0 auto;
+        /* Center horizontally */
+        border: 1px solid #ccc;
+        /* Optional: Add border for better visibility */
+    }
+
+    #map {
+        width: 100%;
+        height: 100%;
+    }
+</style>
+
+
+</head>
+
+<body>
+
     <div id="map-container">
         <div id="map"></div>
     </div>
-</div>
 
-<script>
 
-var map = L.map('map').setView([21.000, 78.000], 5); // Centered at India
+    <script>
+
+
+var map = L.map('map').setView([20.5937, 78.9629], 5); // Centered at India
 
 L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
@@ -587,10 +555,12 @@ L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
 
 var markers = [];
 
-    function geocodeAddress(address, callback) {
+        function geocodeAddress(address, callback) {
             var url = 'https://nominatim.openstreetmap.org/search?format=json&limit=1&q=' + encodeURIComponent(address);
             console.log('Geocoding URL:', url); // Debugging: Log geocoding URL
-            fetch(url).then(response => response.json()).then(data => {
+            fetch(url)
+                .then(response => response.json())
+                .then(data => {
                     console.log('Geocoding Response:', data); // Debugging: Log geocoding response
                     if (data && data.length > 0) {
                         var latlng = [parseFloat(data[0].lat), parseFloat(data[0].lon)];
@@ -598,27 +568,29 @@ var markers = [];
                     } else {
                         callback(null);
                     }
-                }).catch(error => {
+                })
+                .catch(error => {
                     console.error('Error geocoding address:', error);
                     callback(null);
                 });
         }
-<?php
-function map_load(){
+        <?php
+        function map_load(){
 
  if ($_SERVER["REQUEST_METHOD"] == "POST") {
     include ('_db.php');
-
+    // Retrieve form data
     $donorState = $_POST["donorState"];
     $donorBloodGrp = $_POST["donorBloodGrp"];
     $donorDistrict = $_POST["donorDistrict"];
+    // $donorPincode = $_POST["donorPincode"];
     $_SESSION['donorEmail'];
 
-    $sql = "SELECT donorstate, donordistrict, donorbloodgrp, donoraddress, donorpincode, donorname FROM donor_info WHERE donorstate = $1 AND donordistrict = $2 AND donorbloodgrp=$3 AND donoremail  <> $4";
+    //  Construct SQL query based on selected input
+    $sql = "SELECT donorstate, donordistrict,donorbloodgrp,donoraddress,donorpincode,donorname FROM donor_info WHERE donorstate = $1 AND donordistrict = $2 AND donorbloodgrp=$3 AND donoremail  <> $4";
     $result = pg_query_params($db_connect, $sql, array($donorState, $donorDistrict, $donorBloodGrp, $_SESSION['donorEmail']));
-     
     if ($result) {
-        $markers = []; // '$markers' is declared but not used.
+        $markers = []; // Array to hold marker positions
 
         while ($row = pg_fetch_assoc($result)) {
             $donorName = $row["donorname"];
@@ -645,47 +617,22 @@ function map_load(){
         // After all markers have been added, fit the map bounds to include all markers
         echo "map.fitBounds(markers);";
     } else {
-        echo "
-        <div class='modal fade' id='messageSentModal' tabindex='-1' aria-labelledby='messageSentModalLabel' aria-hidden='true'>
-  <div class='modal-dialog'>
-    <div class='modal-content'>
-      <div class='modal-header'>
-        <h5 class='modal-title' id='messageSentModalLabel'>Message Sent</h5>
-        <button type='button' class='btn-close' onclick='dismissModalAndRedirect() aria-label='Close'></button>
-      </div>
-      <div class='modal-body'>
-        Please try again after some time.
-      </div>
-      <div class='modal-footer'>
-        <button type='button' class='btn btn-primary' onclick='dismissModalAndRedirect()'>OK</button>
-        
-      </div>
-    </div>
-  </div>
-</div>
-  <script>
-    // JavaScript function to dismiss modal and redirect
-    function dismissModalAndRedirect() {
-        $('#messageSentModal').modal('hide'); // Hide the modal
-        window.location.href = 'AboutUs.php'; // Redirect to AboutUs.php
-    }
-    $(document).ready(function() {
-        $('#messageSentModal').modal('show');
-    });
-    </script>
-        ";
+        echo "Error executing query: " . pg_last_error($db_connect);
     }
 }
         }
        
+
   map_load();
         ?>
   
 </script>
 
 </body>
-<?php 
-include ("footer.php");
-?>
+
 </html>
 
+
+
+<?php include ("footer.php");
+?>
