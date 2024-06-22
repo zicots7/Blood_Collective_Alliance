@@ -1,15 +1,10 @@
 <?php
 function aboutus_show(){
-echo "
+    echo "
 <main role='main'>
-<style>
-        .gradient-bg {
-            background-color: #f5df2e;
-background-image: linear-gradient(315deg, #f5df2e 0%, #f07654 74%);
-        }
-    </style>
-    <div class='album py-5 gradient-bg'>
+    <div class='album py-5 bg-light'>
         <div class='container' style='padding-top: 50px;'>
+
             <div class='row'>
                 <div class='col-md-4'>
                     <div class='card mb-4 box-shadow'>
@@ -53,13 +48,19 @@ background-image: linear-gradient(315deg, #f5df2e 0%, #f07654 74%);
                             <p class='text-center'>
                             Leukemia, a blood cancer, steals your body's defense warriors (white blood cells). <br> Fight back! Find compatible donors instantly with . It’s a vision that fuels all those who support Leukemia patient and healthcare advocacy.
                         </p>
+                        
                             <div class='d-flex justify-content-between align-items-center'>
                                 <div class='btn-group'>
+
+
                                 </div>
+
                             </div>
                         </div>
                     </div>
                 </div>
+
+
             </div>
         </div>
     </div>
@@ -69,3 +70,4 @@ background-image: linear-gradient(315deg, #f5df2e 0%, #f07654 74%);
 }
 aboutus_show();
 ?>
+

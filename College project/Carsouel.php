@@ -1,57 +1,40 @@
 
-	<?php
-function show_carsoule(){
-  echo"
-    <div class='container-fluid bg-dark col pb-1 pt-3 px-md-5'> 
-      <p style='background-color: #D9CCA4;padding: 15px; text-align: center;' class='text-center fw-bolder'>
-         Welcome to the Blood Collective Alliance, where donating and requesting blood is easier than ever. Using state-of-the-art technology and an intuitive interface, the Blood Collective Alliance connects donors directly with those in need. Whether you're looking to contribute or require blood, our streamlined system helps you effortlessly through every step. Our goal is to make sure anybody can donate and request for blood if required without delay, we facilitate life-saving donations swiftly and effectively. Experience the ease and impact of the Blood Collective Alliance today, ensuring that vital blood supplies reach those who need them most, precisely when they need them. Together, we can make a difference in healthcare and save lives.
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://getbootstrap.com/docs/5.3/assets/css/docs.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <?php
+    function show_carsoule(){
+      echo" <div class='bg-dark col  pb-4 pt-3  px-md-5'>   <!--mt-5-->
+      <p style='color:white' class='text-center fw-bolder'>The Blood Collective Alliance is made to simplify the
+          procedure of blood donation .Our goal is to make sure anybody can donate and request for blood if
+          required.With observing every modern aspects and various approaches, Blood Collective Alliance is a
+          simple to use for everyone.
+          All the following components of the Blood Collective Alliance is reserved copyright is claimed .
       </p>
-    </div>
-  ";
-  echo'
-    <div id="carouselExampleRide" class="carousel carousel-dark slide carousel-fade" data-bs-ride="true" data-bs-touch="false">
-    <div class="carousel-indicators">
-      <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-      <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
-      <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
-    </div>
-
-    <div class="carousel-inner">
-      <div class="carousel-item active" data-bs-interval="3000">
-        <img class="bd-placeholder-img bd-placeholder-img-lg d-block w-100" width="1280" height="400" src="..\College project\Banner1.jpg" role="img" preserveAspectRatio="xMidYMid slice" focusable="false">
-        <rect width="100%" height="100%" fill="#777"></rect>
-        </img>
-      </div>
-      <div class="carousel-item " data-bs-interval="3000">
-        <img class="bd-placeholder-img bd-placeholder-img-lg d-block w-100" width="1280" height="400" src="..\College project\Banner2.png" role="img" preserveAspectRatio="xMidYMid slice" focusable="false">
-        <rect width="100%" height="100%" fill="#777"></rect>
-        </img>
-      </div>
-      <div class="carousel-item" data-bs-interval="3000">
-        <img class="bd-placeholder-img bd-placeholder-img-lg d-block w-100" width="1280" height="400" src="..\College project\Banner3.jpg" role="img" preserveAspectRatio="xMidYMid slice" focusable="false">
-        <rect width="100%" height="100%" fill="#777"></rect>
-        </img>
-      </div>
-      </div>
-      
-      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleRide" data-bs-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Previous</span>
-      </button>
-      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleRide" data-bs-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Next</span>
-      </button>
-      
-    </div>
-  ';
-}
-show_carsoule();
+  </div>";
+        echo'<div id="carouselExampleRide" class="carousel slide" data-bs-ride="true">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <svg class="bd-placeholder-img bd-placeholder-img-lg d-block w-100" width="800" height="400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: First slide" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#777"></rect><text x="50%" y="50%" fill="#555" dy=".3em">First slide</text></svg>
+          </div>
+          <div class="carousel-item">
+            <svg class="bd-placeholder-img bd-placeholder-img-lg d-block w-100" width="800" height="400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Second slide" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#666"></rect><text x="50%" y="50%" fill="#444" dy=".3em">Second slide</text></svg>
+          </div>
+          <div class="carousel-item">
+            <svg class="bd-placeholder-img bd-placeholder-img-lg d-block w-100" width="800" height="400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Third slide" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#555"></rect><text x="50%" y="50%" fill="#333" dy=".3em">Third slide</text></svg>
+          </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleRide" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleRide" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>';
+    }
+    show_carsoule();
     ?>
-
-
-
-
-
-
-
