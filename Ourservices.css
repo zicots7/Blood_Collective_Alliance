@@ -1,0 +1,142 @@
+.service-grid {
+    background: #fcfcfc00;
+}
+    .service-title h4 {
+    position: relative;
+    display: inline-block;
+}
+.service-icon {
+    position: relative;
+}
+.service-title p {
+    padding: 0 190px;
+    margin-bottom: 10px;
+}
+
+.ourservice:hover{
+    opacity: 1;
+}
+
+.paragaph{
+    font-family:Arial, Helvetica, sans-serif;
+    font-weight: bolder;
+    /* font-style: italic; */
+    font-size: 18px;
+}
+.about-info-text h2 {
+    margin-bottom: 23px;
+    text-transform: capitalize;
+    font-weight: 900;
+    line-height: .9;
+}
+.about-info-text p {
+    padding: 0 100px;
+    font-size: 18px;
+    margin-bottom: 26px;
+    position: relative;
+}
+.head{
+    text-overflow: inherit;
+    font-size:50px ;
+    font-weight: bolder;
+}
+#headings{
+    font-size: 30px;
+
+}
+.about-content p {
+    margin-bottom: 0;
+}
+.about-info-text a {
+    margin-bottom: 20px;
+    position: relative;
+}
+.service-icon i {
+    font-size: 40px;
+    color: #e8bc00;
+    margin-bottom: 20px;
+    display: inline-block;
+}
+.service-wrap {
+    border: 1px solid #e6e6e600;
+    padding: 50px 50px;
+    position: relative;
+}
+
+.service-wrap p{
+    position: relative;
+}
+
+.service-wrap:hover {
+    background-size: cover;
+    background-position: center center;
+    background-attachment: local;
+    transition: 1000ms;
+}
+
+.service-1:hover{ 
+    background-image: url(https://i.ibb.co/PrLgBBB/image.png);
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+.service-2:hover{ 
+    background-image: url(https://i.ibb.co/PrLgBBB/image.png);
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+.service-3:hover{
+    background-image: url(https://i.ibb.co/PrLgBBB/image.png);
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+.service-4:hover{
+    background-image: url(https://i.ibb.co/nDkS7dQ/image.png);
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+.service-5:hover{
+    background-image: url(https://i.ibb.co/PrLgBBB/image.png);
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+.service-6:hover{
+    background-image: url(https://i.ibb.co/PrLgBBB/image.png);
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+.service-wrap:hover:before {
+    background: rgba(0, 0, 0, 0.2901960784313726);
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    left: 0px;
+    content: "";
+    top: 0;
+    opacity: 1;
+}
+
+.service-wrap:hover h4,.service-wrap:hover p{
+    color: #fff;
+}
+.service-wrap h4 {
+    font-weight: 600;
+    color: #1e2331;
+/*
+    margin-bottom: 17px;
+    font-size: 18px;
+    text-transform: capitalize;
+*/
+    position: relative;
+}
+.service-wrap a {
+    font-size: 14px;
+    font-weight: 600;
+    position: relative;
+
+}

@@ -1,0 +1,97 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap');
+
+body {
+    /* body tag from footer  has been removed to resolve the font style problem */
+    background-color:hsla(0,100%,50%,1);
+        background-image:
+        radial-gradient(at 40% 20%, hsla(28,100%,74%,1) 0px, transparent 50%),
+        radial-gradient(at 80% 0%, hsla(189,100%,56%,1) 0px, transparent 50%),
+        radial-gradient(at 0% 50%, hsla(355,100%,93%,1) 0px, transparent 50%),
+        radial-gradient(at 80% 50%, hsla(340,100%,76%,1) 0px, transparent 50%),
+        radial-gradient(at 0% 100%, hsla(22,100%,77%,1) 0px, transparent 50%),
+        radial-gradient(at 80% 100%, hsla(242,100%,70%,1) 0px, transparent 50%),
+        radial-gradient(at 0% 0%, hsla(343,100%,76%,1) 0px, transparent 50%);
+        };
+    /* margin: 0;
+    padding: 0; */
+/*    background-position: center;*/
+    /* top: 0;
+    left: 0; */
+    width: 100%;
+    min-height: 100vh;
+    
+}
+
+.mainsec{
+    position: relative;
+    opacity: 0.8;     
+}
+.SPAN{
+    opacity: 6;
+}
+#addressDistList{
+    display: block;
+}
+#exampleFormControlTextarea1{
+    resize: none;
+}
+/*------------ Login container ------------*/
+
+.box-area {
+    width: 930px; /*930*/
+}
+
+/*------------ Right box ------------*/
+
+.right-box { /*40px 30px 40px 40px*/
+    padding: 40px 30px 40px 40px;
+}
+
+/*------------ Custom Placeholder ------------*/
+
+::placeholder {
+    font-size: 17px;
+}
+
+.rounded-4 {
+    border-radius: 20px; /*20px*/
+}
+
+.rounded-5 {
+    border-radius: 20px;
+}
+
+.form-control {
+    display: block;
+    width: 100%;
+    padding: 0.375rem 0.75rem;
+    font-size: 1rem;
+    font-weight: 100;
+    line-height: 1;
+    color: #212529;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: 0.375rem;
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+
+/*------------ For small screens------------*/
+
+@media only screen and (max-width: 768px) { /*768px*/
+
+    .box-area {
+        margin: 0 10px;
+
+    }
+
+    .left-box {
+        height: 100px;
+        overflow: hidden;
+    }
+
+    .right-box {
+        padding: 20px;
+    }
+
+}

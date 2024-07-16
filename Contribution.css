@@ -1,0 +1,238 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@300;400&display=swap");
+
+:root {
+  --Linen: #faf0e6;
+  --DarkRed: #8b0000;
+  --Gold: #ffd700;
+  --AliceBlue: #f0f8ff;
+  --Azure: #f0ffff;
+  --Pink: #FF52C5;
+  --Maroon: #800000;
+  --green:#53FF8D;
+  --MediumSpringGreen: #00fa9a;
+  --DeepPurple: #ac81ff;
+  --SteelBlue: #516EFF;
+  --MistyRose: #ffe4e1;
+  --SeaShell: #fff5ee;
+  --LightCoral: #f08080;
+  --yellow: #ffdd40;
+  --tint: #ffab99;
+  --dark: #2f313a;
+  --deg: -86deg;
+  --trans: all 0.4s ease 0s;
+  --me:#ef99fa;
+  --cyan:#00FFFF;
+}
+
+body {
+  margin: 0 !important;
+  padding: 0 !important;
+  overflow-x: hidden !important;
+  justify-content:safe !important;
+  font-family: "Lato", Arial, Helvetica, serif;
+  /* background-color: #302d2d; */
+}
+
+body *,
+body *:before,
+body *:after {
+  box-sizing: border-box;
+}
+
+
+/* h2 {
+	text-align: justify;
+} */
+
+p{
+  text-align: initial !important;
+  font-weight: 500 !important;
+}
+
+/* .team {
+  /* padding: 2em 0 2em 2.5em; */
+  /* padding:20px; */
+  /* margin:50px;
+} */
+
+
+.member {
+  /* margin: 20px;
+  padding: 15px; */
+  margin: 5px;
+  padding: 2px;
+  background: linear-gradient(83deg,
+      var(--tint) 0 97%,
+      #fff0 calc(97% + 1px) 100%);
+  position: relative;
+  list-style: none;
+  display: inline-block;
+  transform: scale(0.85);
+  transition: var(--trans);
+}
+
+/* .member:nth-of-type(even) {
+  margin: auto;
+  padding: 5px;
+  background: linear-gradient(-83deg,
+      var(--tint) 0 97%,
+      /*yellow color
+      #fff0 calc(97% + 1px) 100%);
+      list-style: none;
+  display: inline-block;
+  transform: scale(0.85);
+  transition: var(--trans);
+} */
+
+.thumb {
+  width: auto;
+  height: 100px;
+  float: left;
+  margin-right: 5px;
+  background: linear-gradient(var(--deg),
+      var(--yellow) 0 70%,
+      /*Dark color*/
+      var(--DeepPurple) 0% 100%
+      /* yellow color*/
+    );
+  transform: rotate(-4deg);
+  transition: var(--trans);
+  border-radius: 0.25em;
+  overflow: hidden;
+  margin-left: -2em;
+  
+}
+
+/* .member:nth-of-type(even) .thumb {
+  --deg: 86deg;
+  float: right;
+  margin-left: 1em;
+  margin-right: -2em;
+  transition: var(--trans);
+  transform: rotate(4deg);
+} */
+
+.thumb img {
+  width: 70px;
+  height: 100%;
+  border-radius: 0.4em;
+  filter: blur(5px);
+  /* background: var(--MediumSpringGreen); */
+  /* dark color */
+}
+
+.member:hover {
+  transform: scale(1);
+  transition: var(--trans);
+  filter: drop-shadow(0px 20px 10px #0008);
+}
+
+.member:hover .thumb {
+  padding: 5px;
+  transition: var(--trans);
+  transform: rotate(-1deg);
+  --deg: -89deg;
+}
+/* 
+.member:nth-of-type(even):hover .thumb {
+  --deg: 91deg;
+} */
+
+.member:hover .thumb img {
+  filter: none;
+  transition: var(--trans);
+}
+
+/* .description {
+  padding-top: 20px;
+} */
+
+/* .description p {
+  padding-right: 20px;
+  padding-left: 30PX;
+} */
+
+.description-odd {
+  padding-top: 20px;
+}
+.description-odd p{
+  padding-right: 20px;
+  padding-left: 30PX;
+}
+
+
+.member:hover h3 {
+  /* Header Underline Color Property*/
+  transition: var(--trans);
+  transform: rotate(0deg);
+  background: linear-gradient(180deg, #fff0 59%, var(--yellow) 0 100%);
+}
+
+.description-odd p a {
+  display: inline-block;
+  margin: 0.7em 0 0 0;
+  background: var(--Maroon);
+  color: var(--Linen);
+  padding: 0.2em 0.5em 0.35em;
+  border-radius: 0.4em;
+  text-decoration: none;
+  font-weight: 900;
+  transition: var(--trans);
+}
+/* .description p a {
+  display: inline-block;
+  margin: 0.7em 0 0 0;
+  background: var(--Maroon);
+  color: var(--Linen);
+  padding: 0.2em 0.5em 0.35em;
+  border-radius: 0.4em;
+  text-decoration: none;
+  font-weight: 900;
+  transition: var(--trans);
+} */
+.description-odd p a:hover {
+  transition: var(--trans);
+  color: var(--dark);
+  background: var(--me);
+  font-weight: normal;
+}
+
+/* .description p a:hover {
+  transition: var(--trans);
+  color: var(--dark);
+  background: var(--me);
+  font-weight: bold;
+} */
+
+.description-odd p a img {
+  float: left;
+  width: 22px;
+  filter: invert(1);
+  border-radius: 0.15em;
+  padding: 2px;
+  background: #fff;
+  /* margin-right: 2px; */
+}
+
+/*------------ For small screens------------*/
+
+@media only screen and (max-width: 700px) { /*768px*/
+
+  .box-area {
+      /* margin: 0 20px; */
+      /* padding: 0 20px; Adjust padding for better spacing */
+      width: 100%; /* Make the box full width on smaller screens */
+      margin: 0 auto;
+  }
+  /* .description p{
+    font-size: small;
+    padding-right: 30px;
+    padding-left: 10PX;
+  } */
+  /* .description-odd p{
+    font-size: 5px !important;
+    /* padding-right: 10px !important;
+    padding-left: 20PX !important; 
+  } */
+
+}
