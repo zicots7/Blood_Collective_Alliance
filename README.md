@@ -1,4 +1,4 @@
 # Blood_Collective_Alliance
 
 
-Website link - http://bloodcollevtivealliance.rf.gd/
+Website link - https://bloodcollevtivealliance.rf.gd/
